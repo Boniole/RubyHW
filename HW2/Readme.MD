@@ -8,7 +8,7 @@
 Слово походить від яп. 卵 [тамаго] — «яйце» і складу ち [чі], який може означати відчуття близькості. Також можливо закінчення взято від яп. ウォッチ [уоччі] (від англ. watch — спостереження, нагляд) або яп. 友 达 [томодачі] — друг. Тому тамагочі може означати «друг-яйце».
 
 
-##Команди##
+## Команди
 - go_sleep - команда спати
 - eat - команда їсти
 - play - команда гратись
@@ -19,21 +19,21 @@
 - help - вивести всі команди
 
 
-#Example#
+## Example
 
-pet = Pet.new('Slon')
-pet.help
-pet.walk
-pet.go_sleep
-pet.eat
-pet.play
-pet.work
-pet.go_sleep
-pet.talk
-pet.watch
-pet.watch
-pet.watch
-pet.watch
-pet.work
-pet.work
-pet.work
+- pet = Pet.new('Slon')
+- pet.help
+- pet.walk
+- pet.go_sleep
+- pet.eat
+- pet.play
+- pet.work
+- pet.go_sleep
+- pet.talk
+- pet.watch
+- pet.watch
+- pet.watch
+- pet.watch
+- pet.work
+- pet.work
+- pet.work
