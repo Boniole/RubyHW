@@ -21,19 +21,21 @@
 
 ## Example
 
-- pet = Pet.new('Slon')
-- pet.help
-- pet.walk
-- pet.go_sleep
-- pet.eat
-- pet.play
-- pet.work
-- pet.go_sleep
-- pet.talk
-- pet.watch
-- pet.watch
-- pet.watch
-- pet.watch
-- pet.work
-- pet.work
-- pet.work
+```sh
+pet = Pet.new('Slon')
+pet.help
+pet.walk
+pet.go_sleep
+pet.eat
+pet.play
+pet.work
+pet.go_sleep
+pet.talk
+pet.watch
+pet.watch
+pet.watch
+pet.watch
+pet.work
+pet.work
+pet.work
+```
