@@ -238,8 +238,8 @@ class Pet
     end
 end
 
-dino = Pet.new('Dino')
-dino.play
-dino.work
-dino.eat
-dino.work
+# dino = Pet.new('Dino')
+# dino.play
+# dino.work
+# dino.eat
+# dino.work
