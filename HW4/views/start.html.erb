@@ -1,0 +1,14 @@
+<html>
+   <%= render('head.html.erb') %>
+   <body>
+     <% if pet.nil? %>
+       <form method="post" action="/create_pet">
+         <input name="name" type="text">
+         <button type="submit" class="btn btn-primary">Введи ім'я улюбленця</button>
+       </form>
+     <% else %>
+       <h1>Ви вже створили тваринку!</h1>
+       <a href="/game">Почати гру з <%= pet.name %>!</a>
+     <% end %>
+   </body>
+ </html>

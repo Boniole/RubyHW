@@ -1,0 +1,29 @@
+<html>
+   <%= render('head.html.erb') %>
+</body>
+   <body>
+     <h1>Hello, my name is <%= pet.name %>! <%= pet.current_mood %></h1>
+     <form action="/eat">
+       <button type="eat" class="btn btn-primary">Їсти <%= pet.name %>!</button>
+     </form>
+     <form action="/sleep">
+       <button type="sleep" class="btn btn-primary">Спати <%= pet.name %>!</button>
+     </form>
+     <form action="/exercize">
+       <button type="exercize" class="btn btn-primary">Робити вправи <%= pet.name %>!</button>
+     </form>
+     <form action="/work">
+       <button type="work" class="btn btn-primary">Працювати <%= pet.name %>!</button>
+     </form>
+     <form action="/watch">
+       <button type="watch" class="btn btn-primary">Дивитися на <%= pet.name %>!</button>
+     </form>
+     <form action="/walk">
+       <button type="walk" class="btn btn-primary">Прогулятись з <%= pet.name %>!</button>
+     </form>
+     <form action="/talk">
+       <button type="talk" class="btn btn-primary">Поговорити з <%= pet.name %>!</button>
+     </form>
+     <a href="/game_over">Stop the game!</a>
+   </body>
+ </html>
