@@ -3,7 +3,7 @@ require 'time'
 
 
 class Pet
-    attr_reader :name, :mood, :died
+    attr_reader :name, :mood, :died, :sleep, :health, :angry, :hungry, :age
 
     def initialize name
        @name = name

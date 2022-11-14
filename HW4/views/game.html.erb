@@ -2,7 +2,7 @@
    <%= render('head.html.erb') %>
 </body>
    <body>
-     <h1>Hello, my name is <%= pet.name %>! <%= pet.current_mood %></h1>
+     <h1>Hello, my name is <%= pet.name %>! I`m <%= pet.age %> days old! <%= pet.current_mood %></h1>
      <form action="/eat">
        <button type="eat" class="btn btn-primary">Їсти <%= pet.name %>!</button>
      </form>
@@ -24,6 +24,32 @@
      <form action="/talk">
        <button type="talk" class="btn btn-primary">Поговорити з <%= pet.name %>!</button>
      </form>
+     <div class="container">
+        <h2>Hungry</h2>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width:<%= pet.hungry %>%;" aria-valuenow="<%= pet.hungry %>" aria-valuemin="0" aria-valuemax="100">
+          <%= pet.hungry %>%
+          </div>
+        </div>
+        <h2>Sleep</h2>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width:<%= pet.sleep %>%;" aria-valuenow="<%= pet.sleep %>" aria-valuemin="0" aria-valuemax="100">
+          <%= pet.sleep %>%
+          </div>
+        </div>
+        <h2>Mood</h2>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width:<%= pet.mood %>%;" aria-valuenow="<%= pet.mood %>" aria-valuemin="0" aria-valuemax="100">
+          <%= pet.mood %>%
+          </div>
+        </div>
+        <h2>Angry</h2>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width:<%= pet.angry %>%;" aria-valuenow="<%= pet.angry %>" aria-valuemin="0" aria-valuemax="100">
+          <%= pet.angry %>%
+          </div>
+        </div>
+     </div>
      <a href="/game_over">Stop the game!</a>
    </body>
  </html>
