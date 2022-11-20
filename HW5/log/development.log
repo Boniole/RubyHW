@@ -183,3 +183,39 @@ Processing by Api::V1::ArticlesController#index as */*
 Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.5ms | Allocations: 812)
 
 
+Started GET "/" for 127.0.0.1 at 2022-11-20 13:41:01 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 633)
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 5699)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-20 13:46:46 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | Allocations: 633)
+Completed 200 OK in 7ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 5696)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-20 13:46:48 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 356)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 1195)
+
+
+Started GET "/api-docs" for 127.0.0.1 at 2022-11-20 13:46:51 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api-docs"):
+  
+Started GET "/api-docs" for 127.0.0.1 at 2022-11-20 13:51:51 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-20 13:51:51 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-20 13:51:51 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-20 13:51:51 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-20 13:51:51 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-20 13:51:52 +0200
+Started GET "/api-docs/favicon-16x16.png" for 127.0.0.1 at 2022-11-20 13:51:52 +0200
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-11-20 13:51:52 +0200
