@@ -1,0 +1,185 @@
+  [1m[35m (139.0ms)[0m  [1m[35mCREATE DATABASE "HW5_development" ENCODING = 'unicode'[0m
+  [1m[35m (43.5ms)[0m  [1m[35mCREATE DATABASE "HW5_test" ENCODING = 'unicode'[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20221120104441)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221120104441"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-20 10:44:56.849576"], ["updated_at", "2022-11-20 10:44:56.849576"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-11-20 12:58:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 740)
+Completed 200 OK in 9ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 6991)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-11-20 12:58:06 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-20 12:58:18 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.9ms | Allocations: 1583)
+
+
+Started GET "/api/v1" for 127.0.0.1 at 2022-11-20 12:58:25 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1"):
+  
+Started GET "/api/v1/" for 127.0.0.1 at 2022-11-20 12:58:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1"):
+  
+Started GET "/api/v1/" for 127.0.0.1 at 2022-11-20 12:59:40 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 1343)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-20 12:59:52 +0200
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.6ms | Allocations: 355)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 1230)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-20 13:00:34 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.7ms | Allocations: 1335)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:01:56 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"My title", "body"=>"Its body", "article"=>{"title"=>"My title", "body"=>"Its body"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mArticle Create (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My title"], ["body", "Its body"], ["created_at", "2022-11-20 11:01:56.456382"], ["updated_at", "2022-11-20 11:01:56.456382"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 7.7ms | Allocations: 18290)
+
+
+  
+NoMethodError (undefined method `article_url' for #<Api::V1::ArticlesController:0x000000000146e0>):
+  
+app/controllers/api/v1/articles_controller.rb:21:in `create'
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:03:10 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"My title", "body"=>"Its body", "article"=>{"title"=>"My title", "body"=>"Its body"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mArticle Create (0.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My title"], ["body", "Its body"], ["created_at", "2022-11-20 11:03:10.116512"], ["updated_at", "2022-11-20 11:03:10.116512"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 4.6ms | Allocations: 3158)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:03:19 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"My title", "body"=>"Its body", "article"=>{"title"=>"My title", "body"=>"Its body"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.4ms | Allocations: 944)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:04:38 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"My title 2", "body"=>"Its body 2", "article"=>{"title"=>"My title 2", "body"=>"Its body 2"}}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 4.2ms | Allocations: 2163)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:04:42 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"My title 2", "body"=>"Its body 2", "article"=>{"title"=>"My title 2", "body"=>"Its body 2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My title 2"], ["body", "Its body 2"], ["created_at", "2022-11-20 11:04:42.783848"], ["updated_at", "2022-11-20 11:04:42.783848"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+Completed 201 Created in 4ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 1865)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:04:45 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"My title 2", "body"=>"Its body 2", "article"=>{"title"=>"My title 2", "body"=>"Its body 2"}}
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 1.1ms | Allocations: 903)
+
+
+Started PATCH "/api/v1/articles/3" for 127.0.0.1 at 2022-11-20 13:04:57 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"title"=>"My title 3", "body"=>"Its body 3", "id"=>"3", "article"=>{"title"=>"My title 3", "body"=>"Its body 3"}}
+  [1m[36mArticle Load (1.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:44:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:29:in `update'
+  [1m[36mArticle Update (1.2ms)[0m  [1m[33mUPDATE "articles" SET "title" = $1, "body" = $2, "updated_at" = $3 WHERE "articles"."id" = $4[0m  [["title", "My title 3"], ["body", "Its body 3"], ["updated_at", "2022-11-20 11:04:57.480057"], ["id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:29:in `update'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 5.8ms | Allocations: 3219)
+
+
+Started GET "/api/v1/articles/3" for 127.0.0.1 at 2022-11-20 13:05:02 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"title"=>"My title 3", "body"=>"Its body 3", "id"=>"3", "article"=>{"title"=>"My title 3", "body"=>"Its body 3"}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:44:in `set_article'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 607)
+
+
+Started DELETE "/api/v1/articles/3" for 127.0.0.1 at 2022-11-20 13:05:09 +0200
+Processing by Api::V1::ArticlesController#destroy as */*
+  Parameters: {"title"=>"My title 3", "body"=>"Its body 3", "id"=>"3", "article"=>{"title"=>"My title 3", "body"=>"Its body 3"}}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:44:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:38:in `destroy'
+  [1m[36mArticle Destroy (1.7ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:38:in `destroy'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:38:in `destroy'
+Completed 204 No Content in 8ms (ActiveRecord: 3.0ms | Allocations: 1846)
+
+
+Started GET "/api/v1/articles/3" for 127.0.0.1 at 2022-11-20 13:05:12 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"title"=>"My title 3", "body"=>"Its body 3", "id"=>"3", "article"=>{"title"=>"My title 3", "body"=>"Its body 3"}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:44:in `set_article'
+Completed 404 Not Found in 7ms (ActiveRecord: 0.3ms | Allocations: 529)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=3):
+  
+app/controllers/api/v1/articles_controller.rb:44:in `set_article'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:05:16 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"My title 3", "body"=>"Its body 3", "article"=>{"title"=>"My title 3", "body"=>"Its body 3"}}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.5ms | Allocations: 812)
+
+
