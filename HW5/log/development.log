@@ -219,3 +219,78 @@ Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11
 Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-20 13:51:52 +0200
 Started GET "/api-docs/favicon-16x16.png" for 127.0.0.1 at 2022-11-20 13:51:52 +0200
 Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-11-20 13:51:52 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-20 13:57:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-20 13:57:50 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-20 13:57:50 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-20 13:57:50 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-20 13:57:50 +0200
+Started GET "/" for 127.0.0.1 at 2022-11-22 18:58:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 634)
+Completed 200 OK in 8ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 5697)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-11-22 18:58:06 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2022-11-22 18:58:09 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 356)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 1193)
+
+
+Started GET "/api-docs" for 127.0.0.1 at 2022-11-22 18:58:10 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-22 18:58:10 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-22 18:58:10 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-22 18:58:10 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-22 18:58:10 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-22 18:58:11 +0200
+Started GET "/api-docs/favicon-16x16.png" for 127.0.0.1 at 2022-11-22 18:58:11 +0200
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-11-22 18:58:11 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-22 19:00:13 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-22 19:00:13 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-22 19:00:13 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-22 19:00:13 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-22 19:00:13 +0200
+Started GET "/api/v1" for 127.0.0.1 at 2022-11-22 19:00:29 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 29ms (Views: 7.0ms | ActiveRecord: 9.1ms | Allocations: 29802)
+
+
+Started GET "/api/v1" for 127.0.0.1 at 2022-11-22 19:00:30 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (3.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 3.9ms | Allocations: 828)
+
+
+Started GET "/api/v1" for 127.0.0.1 at 2022-11-22 23:17:29 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 22.6ms | Allocations: 3733)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-22 23:17:36 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.4ms | Allocations: 827)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-22 23:17:57 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:44:in `set_article'
+Completed 200 OK in 25ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 2593)
+
+

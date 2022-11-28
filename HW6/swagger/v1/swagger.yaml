@@ -1,0 +1,160 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1":
+    get:
+      summary: list articles
+      responses:
+        '200':
+          description: successful
+  "/api/v1/authors/{author_id}/articles":
+    parameters:
+    - name: author_id
+      in: path
+      description: author_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list articles
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create article
+      responses:
+        '200':
+          description: successful
+  "/api/v1/authors/{author_id}/articles/{id}":
+    parameters:
+    - name: author_id
+      in: path
+      description: author_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show article
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update article
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update article
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete article
+      responses:
+        '200':
+          description: successful
+  "/api/v1/authors":
+    get:
+      summary: list authors
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create author
+      responses:
+        '200':
+          description: successful
+  "/api/v1/authors/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show author
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update author
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update author
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete author
+      responses:
+        '200':
+          description: successful
+  "/api/v1/authors/{author_id}/comments":
+    parameters:
+    - name: author_id
+      in: path
+      description: author_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list comments
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create comment
+      responses:
+        '200':
+          description: successful
+  "/api/v1/authors/{author_id}/comments/{id}":
+    parameters:
+    - name: author_id
+      in: path
+      description: author_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show comment
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update comment
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update comment
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete comment
+      responses:
+        '200':
+          description: successful
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: 127.0.0.1:3000
