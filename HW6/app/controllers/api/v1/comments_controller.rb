@@ -23,7 +23,7 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def create
-    @comment = @author.comments.new(person_params)
+    @comment = @article.comments.new(person_params)
     if @comment.valid?
       @comment.save
       render json: @comment

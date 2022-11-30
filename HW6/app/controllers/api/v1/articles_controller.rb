@@ -1,5 +1,6 @@
 class Api::V1::ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show update destroy ]
+  before_action :set_author, only: %i[index create]
 
   # GET /articles
   def index
@@ -15,7 +16,7 @@ class Api::V1::ArticlesController < ApplicationController
 
   # POST /articles
   def create
-    @article = Article.new(article_params)
+    @article = @author.articles.new(article_params)
 
     if @article.save
       render json: @article, status: :created
@@ -46,6 +47,11 @@ class Api::V1::ArticlesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.permit(:title, :body)
   end
+
+  def set_author
+    @author = Author.find(params[:author_id])
+  end
+
 end
