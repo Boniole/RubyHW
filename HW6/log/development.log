@@ -1317,3 +1317,414 @@ Did you mean?  author_id):
   
 app/controllers/api/v1/comments_controller.rb:75:in `person_params'
 app/controllers/api/v1/comments_controller.rb:50:in `set_article'
+Started GET "/" for 127.0.0.1 at 2022-12-07 15:48:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 633)
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 5697)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-07 15:48:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/authors" for 127.0.0.1 at 2022-12-07 15:48:46 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (3.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 35ms (Views: 7.6ms | ActiveRecord: 23.7ms | Allocations: 18843)
+
+
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-12-07 15:49:18 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Jorge 3", "author"=>{"name"=>"Jorge 3"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mAuthor Create (17.0ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Jorge 3"], ["created_at", "2022-12-07 13:49:18.615649"], ["updated_at", "2022-12-07 13:49:18.615649"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 17.9ms | Allocations: 2450)
+
+
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-12-07 15:49:25 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Jorge 7", "author"=>{"name"=>"Jorge 7"}}
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mAuthor Create (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Jorge 7"], ["created_at", "2022-12-07 13:49:25.519070"], ["updated_at", "2022-12-07 13:49:25.519070"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 3.3ms | Allocations: 1851)
+
+
+Started PATCH "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:49:36 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"name"=>"Jorge 777", "id"=>"7", "author"=>{"name"=>"Jorge 777"}}
+[31mUnpermitted parameters: :id, :author. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000010c033600>, params: {"name"=>"Jorge 777", "controller"=>"api/v1/authors", "action"=>"update", "id"=>"7", "author"=>{"name"=>"Jorge 777"}} }[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 710)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/authors_controller.rb:18:in `update'
+Started PATCH "/api/v1/authors/7" for 127.0.0.1 at 2022-12-07 15:49:44 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"name"=>"Jorge 777", "id"=>"7", "author"=>{"name"=>"Jorge 777"}}
+[31mUnpermitted parameters: :id, :author. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x00000001073774b0>, params: {"name"=>"Jorge 777", "controller"=>"api/v1/authors", "action"=>"update", "id"=>"7", "author"=>{"name"=>"Jorge 777"}} }[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 636)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/authors_controller.rb:18:in `update'
+Started PATCH "/api/v1/authors/7" for 127.0.0.1 at 2022-12-07 15:50:23 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+[31mUnpermitted parameters: :author, :id. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x0000000107731858>, params: {"author"=>{"name"=>"Jorge 777"}, "controller"=>"api/v1/authors", "action"=>"update", "id"=>"7"} }[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/authors_controller.rb:18:in `update'
+Started PATCH "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:50:26 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+[31mUnpermitted parameters: :author, :id. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000010b2b0c08>, params: {"author"=>{"name"=>"Jorge 777"}, "controller"=>"api/v1/authors", "action"=>"update", "id"=>"7"} }[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/authors_controller.rb:18:in `update'
+Started PATCH "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:51:03 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+[31mUnpermitted parameters: :author, :id. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000010b3bb8a0>, params: {"author"=>{"name"=>"Jorge 777"}, "controller"=>"api/v1/authors", "action"=>"update", "id"=>"7"} }[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/authors_controller.rb:18:in `update'
+Started GET "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:51:43 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 85)
+
+
+Started GET "/api/v1/authors/6/" for 127.0.0.1 at 2022-12-07 15:51:47 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"6"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 80)
+
+
+Started GET "/api/v1/authors/6" for 127.0.0.1 at 2022-12-07 15:52:17 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"6"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 80)
+
+
+Started GET "/api/v1/authors/" for 127.0.0.1 at 2022-12-07 15:52:23 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 1102)
+
+
+Started GET "/api/v1/authors/1" for 127.0.0.1 at 2022-12-07 15:52:32 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"1"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 80)
+
+
+Started GET "/api/v1/authors?id=1" for 127.0.0.1 at 2022-12-07 15:53:21 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1102)
+
+
+Started GET "/api/v1/authors?id=2" for 127.0.0.1 at 2022-12-07 15:53:24 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"2"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 1114)
+
+
+Started GET "/api/v1/authors/3/" for 127.0.0.1 at 2022-12-07 15:53:29 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"3"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 80)
+
+
+Started DELETE "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:55:59 +0200
+Processing by Api::V1::AuthorsController#destroy as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:29:in `set_author'
+  [1m[36mTRANSACTION (16.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:23:in `destroy'
+  [1m[36mComment Load (1.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1[0m  [["author_id", 7]]
+  ↳ app/controllers/api/v1/authors_controller.rb:23:in `destroy'
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."author_id" = $1[0m  [["author_id", 7]]
+  ↳ app/controllers/api/v1/authors_controller.rb:23:in `destroy'
+  [1m[36mAuthor Destroy (1.5ms)[0m  [1m[31mDELETE FROM "authors" WHERE "authors"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/api/v1/authors_controller.rb:23:in `destroy'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:23:in `destroy'
+Completed 200 OK in 66ms (Views: 0.1ms | ActiveRecord: 43.3ms | Allocations: 16962)
+
+
+Started DELETE "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:56:02 +0200
+Processing by Api::V1::AuthorsController#destroy as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:29:in `set_author'
+Completed 404 Not Found in 9ms (ActiveRecord: 0.3ms | Allocations: 529)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author with 'id'=7):
+  
+app/controllers/api/v1/authors_controller.rb:29:in `set_author'
+Started GET "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:56:07 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 83)
+
+
+Started GET "/api/v1/authors/" for 127.0.0.1 at 2022-12-07 15:56:10 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.3ms | Allocations: 1062)
+
+
+Started GET "/api/v1/authors/6/" for 127.0.0.1 at 2022-12-07 15:57:34 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"6"}
+Completed 404 Not Found in 3ms (ActiveRecord: 2.3ms | Allocations: 454)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author without an ID):
+  
+app/controllers/api/v1/authors_controller.rb:9:in `show'
+Started GET "/api/v1/authors/6/" for 127.0.0.1 at 2022-12-07 15:57:38 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"6"}
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 129)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author without an ID):
+  
+app/controllers/api/v1/authors_controller.rb:9:in `show'
+Started GET "/api/v1/authors/5" for 127.0.0.1 at 2022-12-07 15:57:41 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"5"}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 129)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author without an ID):
+  
+app/controllers/api/v1/authors_controller.rb:9:in `show'
+Started GET "/api/v1/authors/5/" for 127.0.0.1 at 2022-12-07 15:57:46 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"5"}
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 129)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author without an ID):
+  
+app/controllers/api/v1/authors_controller.rb:9:in `show'
+Started GET "/api/v1/authors/2" for 127.0.0.1 at 2022-12-07 15:57:53 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"2"}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 129)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author without an ID):
+  
+app/controllers/api/v1/authors_controller.rb:9:in `show'
+Started GET "/api/v1/authors/2" for 127.0.0.1 at 2022-12-07 15:58:40 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 4.3ms | Allocations: 4486)
+
+
+Started GET "/api/v1/authors/3" for 127.0.0.1 at 2022-12-07 15:58:44 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 585)
+
+
+Started PATCH "/api/v1/authors/3/" for 127.0.0.1 at 2022-12-07 15:58:56 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"author"=>{"name"=>"Jorge 333"}, "id"=>"3"}
+[31mUnpermitted parameters: :author, :id. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000012d76ae98>, params: {"author"=>{"name"=>"Jorge 333"}, "controller"=>"api/v1/authors", "action"=>"update", "id"=>"3"} }[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 637)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/authors_controller.rb:19:in `update'
+Started PATCH "/api/v1/authors/3/" for 127.0.0.1 at 2022-12-07 15:59:29 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"author"=>{"name"=>"Jorge 333"}, "id"=>"3"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+[31mUnpermitted parameters: :author, :id. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000010c81ecc0>, params: {"author"=>{"name"=>"Jorge 333"}, "controller"=>"api/v1/authors", "action"=>"update", "id"=>"3"} }[0m
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.8ms | Allocations: 2639)
+
+
+Started PATCH "/api/v1/authors/3/" for 127.0.0.1 at 2022-12-07 15:59:35 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"author"=>{"name"=>"Jorge 333"}, "id"=>"3"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+[31mUnpermitted parameters: :author, :id. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000010c89eec0>, params: {"author"=>{"name"=>"Jorge 333"}, "controller"=>"api/v1/authors", "action"=>"update", "id"=>"3"} }[0m
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 841)
+
+
+Started PATCH "/api/v1/authors/3/" for 127.0.0.1 at 2022-12-07 16:00:02 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"name"=>"Jorge 333", "id"=>"3", "author"=>{"name"=>"Jorge 333"}}
+  [1m[36mAuthor Load (1.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+[31mUnpermitted parameters: :id, :author. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000010902c2b8>, params: {"name"=>"Jorge 333", "controller"=>"api/v1/authors", "action"=>"update", "id"=>"3", "author"=>{"name"=>"Jorge 333"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:20:in `update'
+  [1m[36mAuthor Update (1.7ms)[0m  [1m[33mUPDATE "authors" SET "name" = $1, "updated_at" = $2 WHERE "authors"."id" = $3[0m  [["name", "Jorge 333"], ["updated_at", "2022-12-07 14:00:02.684705"], ["id", 3]]
+  ↳ app/controllers/api/v1/authors_controller.rb:20:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:20:in `update'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 3.6ms | Allocations: 2445)
+
+
+Started PATCH "/api/v1/authors/3/articles" for 127.0.0.1 at 2022-12-07 16:00:47 +0200
+  
+ActionController::RoutingError (No route matches [PATCH] "/api/v1/authors/3/articles"):
+  
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 16:00:54 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles"):
+  
+Started GET "/api/v1/authors/3/articles" for 127.0.0.1 at 2022-12-07 16:00:59 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"name"=>"Jorge 333", "author_id"=>"3", "article"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_author'
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 14ms (Views: 5.1ms | ActiveRecord: 7.4ms | Allocations: 18496)
+
+
+Started POST "/api/v1/authors/3/articles" for 127.0.0.1 at 2022-12-07 16:01:48 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"title 1", "body"=>"body 1", "author_id"=>"3", "article"=>{"title"=>"title 1", "body"=>"body 1"}}
+  [1m[36mAuthor Load (1.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_author'
+[31mUnpermitted parameters: :author_id, :article. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x000000010a140978>, params: {"title"=>"title 1", "body"=>"body 1", "controller"=>"api/v1/articles", "action"=>"create", "author_id"=>"3", "article"=>{"title"=>"title 1", "body"=>"body 1"}} }[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+  [1m[36mArticle Create (6.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "title 1"], ["body", "body 1"], ["created_at", "2022-12-07 14:01:48.355427"], ["updated_at", "2022-12-07 14:01:48.355427"], ["author_id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+Completed 201 Created in 24ms (Views: 0.2ms | ActiveRecord: 9.2ms | Allocations: 4664)
+
+
+Started GET "/api/v1/authors/3/articles" for 127.0.0.1 at 2022-12-07 16:01:54 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"title 1", "body"=>"body 1", "author_id"=>"3", "article"=>{"title"=>"title 1", "body"=>"body 1"}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_author'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 1264)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 360)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 1195)
+
+
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.0ms | Allocations: 15)
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 257)
+
+
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  

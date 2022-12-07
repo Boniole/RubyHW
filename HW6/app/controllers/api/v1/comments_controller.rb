@@ -7,19 +7,14 @@ class Api::V1::CommentsController < ApplicationController
   before_action :set_article, only: %i[create]
 
   def index
-    if [UNPUBLISHED, PUBLISHED].include?(person_params[:status])
-      render json: @author.comments.where(status: person_params[:status])
-    else
-      render json: @author.comments
-    end
+    @comments = @author.comments
+    @comments = @author.comments.where(status: person_params[:status]) if person_params[:status].present?
+
+    render json: @comments
   end
 
   def show
-    begin
-      render json: @comment
-    rescue ActiveRecord::RecordNotFound => e
-      render plain: 'Not found'
-    end
+    render json: @comment
   end
 
   def create
@@ -28,33 +23,29 @@ class Api::V1::CommentsController < ApplicationController
       @comment.save
       render json: @comment
     else
-      render plain: 'Failed'
+      render status: :unprocessable_entity
     end
   end
 
   def update
     if [UNPUBLISHED, PUBLISHED].include?(person_params[:status])
-      render plain: 'Updated' if @comment.update(status: person_params[:status])
+      render status: :ok if @comment.update(status: person_params[:status])
     else
-      render plain: 'Wrong status'
+      render status: :unprocessable_entity
     end
   end
 
   def destroy
-    render plain: 'Deleted' if @comment.destroy
+    render status: :ok if @comment.destroy
   end
 
   private
 
   def set_article
     if person_params[:article_id].is_a?(Integer)
-      begin
-        @article = Article.find(person_params[:article_id])
-      rescue ActiveRecord::RecordNotFound => e
-        render plain: 'ActiveRecord::RecordNotFound'
-      end
+      @article = Article.find(person_params[:article_id])
     else
-      render plain: 'Not found!'
+      render status: :not_found
     end
   end
 
@@ -63,7 +54,7 @@ class Api::V1::CommentsController < ApplicationController
     begin
       @comment = @author.comments.find(params[:id])
     rescue ActiveRecord::RecordNotFound => e
-      render plain: 'ActiveRecord::RecordNotFound'
+      render status: :not_found
     end
   end
 
