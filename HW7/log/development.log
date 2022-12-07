@@ -1,0 +1,1776 @@
+  [1m[35m (139.0ms)[0m  [1m[35mCREATE DATABASE "HW5_development" ENCODING = 'unicode'[0m
+  [1m[35m (43.5ms)[0m  [1m[35mCREATE DATABASE "HW5_test" ENCODING = 'unicode'[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20221120104441)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221120104441"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-20 10:44:56.849576"], ["updated_at", "2022-11-20 10:44:56.849576"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-11-20 12:58:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 740)
+Completed 200 OK in 9ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 6991)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-11-20 12:58:06 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-20 12:58:18 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.9ms | Allocations: 1583)
+
+
+Started GET "/api/v1" for 127.0.0.1 at 2022-11-20 12:58:25 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1"):
+  
+Started GET "/api/v1/" for 127.0.0.1 at 2022-11-20 12:58:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1"):
+  
+Started GET "/api/v1/" for 127.0.0.1 at 2022-11-20 12:59:40 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 1343)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-20 12:59:52 +0200
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.6ms | Allocations: 355)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 1230)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-20 13:00:34 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.7ms | Allocations: 1335)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:01:56 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"My title", "body"=>"Its body", "article"=>{"title"=>"My title", "body"=>"Its body"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mArticle Create (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My title"], ["body", "Its body"], ["created_at", "2022-11-20 11:01:56.456382"], ["updated_at", "2022-11-20 11:01:56.456382"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 7.7ms | Allocations: 18290)
+
+
+  
+NoMethodError (undefined method `article_url' for #<Api::V1::ArticlesController:0x000000000146e0>):
+  
+app/controllers/api/v1/articles_controller.rb:21:in `create'
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:03:10 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"My title", "body"=>"Its body", "article"=>{"title"=>"My title", "body"=>"Its body"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mArticle Create (0.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My title"], ["body", "Its body"], ["created_at", "2022-11-20 11:03:10.116512"], ["updated_at", "2022-11-20 11:03:10.116512"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 4.6ms | Allocations: 3158)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:03:19 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"My title", "body"=>"Its body", "article"=>{"title"=>"My title", "body"=>"Its body"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.4ms | Allocations: 944)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:04:38 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"My title 2", "body"=>"Its body 2", "article"=>{"title"=>"My title 2", "body"=>"Its body 2"}}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 4.2ms | Allocations: 2163)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:04:42 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"My title 2", "body"=>"Its body 2", "article"=>{"title"=>"My title 2", "body"=>"Its body 2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My title 2"], ["body", "Its body 2"], ["created_at", "2022-11-20 11:04:42.783848"], ["updated_at", "2022-11-20 11:04:42.783848"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+Completed 201 Created in 4ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 1865)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:04:45 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"My title 2", "body"=>"Its body 2", "article"=>{"title"=>"My title 2", "body"=>"Its body 2"}}
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 1.1ms | Allocations: 903)
+
+
+Started PATCH "/api/v1/articles/3" for 127.0.0.1 at 2022-11-20 13:04:57 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"title"=>"My title 3", "body"=>"Its body 3", "id"=>"3", "article"=>{"title"=>"My title 3", "body"=>"Its body 3"}}
+  [1m[36mArticle Load (1.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:44:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:29:in `update'
+  [1m[36mArticle Update (1.2ms)[0m  [1m[33mUPDATE "articles" SET "title" = $1, "body" = $2, "updated_at" = $3 WHERE "articles"."id" = $4[0m  [["title", "My title 3"], ["body", "Its body 3"], ["updated_at", "2022-11-20 11:04:57.480057"], ["id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:29:in `update'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 5.8ms | Allocations: 3219)
+
+
+Started GET "/api/v1/articles/3" for 127.0.0.1 at 2022-11-20 13:05:02 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"title"=>"My title 3", "body"=>"Its body 3", "id"=>"3", "article"=>{"title"=>"My title 3", "body"=>"Its body 3"}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:44:in `set_article'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 607)
+
+
+Started DELETE "/api/v1/articles/3" for 127.0.0.1 at 2022-11-20 13:05:09 +0200
+Processing by Api::V1::ArticlesController#destroy as */*
+  Parameters: {"title"=>"My title 3", "body"=>"Its body 3", "id"=>"3", "article"=>{"title"=>"My title 3", "body"=>"Its body 3"}}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:44:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:38:in `destroy'
+  [1m[36mArticle Destroy (1.7ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:38:in `destroy'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:38:in `destroy'
+Completed 204 No Content in 8ms (ActiveRecord: 3.0ms | Allocations: 1846)
+
+
+Started GET "/api/v1/articles/3" for 127.0.0.1 at 2022-11-20 13:05:12 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"title"=>"My title 3", "body"=>"Its body 3", "id"=>"3", "article"=>{"title"=>"My title 3", "body"=>"Its body 3"}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:44:in `set_article'
+Completed 404 Not Found in 7ms (ActiveRecord: 0.3ms | Allocations: 529)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=3):
+  
+app/controllers/api/v1/articles_controller.rb:44:in `set_article'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-20 13:05:16 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"My title 3", "body"=>"Its body 3", "article"=>{"title"=>"My title 3", "body"=>"Its body 3"}}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.5ms | Allocations: 812)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-20 13:41:01 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 633)
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 5699)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-20 13:46:46 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | Allocations: 633)
+Completed 200 OK in 7ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 5696)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-20 13:46:48 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 356)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 1195)
+
+
+Started GET "/api-docs" for 127.0.0.1 at 2022-11-20 13:46:51 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api-docs"):
+  
+Started GET "/api-docs" for 127.0.0.1 at 2022-11-20 13:51:51 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-20 13:51:51 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-20 13:51:51 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-20 13:51:51 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-20 13:51:51 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-20 13:51:52 +0200
+Started GET "/api-docs/favicon-16x16.png" for 127.0.0.1 at 2022-11-20 13:51:52 +0200
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-11-20 13:51:52 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-20 13:57:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-20 13:57:50 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-20 13:57:50 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-20 13:57:50 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-20 13:57:50 +0200
+Started GET "/" for 127.0.0.1 at 2022-11-22 18:58:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 634)
+Completed 200 OK in 8ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 5697)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-11-22 18:58:06 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2022-11-22 18:58:09 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 356)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 1193)
+
+
+Started GET "/api-docs" for 127.0.0.1 at 2022-11-22 18:58:10 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-22 18:58:10 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-22 18:58:10 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-22 18:58:10 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-22 18:58:10 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-22 18:58:11 +0200
+Started GET "/api-docs/favicon-16x16.png" for 127.0.0.1 at 2022-11-22 18:58:11 +0200
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-11-22 18:58:11 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-22 19:00:13 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-22 19:00:13 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-22 19:00:13 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-22 19:00:13 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-22 19:00:13 +0200
+Started GET "/api/v1" for 127.0.0.1 at 2022-11-22 19:00:29 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 29ms (Views: 7.0ms | ActiveRecord: 9.1ms | Allocations: 29802)
+
+
+Started GET "/api/v1" for 127.0.0.1 at 2022-11-22 19:00:30 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (3.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 3.9ms | Allocations: 828)
+
+
+Started GET "/api/v1" for 127.0.0.1 at 2022-11-22 23:17:29 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 22.6ms | Allocations: 3733)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-22 23:17:36 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.4ms | Allocations: 827)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-22 23:17:57 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:44:in `set_article'
+Completed 200 OK in 25ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 2593)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-28 15:04:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 634)
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 5697)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-11-28 15:04:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2022-11-28 15:04:55 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 356)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 1193)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 15:04:56 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 15:04:56 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 15:04:56 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 15:04:56 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 15:04:57 +0200
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-11-28 15:04:57 +0200
+Started GET "/api-docs/favicon-16x16.png" for 127.0.0.1 at 2022-11-28 15:04:57 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 15:07:06 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-11-28 15:07:06 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-11-28 15:07:06 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-11-28 15:07:06 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 15:07:06 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-11-28 15:07:06 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-11-28 15:07:06 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-11-28 15:07:06 +0200
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE DATABASE "HW5_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE DATABASE "HW5_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20221128132349)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "status" integer, "author_id_id" bigint NOT NULL, "post_id_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_0f6a9172bf"
+FOREIGN KEY ("author_id_id")
+  REFERENCES "author_ids" ("id")
+, CONSTRAINT "fk_rails_24bfaec319"
+FOREIGN KEY ("post_id_id")
+  REFERENCES "post_ids" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3843465698541818475)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20221128132349)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "status" integer, "author_id" bigint NOT NULL, "article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f44b1e3c8a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_3bf61a60d3"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3843465698541818475)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20221128132349)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "status" integer, "author_id" bigint NOT NULL, "article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f44b1e3c8a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_3bf61a60d3"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3843465698541818475)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20221128132349)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "status" integer DEFAULT 0, "author_id" bigint NOT NULL, "article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f44b1e3c8a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_3bf61a60d3"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3843465698541818475)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20221128132349)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "status" integer DEFAULT 0, "author_id" bigint NOT NULL, "article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f44b1e3c8a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_3bf61a60d3"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3843465698541818475)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20221128132349)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "status" integer DEFAULT 0, "author_id" bigint NOT NULL, "article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f44b1e3c8a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_3bf61a60d3"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3843465698541818475)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20221128132349)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "status" integer DEFAULT 0, "author_id" bigint NOT NULL, "article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f44b1e3c8a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_3bf61a60d3"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3843465698541818475)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20221128132349)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (35.8ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "status" integer DEFAULT 0, "author_id" bigint NOT NULL, "article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f44b1e3c8a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_3bf61a60d3"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3843465698541818475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (5.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (32.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "HW5_development"[0m
+  [1m[35m (23.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "HW5_test"[0m
+  [1m[35m (130.6ms)[0m  [1m[35mCREATE DATABASE "HW6_development" ENCODING = 'unicode'[0m
+  [1m[35m (48.1ms)[0m  [1m[35mCREATE DATABASE "HW6_test" ENCODING = 'unicode'[0m
+  [1m[35m (39.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7244171153499070245)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20221120104441)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "body" text, "author_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e74ce85cbc"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7244171153499070245)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7244171153499070245)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20221120104441)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221120104441"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20221128132349)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "status" integer DEFAULT 0, "author_id" bigint NOT NULL, "article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f44b1e3c8a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_3bf61a60d3"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7244171153499070245)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7244171153499070245)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAuthors (20221128132607)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "authors" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128132607"]]
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20221128132649)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "status" integer DEFAULT 0, "author_id" bigint NOT NULL, "article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f44b1e3c8a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_3bf61a60d3"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE INDEX "index_comments_on_author_id" ON "comments" ("author_id")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_comments_on_article_id" ON "comments" ("article_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128132649"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddReferenceToArticle (20221128143557)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "articles" ADD "author_id" bigint[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_articles_on_author_id" ON "articles" ("author_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128143557"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-28 14:40:41.228716"], ["updated_at", "2022-11-28 14:40:41.228716"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7244171153499070245)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7244171153499070245)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7244171153499070245)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 21:29:19 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 21:29:19 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 21:29:19 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 21:29:19 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 21:29:19 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-11-28 21:29:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-11-28 21:29:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 21:29:26 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 21:29:26 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 21:29:26 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 21:29:26 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 21:29:26 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 21:30:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/favicon-16x16.png" for 127.0.0.1 at 2022-11-28 21:30:17 +0200
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-11-28 21:30:17 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 21:30:17 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 21:30:17 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 21:30:17 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 21:30:17 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 21:34:15 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 21:34:15 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 21:34:15 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 21:34:15 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 21:34:15 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 21:34:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 21:34:50 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 21:34:50 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 21:34:50 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 21:34:50 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 21:35:17 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 21:35:17 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 21:35:17 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 21:35:17 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 21:35:17 +0200
+Started GET "/api/v1/authors" for 127.0.0.1 at 2022-11-28 21:35:23 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (1.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 13ms (Views: 1.1ms | ActiveRecord: 1.3ms | Allocations: 17309)
+
+
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-11-28 21:35:28 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mAuthor Create (1.1ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", nil], ["created_at", "2022-11-28 19:35:29.020319"], ["updated_at", "2022-11-28 19:35:29.020319"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+Completed 200 OK in 32ms (Views: 0.3ms | ActiveRecord: 12.2ms | Allocations: 16601)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 21:37:08 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 21:37:08 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 21:37:08 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 21:37:08 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 21:37:08 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 21:48:12 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 21:48:12 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 21:48:12 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 21:48:12 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 21:48:13 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 21:51:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 21:51:31 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 21:51:31 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 21:51:31 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 21:51:31 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 21:52:13 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 21:52:13 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 21:52:13 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 21:52:13 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 21:52:13 +0200
+Started GET "/api/v1/authors" for 127.0.0.1 at 2022-11-28 21:52:25 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 26ms (Views: 6.0ms | ActiveRecord: 5.9ms | Allocations: 31432)
+
+
+Started GET "/api/v1/authors/1" for 127.0.0.1 at 2022-11-28 21:53:58 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 88)
+
+
+Started GET "/api/v1/authors/2/articles" for 127.0.0.1 at 2022-11-28 21:54:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/authors/2/articles"):
+  
+Started GET "/api/v1/authors/1/articles" for 127.0.0.1 at 2022-11-28 21:54:37 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/authors/1/articles"):
+  
+Started GET "/api/v1/authors/1/articles" for 127.0.0.1 at 2022-11-28 21:54:45 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/authors/1/articles"):
+  
+Started POST "/api/v1/authors/1/articles" for 127.0.0.1 at 2022-11-28 21:54:53 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/authors/1/articles"):
+  
+Started DELETE "/api/v1/authors/1" for 127.0.0.1 at 2022-11-28 21:55:13 +0200
+Processing by Api::V1::AuthorsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:24:in `set_author'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:18:in `destroy'
+  [1m[36mComment Load (1.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:18:in `destroy'
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:18:in `destroy'
+  [1m[36mAuthor Destroy (0.7ms)[0m  [1m[31mDELETE FROM "authors" WHERE "authors"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:18:in `destroy'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:18:in `destroy'
+Completed 200 OK in 50ms (Views: 0.1ms | ActiveRecord: 11.2ms | Allocations: 19187)
+
+
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-11-28 21:55:19 +0200
+Processing by Api::V1::AuthorsController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 178)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authors):
+  
+app/controllers/api/v1/authors_controller.rb:32:in `author_params'
+app/controllers/api/v1/authors_controller.rb:13:in `create'
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-11-28 21:55:20 +0200
+Processing by Api::V1::AuthorsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 129)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authors):
+  
+app/controllers/api/v1/authors_controller.rb:32:in `author_params'
+app/controllers/api/v1/authors_controller.rb:13:in `create'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 21:56:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 21:56:28 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 21:56:28 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 21:56:28 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 21:56:28 +0200
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-11-28 21:56:33 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mAuthor Create (0.6ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", nil], ["created_at", "2022-11-28 19:56:33.748815"], ["updated_at", "2022-11-28 19:56:33.748815"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 5.1ms | Allocations: 35022)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 22:02:34 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 22:02:34 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 22:02:34 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 22:02:34 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 22:02:34 +0200
+Started POST "/api/v1/authors?name=Goshi" for 127.0.0.1 at 2022-11-28 22:08:03 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"api"=>{"_"=>[{"key"=>"requests_max", "value"=>"0"}, {"key"=>"requests_deadline", "value"=>"10s"}, {"key"=>"cluster_deadline", "value"=>"10s"}, {"key"=>"cors_allow_origin", "value"=>"*"}, {"key"=>"remote_transport_deadline", "value"=>"2h"}, {"key"=>"list_quorum", "value"=>"strict"}, {"key"=>"replication_workers", "value"=>"250"}, {"key"=>"replication_failed_workers", "value"=>"8"}, {"key"=>"transition_workers", "value"=>"100"}, {"key"=>"stale_uploads_cleanup_interval", "value"=>"6h"}, {"key"=>"stale_uploads_expiry", "value"=>"24h"}, {"key"=>"delete_cleanup_interval", "value"=>"5m"}, {"key"=>"disable_odirect", "value"=>"off"}, {"key"=>"gzip_objects", "value"=>"off"}]}, "audit_kafka"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"topic", "value"=>""}, {"key"=>"brokers", "value"=>""}, {"key"=>"sasl_username", "value"=>""}, {"key"=>"sasl_password", "value"=>""}, {"key"=>"sasl_mechanism", "value"=>"plain"}, {"key"=>"client_tls_cert", "value"=>""}, {"key"=>"client_tls_key", "value"=>""}, {"key"=>"tls_client_auth", "value"=>"0"}, {"key"=>"sasl", "value"=>"off"}, {"key"=>"tls", "value"=>"off"}, {"key"=>"tls_skip_verify", "value"=>"off"}, {"key"=>"version", "value"=>""}]}, "audit_webhook"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"endpoint", "value"=>""}, {"key"=>"auth_token", "value"=>""}, {"key"=>"client_cert", "value"=>""}, {"key"=>"client_key", "value"=>""}, {"key"=>"queue_size", "value"=>"100000"}]}, "cache"=>{"_"=>[{"key"=>"drives", "value"=>""}, {"key"=>"exclude", "value"=>""}, {"key"=>"expiry", "value"=>"90"}, {"key"=>"quota", "value"=>"80"}, {"key"=>"after", "value"=>"0"}, {"key"=>"watermark_low", "value"=>"70"}, {"key"=>"watermark_high", "value"=>"80"}, {"key"=>"range", "value"=>"on"}, {"key"=>"commit", "value"=>""}]}, "compression"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"allow_encryption", "value"=>"off"}, {"key"=>"extensions", "value"=>".txt,.log,.csv,.json,.tar,.xml,.bin"}, {"key"=>"mime_types", "value"=>"text/*,application/json,application/xml,binary/octet-stream"}]}, "credentials"=>{"_"=>[{"key"=>"access_key", "value"=>"minioadmin"}, {"key"=>"secret_key", "value"=>"minioadmin"}]}, "etcd"=>{"_"=>[{"key"=>"endpoints", "value"=>""}, {"key"=>"path_prefix", "value"=>""}, {"key"=>"coredns_path", "value"=>"/skydns"}, {"key"=>"client_cert", "value"=>""}, {"key"=>"client_cert_key", "value"=>""}]}, "heal"=>{"_"=>[{"key"=>"bitrotscan", "value"=>"off"}, {"key"=>"max_sleep", "value"=>"1s"}, {"key"=>"max_io", "value"=>"100"}]}, "identity_ldap"=>{"_"=>[{"key"=>"server_addr", "value"=>""}, {"key"=>"user_dn_search_base_dn", "value"=>""}, {"key"=>"user_dn_search_filter", "value"=>""}, {"key"=>"group_search_filter", "value"=>""}, {"key"=>"group_search_base_dn", "value"=>""}, {"key"=>"tls_skip_verify", "value"=>"off"}, {"key"=>"server_insecure", "value"=>"off"}, {"key"=>"server_starttls", "value"=>"off"}, {"key"=>"lookup_bind_dn", "value"=>""}, {"key"=>"lookup_bind_password", "value"=>""}]}, "identity_openid"=>{"_"=>[{"key"=>"config_url", "value"=>""}, {"key"=>"client_id", "value"=>""}, {"key"=>"client_secret", "value"=>""}, {"key"=>"claim_name", "value"=>"policy"}, {"key"=>"claim_userinfo", "value"=>""}, {"key"=>"role_policy", "value"=>""}, {"key"=>"claim_prefix", "value"=>""}, {"key"=>"redirect_uri", "value"=>""}, {"key"=>"redirect_uri_dynamic", "value"=>"off"}, {"key"=>"scopes", "value"=>""}]}, "identity_tls"=>{"_"=>[{"key"=>"skip_verify", "value"=>"off"}]}, "logger_webhook"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"endpoint", "value"=>""}, {"key"=>"auth_token", "value"=>""}, {"key"=>"client_cert", "value"=>""}, {"key"=>"client_key", "value"=>""}, {"key"=>"queue_size", "value"=>"100000"}]}, "notify_amqp"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"url", "value"=>""}, {"key"=>"exchange", "value"=>""}, {"key"=>"exchange_type", "value"=>""}, {"key"=>"routing_key", "value"=>""}, {"key"=>"mandatory", "value"=>"off"}, {"key"=>"durable", "value"=>"off"}, {"key"=>"no_wait", "value"=>"off"}, {"key"=>"internal", "value"=>"off"}, {"key"=>"auto_deleted", "value"=>"off"}, {"key"=>"delivery_mode", "value"=>"0"}, {"key"=>"publisher_confirms", "value"=>"off"}, {"key"=>"queue_limit", "value"=>"0"}, {"key"=>"queue_dir", "value"=>""}]}, "notify_elasticsearch"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"url", "value"=>""}, {"key"=>"format", "value"=>"namespace"}, {"key"=>"index", "value"=>""}, {"key"=>"queue_dir", "value"=>""}, {"key"=>"queue_limit", "value"=>"0"}, {"key"=>"username", "value"=>""}, {"key"=>"password", "value"=>""}]}, "notify_kafka"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"topic", "value"=>""}, {"key"=>"brokers", "value"=>""}, {"key"=>"sasl_username", "value"=>""}, {"key"=>"sasl_password", "value"=>""}, {"key"=>"sasl_mechanism", "value"=>"plain"}, {"key"=>"client_tls_cert", "value"=>""}, {"key"=>"client_tls_key", "value"=>""}, {"key"=>"tls_client_auth", "value"=>"0"}, {"key"=>"sasl", "value"=>"off"}, {"key"=>"tls", "value"=>"off"}, {"key"=>"tls_skip_verify", "value"=>"off"}, {"key"=>"queue_limit", "value"=>"0"}, {"key"=>"queue_dir", "value"=>""}, {"key"=>"version", "value"=>""}]}, "notify_mqtt"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"broker", "value"=>""}, {"key"=>"topic", "value"=>""}, {"key"=>"password", "value"=>""}, {"key"=>"username", "value"=>""}, {"key"=>"qos", "value"=>"0"}, {"key"=>"keep_alive_interval", "value"=>"0s"}, {"key"=>"reconnect_interval", "value"=>"0s"}, {"key"=>"queue_dir", "value"=>""}, {"key"=>"queue_limit", "value"=>"0"}]}, "notify_mysql"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"format", "value"=>"namespace"}, {"key"=>"dsn_string", "value"=>""}, {"key"=>"table", "value"=>""}, {"key"=>"queue_dir", "value"=>""}, {"key"=>"queue_limit", "value"=>"0"}, {"key"=>"max_open_connections", "value"=>"2"}]}, "notify_nats"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"address", "value"=>""}, {"key"=>"subject", "value"=>""}, {"key"=>"username", "value"=>""}, {"key"=>"password", "value"=>""}, {"key"=>"token", "value"=>""}, {"key"=>"tls", "value"=>"off"}, {"key"=>"tls_skip_verify", "value"=>"off"}, {"key"=>"cert_authority", "value"=>""}, {"key"=>"client_cert", "value"=>""}, {"key"=>"client_key", "value"=>""}, {"key"=>"ping_interval", "value"=>"0"}, {"key"=>"streaming", "value"=>"off"}, {"key"=>"streaming_async", "value"=>"off"}, {"key"=>"streaming_max_pub_acks_in_flight", "value"=>"0"}, {"key"=>"streaming_cluster_id", "value"=>""}, {"key"=>"queue_dir", "value"=>""}, {"key"=>"queue_limit", "value"=>"0"}]}, "notify_nsq"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"nsqd_address", "value"=>""}, {"key"=>"topic", "value"=>""}, {"key"=>"tls", "value"=>"off"}, {"key"=>"tls_skip_verify", "value"=>"off"}, {"key"=>"queue_dir", "value"=>""}, {"key"=>"queue_limit", "value"=>"0"}]}, "notify_postgres"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"format", "value"=>"namespace"}, {"key"=>"connection_string", "value"=>""}, {"key"=>"table", "value"=>""}, {"key"=>"queue_dir", "value"=>""}, {"key"=>"queue_limit", "value"=>"0"}, {"key"=>"max_open_connections", "value"=>"2"}]}, "notify_redis"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"format", "value"=>"namespace"}, {"key"=>"address", "value"=>""}, {"key"=>"key", "value"=>""}, {"key"=>"password", "value"=>""}, {"key"=>"queue_dir", "value"=>""}, {"key"=>"queue_limit", "value"=>"0"}]}, "notify_webhook"=>{"_"=>[{"key"=>"enable", "value"=>"off"}, {"key"=>"endpoint", "value"=>""}, {"key"=>"auth_token", "value"=>""}, {"key"=>"queue_limit", "value"=>"0"}, {"key"=>"queue_dir", "value"=>""}, {"key"=>"client_cert", "value"=>""}, {"key"=>"client_key", "value"=>""}], "avatar"=>[{"key"=>"enable", "value"=>"on"}, {"key"=>"endpoint", "value"=>"http://localhost/api/account/s3_webhook"}, {"key"=>"auth_token", "value"=>""}, {"key"=>"queue_limit", "value"=>"0"}, {"key"=>"queue_dir", "value"=>""}, {"key"=>"client_cert", "value"=>""}, {"key"=>"client_key", "value"=>""}], "course"=>[{"key"=>"enable", "value"=>"on"}, {"key"=>"endpoint", "value"=>"http://localhost/api/course/s3_webhook"}, {"key"=>"auth_token", "value"=>""}, {"key"=>"queue_limit", "value"=>"0"}, {"key"=>"queue_dir", "value"=>""}, {"key"=>"client_cert", "value"=>""}, {"key"=>"client_key", "value"=>""}], "event"=>[{"key"=>"enable", "value"=>"on"}, {"key"=>"endpoint", "value"=>"http://localhost/api/event/s3_webhook"}, {"key"=>"auth_token", "value"=>""}, {"key"=>"queue_limit", "value"=>"0"}, {"key"=>"queue_dir", "value"=>""}, {"key"=>"client_cert", "value"=>""}, {"key"=>"client_key", "value"=>""}]}, "policy_opa"=>{"_"=>[{"key"=>"url", "value"=>""}, {"key"=>"auth_token", "value"=>""}]}, "region"=>{"_"=>[{"key"=>"name", "value"=>""}]}, "scanner"=>{"_"=>[{"key"=>"delay", "value"=>"10"}, {"key"=>"max_wait", "value"=>"15s"}, {"key"=>"cycle", "value"=>"1m"}]}, "site"=>{"_"=>[{"key"=>"name", "value"=>""}, {"key"=>"region", "value"=>""}]}, "storage_class"=>{"_"=>nil}, "subnet"=>{"_"=>[{"key"=>"license", "value"=>""}, {"key"=>"api_key", "value"=>""}, {"key"=>"proxy", "value"=>""}]}, "name"=>"Goshi", "author"=>{}}
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 22.9ms | Allocations: 28895)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, String passed.):
+  
+app/controllers/api/v1/authors_controller.rb:13:in `create'
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-28 22:08:23 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-28 22:08:23 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-28 22:08:23 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-28 22:08:23 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-28 22:08:23 +0200
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-11-28 22:08:30 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mAuthor Create (2.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", nil], ["created_at", "2022-11-28 20:08:30.739498"], ["updated_at", "2022-11-28 20:08:30.739498"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+Completed 200 OK in 17ms (Views: 0.6ms | ActiveRecord: 4.0ms | Allocations: 2564)
+
+
+Started POST "/api/v1/authors?name=Goshi" for 127.0.0.1 at 2022-11-28 22:08:53 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Goshi"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 124)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, String passed.):
+  
+app/controllers/api/v1/authors_controller.rb:13:in `create'
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-11-28 22:09:01 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", nil], ["created_at", "2022-11-28 20:09:01.808689"], ["updated_at", "2022-11-28 20:09:01.808689"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 3.8ms | Allocations: 1803)
+
+
+Started POST "/api/v1/authors?name=Lol" for 127.0.0.1 at 2022-11-28 22:09:09 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Lol"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 124)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, String passed.):
+  
+app/controllers/api/v1/authors_controller.rb:13:in `create'
+Started POST "/api/v1/authors?name=Lol" for 127.0.0.1 at 2022-11-29 20:36:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Lol"}
+Completed 400 Bad Request in 14ms (ActiveRecord: 0.0ms | Allocations: 18298)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authors):
+  
+app/controllers/api/v1/authors_controller.rb:28:in `person_params'
+app/controllers/api/v1/authors_controller.rb:13:in `create'
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-11-29 20:36:50 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Jorge", "author"=>{"name"=>"Jorge"}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 4.3ms | Allocations: 156)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authors
+Did you mean?  author):
+  
+app/controllers/api/v1/authors_controller.rb:28:in `person_params'
+app/controllers/api/v1/authors_controller.rb:13:in `create'
+Started POST "/api/v1/author" for 127.0.0.1 at 2022-11-29 20:37:10 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/author"):
+  
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-11-29 20:39:09 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Jorge", "author"=>{"name"=>"Jorge"}}
+Completed 400 Bad Request in 11ms (ActiveRecord: 12.6ms | Allocations: 15190)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authors
+Did you mean?  author):
+  
+app/controllers/api/v1/authors_controller.rb:28:in `person_params'
+app/controllers/api/v1/authors_controller.rb:13:in `create'
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-11-29 20:39:54 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Jorge", "author"=>{"name"=>"Jorge"}}
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mAuthor Create (11.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Jorge"], ["created_at", "2022-11-29 18:39:54.133370"], ["updated_at", "2022-11-29 18:39:54.133370"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (32.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+Completed 200 OK in 61ms (Views: 0.2ms | ActiveRecord: 55.8ms | Allocations: 16466)
+
+
+Started GET "/api/v1/authors" for 127.0.0.1 at 2022-11-29 20:40:07 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  Parameters: {"name"=>"Jorge", "author"=>{"name"=>"Jorge"}}
+  [1m[36mAuthor Load (1.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 1.5ms | Allocations: 1113)
+
+
+Started PATCH "/api/v1/authors/3" for 127.0.0.1 at 2022-11-29 20:40:32 +0200
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for Api::V1::AuthorsController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/authors/3" for 127.0.0.1 at 2022-11-29 20:40:56 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"name"=>"Jorge 2", "id"=>"3", "author"=>{"name"=>"Jorge 2"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 84)
+
+
+Started GET "/api/v1/author/3" for 127.0.0.1 at 2022-11-29 20:41:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/author/3"):
+  
+Started GET "/api/v1/author/3" for 127.0.0.1 at 2022-11-29 20:43:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/author/3"):
+  
+Started GET "/" for 127.0.0.1 at 2022-11-29 22:04:28 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.4ms | Allocations: 630)
+Completed 200 OK in 11ms (Views: 4.3ms | Allocations: 5623)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-30 11:45:32 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-11-30 11:45:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-11-30 11:45:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-11-30 11:45:32 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-30 11:45:32 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-11-30 11:45:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-11-30 11:45:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-11-30 11:45:33 +0200
+Started GET "/" for 127.0.0.1 at 2022-11-30 15:52:12 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.9ms | Allocations: 359)
+Completed 200 OK in 11ms (Views: 9.5ms | Allocations: 1190)
+
+
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-11-30 15:52:12 +0200
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-11-30 15:52:12 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-11-30 15:52:12 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/" for 127.0.0.1 at 2022-11-30 15:52:16 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 1ms (Views: 0.5ms | Allocations: 254)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-11-30 15:52:17 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-11-30 15:52:17 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-11-30 15:52:17 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-11-30 15:52:17 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-11-30 15:52:17 +0200
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-11-30 15:52:17 +0200
+Started GET "/api-docs/favicon-16x16.png" for 127.0.0.1 at 2022-11-30 15:52:17 +0200
+Started GET "/api/v1/author/3" for 127.0.0.1 at 2022-11-30 15:52:26 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/author/3"):
+  
+Started GET "/api/v1/author/2" for 127.0.0.1 at 2022-11-30 15:52:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/author/2"):
+  
+Started GET "/api/v1/author?id=2" for 127.0.0.1 at 2022-11-30 15:52:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/author"):
+  
+Started GET "/api/v1/authors/2" for 127.0.0.1 at 2022-11-30 15:54:04 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"2"}
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 80)
+
+
+Started GET "/api/v1/author?id=2" for 127.0.0.1 at 2022-11-30 16:02:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/author"):
+  
+Started GET "/api/v1/author/2" for 127.0.0.1 at 2022-11-30 16:02:49 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/author/2"):
+  
+Started GET "/api/v1/author/2" for 127.0.0.1 at 2022-11-30 16:03:01 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/author/2"):
+  
+Started GET "/api/v1/author/3" for 127.0.0.1 at 2022-11-30 16:03:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/author/3"):
+  
+Started GET "/api/v1/author/4" for 127.0.0.1 at 2022-11-30 16:03:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/author/4"):
+  
+Started GET "/api/v1/authors/4" for 127.0.0.1 at 2022-11-30 16:03:12 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 200 OK in 52ms (Views: 0.6ms | ActiveRecord: 26.7ms | Allocations: 7932)
+
+
+Started GET "/api/v1/authors/3" for 127.0.0.1 at 2022-11-30 16:03:16 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 591)
+
+
+Started GET "/api/v1/authors/2" for 127.0.0.1 at 2022-11-30 16:03:20 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 581)
+
+
+Started GET "/api/v1/authors/222" for 127.0.0.1 at 2022-11-30 16:03:22 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"222"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 222], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 404 Not Found in 8ms (ActiveRecord: 0.3ms | Allocations: 537)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author with 'id'=222):
+  
+app/controllers/api/v1/authors_controller.rb:9:in `show'
+Started GET "/api/v1/authors/222" for 127.0.0.1 at 2022-11-30 16:03:59 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"222"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/api/v1/authors/2" for 127.0.0.1 at 2022-11-30 16:04:02 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"2"}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 80)
+
+
+Started GET "/api/v1/author/2" for 127.0.0.1 at 2022-11-30 16:04:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/author/2"):
+  
+Started GET "/api/v1/authors/2" for 127.0.0.1 at 2022-11-30 16:04:12 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"2"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 80)
+
+
+Started GET "/api/v1/authors/2" for 127.0.0.1 at 2022-11-30 16:04:44 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"2"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/api/v1/authors/2" for 127.0.0.1 at 2022-11-30 16:05:09 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 19.1ms | Allocations: 4507)
+
+
+Started GET "/api/v1/authors" for 127.0.0.1 at 2022-11-30 16:06:26 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 953)
+
+
+Started PATCH "/api/v1/authors/3" for 127.0.0.1 at 2022-11-30 16:16:54 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"name"=>"Jorge 3", "id"=>"3", "author"=>{"name"=>"Jorge 3"}}
+[31mUnpermitted parameters: :id, :author. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x0000000143b39180>, params: {"name"=>"Jorge 3", "controller"=>"api/v1/authors", "action"=>"update", "id"=>"3", "author"=>{"name"=>"Jorge 3"}} }[0m
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+  [1m[36mAuthor Update (2.1ms)[0m  [1m[33mUPDATE "authors" SET "name" = $1, "updated_at" = $2 WHERE "authors"."id" = $3[0m  [["name", "Jorge 3"], ["updated_at", "2022-11-30 14:16:54.134142"], ["id", 2]]
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+  [1m[36mAuthor Update (0.2ms)[0m  [1m[33mUPDATE "authors" SET "name" = $1, "updated_at" = $2 WHERE "authors"."id" = $3[0m  [["name", "Jorge 3"], ["updated_at", "2022-11-30 14:16:54.140237"], ["id", 3]]
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+  [1m[36mAuthor Update (0.2ms)[0m  [1m[33mUPDATE "authors" SET "name" = $1, "updated_at" = $2 WHERE "authors"."id" = $3[0m  [["name", "Jorge 3"], ["updated_at", "2022-11-30 14:16:54.142107"], ["id", 4]]
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+  [1m[36mAuthor Update (0.2ms)[0m  [1m[33mUPDATE "authors" SET "name" = $1, "updated_at" = $2 WHERE "authors"."id" = $3[0m  [["name", "Jorge 3"], ["updated_at", "2022-11-30 14:16:54.148839"], ["id", 5]]
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+Completed 204 No Content in 21ms (ActiveRecord: 19.3ms | Allocations: 8966)
+
+
+Started PATCH "/api/v1/authors/3" for 127.0.0.1 at 2022-11-30 16:17:35 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"name"=>"Jorge 3", "id"=>"3", "author"=>{"name"=>"Jorge 3"}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+[31mUnpermitted parameters: :id, :author. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000015651b6f0>, params: {"name"=>"Jorge 3", "controller"=>"api/v1/authors", "action"=>"update", "id"=>"3", "author"=>{"name"=>"Jorge 3"}} }[0m
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 9.1ms | Allocations: 2291)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-30 16:18:47 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"name"=>"Jorge 3", "article"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 1.3ms | Allocations: 205)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: article):
+  
+app/controllers/api/v1/articles_controller.rb:49:in `article_params'
+app/controllers/api/v1/articles_controller.rb:18:in `create'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-11-30 16:18:53 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/article"):
+  
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-30 16:19:32 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Jorge 3", "body"=>"body", "article"=>{"title"=>"Jorge 3", "body"=>"body"}}
+Completed 422 Unprocessable Entity in 33ms (Views: 5.6ms | ActiveRecord: 2.1ms | Allocations: 20712)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-30 16:20:54 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Jorge 3", "body"=>"body", "article"=>{"title"=>"Jorge 3", "body"=>"body"}}
+[31mUnpermitted parameter: :article. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x0000000127774278>, params: {"title"=>"Jorge 3", "body"=>"body", "controller"=>"api/v1/articles", "action"=>"create", "article"=>{"title"=>"Jorge 3", "body"=>"body"}} }[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.5ms | ActiveRecord: 4.7ms | Allocations: 4603)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-30 16:27:35 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Jorge 3", "body"=>"body", "article"=>{"title"=>"Jorge 3", "body"=>"body"}}
+Completed 404 Not Found in 6ms (ActiveRecord: 10.3ms | Allocations: 2368)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:54:in `set_author'
+Started POST "/api/v1/articles/3" for 127.0.0.1 at 2022-11-30 16:27:40 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/articles/3"):
+  
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-30 16:28:04 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"author_id"=>"3", "title"=>"Jorge 3", "body"=>"body", "article"=>{"title"=>"Jorge 3", "body"=>"body", "author_id"=>"3"}}
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_author'
+[31mUnpermitted parameters: :author_id, :article. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x000000012738b260>, params: {"author_id"=>"3", "title"=>"Jorge 3", "body"=>"body", "controller"=>"api/v1/articles", "action"=>"create", "article"=>{"title"=>"Jorge 3", "body"=>"body", "author_id"=>"3"}} }[0m
+Completed 422 Unprocessable Entity in 22ms (Views: 0.3ms | ActiveRecord: 3.6ms | Allocations: 6913)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-30 16:28:11 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"author_id"=>"3", "title"=>"Jorge 3", "body"=>"body my body", "article"=>{"title"=>"Jorge 3", "body"=>"body my body", "author_id"=>"3"}}
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_author'
+[31mUnpermitted parameters: :author_id, :article. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x00000001564280b8>, params: {"author_id"=>"3", "title"=>"Jorge 3", "body"=>"body my body", "controller"=>"api/v1/articles", "action"=>"create", "article"=>{"title"=>"Jorge 3", "body"=>"body my body", "author_id"=>"3"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+  [1m[36mArticle Create (6.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Jorge 3"], ["body", "body my body"], ["created_at", "2022-11-30 14:28:11.863369"], ["updated_at", "2022-11-30 14:28:11.863369"], ["author_id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+Completed 201 Created in 18ms (Views: 0.2ms | ActiveRecord: 8.9ms | Allocations: 2661)
+
+
+Started PATCH "/api/v1/articles/1" for 127.0.0.1 at 2022-11-30 16:28:28 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"author_id"=>"3", "title"=>"Jorge 3", "body"=>"body my body 2", "id"=>"1", "article"=>{"title"=>"Jorge 3", "body"=>"body my body 2", "author_id"=>"3"}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:45:in `set_article'
+[31mUnpermitted parameters: :author_id, :id, :article. Context: { controller: Api::V1::ArticlesController, action: update, request: #<ActionDispatch::Request:0x0000000127485bc0>, params: {"author_id"=>"3", "title"=>"Jorge 3", "body"=>"body my body 2", "controller"=>"api/v1/articles", "action"=>"update", "id"=>"1", "article"=>{"title"=>"Jorge 3", "body"=>"body my body 2", "author_id"=>"3"}} }[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:30:in `update'
+  [1m[36mAuthor Load (3.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:30:in `update'
+  [1m[36mArticle Update (0.3ms)[0m  [1m[33mUPDATE "articles" SET "body" = $1, "updated_at" = $2 WHERE "articles"."id" = $3[0m  [["body", "body my body 2"], ["updated_at", "2022-11-30 14:28:28.219161"], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:30:in `update'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 6.1ms | Allocations: 3780)
+
+
+Started PATCH "/api/v1/articles/1" for 127.0.0.1 at 2022-11-30 16:28:39 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"author_id"=>"2", "title"=>"Jorge 3", "body"=>"body my body 2", "id"=>"1", "article"=>{"title"=>"Jorge 3", "body"=>"body my body 2", "author_id"=>"2"}}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:45:in `set_article'
+[31mUnpermitted parameters: :author_id, :id, :article. Context: { controller: Api::V1::ArticlesController, action: update, request: #<ActionDispatch::Request:0x00000001274e8d60>, params: {"author_id"=>"2", "title"=>"Jorge 3", "body"=>"body my body 2", "controller"=>"api/v1/articles", "action"=>"update", "id"=>"1", "article"=>{"title"=>"Jorge 3", "body"=>"body my body 2", "author_id"=>"2"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:30:in `update'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:30:in `update'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 2706)
+
+
+Started DELETE "/api/v1/articles/1" for 127.0.0.1 at 2022-11-30 16:28:50 +0200
+Processing by Api::V1::ArticlesController#destroy as */*
+  Parameters: {"author_id"=>"2", "title"=>"Jorge 3", "body"=>"body my body 2", "id"=>"1", "article"=>{"title"=>"Jorge 3", "body"=>"body my body 2", "author_id"=>"2"}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:45:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:39:in `destroy'
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:39:in `destroy'
+  [1m[36mArticle Destroy (2.3ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:39:in `destroy'
+Completed 204 No Content in 22ms (ActiveRecord: 5.6ms | Allocations: 7759)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-30 16:28:58 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"author_id"=>"2", "title"=>"Jorge 3", "body"=>"body my body 2", "article"=>{"title"=>"Jorge 3", "body"=>"body my body 2", "author_id"=>"2"}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_author'
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 2.5ms | ActiveRecord: 1.1ms | Allocations: 1096)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-30 16:29:03 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"author_id"=>"2", "title"=>"Jorge 3", "body"=>"body my body 2", "article"=>{"title"=>"Jorge 3", "body"=>"body my body 2", "author_id"=>"2"}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_author'
+[31mUnpermitted parameters: :author_id, :article. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x0000000127610ee0>, params: {"author_id"=>"2", "title"=>"Jorge 3", "body"=>"body my body 2", "controller"=>"api/v1/articles", "action"=>"create", "article"=>{"title"=>"Jorge 3", "body"=>"body my body 2", "author_id"=>"2"}} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Jorge 3"], ["body", "body my body 2"], ["created_at", "2022-11-30 14:29:03.109753"], ["updated_at", "2022-11-30 14:29:03.109753"], ["author_id", 2]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+Completed 201 Created in 9ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 2574)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-30 16:29:09 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"author_id"=>"2", "title"=>"Jorge 3", "body"=>"body my body 2", "article"=>{"title"=>"Jorge 3", "body"=>"body my body 2", "author_id"=>"2"}}
+  [1m[36mAuthor Load (6.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_author'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 7.2ms | Allocations: 1179)
+
+
+Started GET "/api/v1/comments" for 127.0.0.1 at 2022-11-30 16:31:24 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"article_id"=>"2", "author_id"=>"3", "status"=>0, "body"=>"body my body 2", "comment"=>{"body"=>"body my body 2", "status"=>0, "author_id"=>"3", "article_id"=>"2"}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:71:in `set_author'
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.2ms | Allocations: 691)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authors
+Did you mean?  author_id):
+  
+app/controllers/api/v1/comments_controller.rb:75:in `person_params'
+app/controllers/api/v1/comments_controller.rb:10:in `index'
+Started POST "/api/v1/comments" for 127.0.0.1 at 2022-11-30 16:31:29 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"article_id"=>"2", "author_id"=>"3", "status"=>0, "body"=>"body my body 2", "comment"=>{"body"=>"body my body 2", "status"=>0, "author_id"=>"3", "article_id"=>"2"}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:71:in `set_author'
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.2ms | Allocations: 587)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authors
+Did you mean?  author_id):
+  
+app/controllers/api/v1/comments_controller.rb:75:in `person_params'
+app/controllers/api/v1/comments_controller.rb:50:in `set_article'
+Started POST "/api/v1/comments" for 127.0.0.1 at 2022-11-30 16:32:10 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"article_id"=>"2", "author_id"=>"3", "status"=>0, "body"=>"body my body 2", "comment"=>{"body"=>"body my body 2", "status"=>0, "author_id"=>"3", "article_id"=>"2"}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:71:in `set_author'
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.2ms | Allocations: 587)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authors
+Did you mean?  author_id):
+  
+app/controllers/api/v1/comments_controller.rb:75:in `person_params'
+app/controllers/api/v1/comments_controller.rb:50:in `set_article'
+Started POST "/api/v1/comments" for 127.0.0.1 at 2022-11-30 16:32:48 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"article_id"=>2, "author_id"=>3, "status"=>0, "body"=>"body my body 2", "comment"=>{"body"=>"body my body 2", "status"=>0, "author_id"=>3, "article_id"=>2}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:71:in `set_author'
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.2ms | Allocations: 587)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authors
+Did you mean?  author_id):
+  
+app/controllers/api/v1/comments_controller.rb:75:in `person_params'
+app/controllers/api/v1/comments_controller.rb:50:in `set_article'
+Started POST "/api/v1/comments" for 127.0.0.1 at 2022-11-30 16:34:21 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"article_id"=>2, "author_id"=>3, "status"=>0, "body"=>"body my body 2", "comment"=>{"body"=>"body my body 2", "status"=>0, "author_id"=>3, "article_id"=>2}}
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:71:in `set_author'
+Completed 400 Bad Request in 10ms (ActiveRecord: 8.1ms | Allocations: 4227)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authors
+Did you mean?  author_id):
+  
+app/controllers/api/v1/comments_controller.rb:75:in `person_params'
+app/controllers/api/v1/comments_controller.rb:50:in `set_article'
+Started GET "/" for 127.0.0.1 at 2022-12-07 15:48:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 633)
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 5697)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-07 15:48:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/authors" for 127.0.0.1 at 2022-12-07 15:48:46 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (3.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 35ms (Views: 7.6ms | ActiveRecord: 23.7ms | Allocations: 18843)
+
+
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-12-07 15:49:18 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Jorge 3", "author"=>{"name"=>"Jorge 3"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mAuthor Create (17.0ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Jorge 3"], ["created_at", "2022-12-07 13:49:18.615649"], ["updated_at", "2022-12-07 13:49:18.615649"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 17.9ms | Allocations: 2450)
+
+
+Started POST "/api/v1/authors" for 127.0.0.1 at 2022-12-07 15:49:25 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Jorge 7", "author"=>{"name"=>"Jorge 7"}}
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mAuthor Create (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Jorge 7"], ["created_at", "2022-12-07 13:49:25.519070"], ["updated_at", "2022-12-07 13:49:25.519070"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:13:in `create'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 3.3ms | Allocations: 1851)
+
+
+Started PATCH "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:49:36 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"name"=>"Jorge 777", "id"=>"7", "author"=>{"name"=>"Jorge 777"}}
+[31mUnpermitted parameters: :id, :author. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000010c033600>, params: {"name"=>"Jorge 777", "controller"=>"api/v1/authors", "action"=>"update", "id"=>"7", "author"=>{"name"=>"Jorge 777"}} }[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 710)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/authors_controller.rb:18:in `update'
+Started PATCH "/api/v1/authors/7" for 127.0.0.1 at 2022-12-07 15:49:44 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"name"=>"Jorge 777", "id"=>"7", "author"=>{"name"=>"Jorge 777"}}
+[31mUnpermitted parameters: :id, :author. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x00000001073774b0>, params: {"name"=>"Jorge 777", "controller"=>"api/v1/authors", "action"=>"update", "id"=>"7", "author"=>{"name"=>"Jorge 777"}} }[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 636)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/authors_controller.rb:18:in `update'
+Started PATCH "/api/v1/authors/7" for 127.0.0.1 at 2022-12-07 15:50:23 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+[31mUnpermitted parameters: :author, :id. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x0000000107731858>, params: {"author"=>{"name"=>"Jorge 777"}, "controller"=>"api/v1/authors", "action"=>"update", "id"=>"7"} }[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/authors_controller.rb:18:in `update'
+Started PATCH "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:50:26 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+[31mUnpermitted parameters: :author, :id. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000010b2b0c08>, params: {"author"=>{"name"=>"Jorge 777"}, "controller"=>"api/v1/authors", "action"=>"update", "id"=>"7"} }[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/authors_controller.rb:18:in `update'
+Started PATCH "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:51:03 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+[31mUnpermitted parameters: :author, :id. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000010b3bb8a0>, params: {"author"=>{"name"=>"Jorge 777"}, "controller"=>"api/v1/authors", "action"=>"update", "id"=>"7"} }[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/authors_controller.rb:18:in `update'
+Started GET "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:51:43 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 85)
+
+
+Started GET "/api/v1/authors/6/" for 127.0.0.1 at 2022-12-07 15:51:47 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"6"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 80)
+
+
+Started GET "/api/v1/authors/6" for 127.0.0.1 at 2022-12-07 15:52:17 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"6"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 80)
+
+
+Started GET "/api/v1/authors/" for 127.0.0.1 at 2022-12-07 15:52:23 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 1102)
+
+
+Started GET "/api/v1/authors/1" for 127.0.0.1 at 2022-12-07 15:52:32 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"1"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 80)
+
+
+Started GET "/api/v1/authors?id=1" for 127.0.0.1 at 2022-12-07 15:53:21 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1102)
+
+
+Started GET "/api/v1/authors?id=2" for 127.0.0.1 at 2022-12-07 15:53:24 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"2"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 1114)
+
+
+Started GET "/api/v1/authors/3/" for 127.0.0.1 at 2022-12-07 15:53:29 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"3"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 80)
+
+
+Started DELETE "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:55:59 +0200
+Processing by Api::V1::AuthorsController#destroy as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:29:in `set_author'
+  [1m[36mTRANSACTION (16.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:23:in `destroy'
+  [1m[36mComment Load (1.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1[0m  [["author_id", 7]]
+  ↳ app/controllers/api/v1/authors_controller.rb:23:in `destroy'
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."author_id" = $1[0m  [["author_id", 7]]
+  ↳ app/controllers/api/v1/authors_controller.rb:23:in `destroy'
+  [1m[36mAuthor Destroy (1.5ms)[0m  [1m[31mDELETE FROM "authors" WHERE "authors"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/api/v1/authors_controller.rb:23:in `destroy'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:23:in `destroy'
+Completed 200 OK in 66ms (Views: 0.1ms | ActiveRecord: 43.3ms | Allocations: 16962)
+
+
+Started DELETE "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:56:02 +0200
+Processing by Api::V1::AuthorsController#destroy as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:29:in `set_author'
+Completed 404 Not Found in 9ms (ActiveRecord: 0.3ms | Allocations: 529)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author with 'id'=7):
+  
+app/controllers/api/v1/authors_controller.rb:29:in `set_author'
+Started GET "/api/v1/authors/7/" for 127.0.0.1 at 2022-12-07 15:56:07 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"7"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 83)
+
+
+Started GET "/api/v1/authors/" for 127.0.0.1 at 2022-12-07 15:56:10 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.3ms | Allocations: 1062)
+
+
+Started GET "/api/v1/authors/6/" for 127.0.0.1 at 2022-12-07 15:57:34 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"6"}
+Completed 404 Not Found in 3ms (ActiveRecord: 2.3ms | Allocations: 454)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author without an ID):
+  
+app/controllers/api/v1/authors_controller.rb:9:in `show'
+Started GET "/api/v1/authors/6/" for 127.0.0.1 at 2022-12-07 15:57:38 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"6"}
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 129)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author without an ID):
+  
+app/controllers/api/v1/authors_controller.rb:9:in `show'
+Started GET "/api/v1/authors/5" for 127.0.0.1 at 2022-12-07 15:57:41 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"author"=>{"name"=>"Jorge 777"}, "id"=>"5"}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 129)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author without an ID):
+  
+app/controllers/api/v1/authors_controller.rb:9:in `show'
+Started GET "/api/v1/authors/5/" for 127.0.0.1 at 2022-12-07 15:57:46 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"5"}
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 129)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author without an ID):
+  
+app/controllers/api/v1/authors_controller.rb:9:in `show'
+Started GET "/api/v1/authors/2" for 127.0.0.1 at 2022-12-07 15:57:53 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"2"}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 129)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author without an ID):
+  
+app/controllers/api/v1/authors_controller.rb:9:in `show'
+Started GET "/api/v1/authors/2" for 127.0.0.1 at 2022-12-07 15:58:40 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 4.3ms | Allocations: 4486)
+
+
+Started GET "/api/v1/authors/3" for 127.0.0.1 at 2022-12-07 15:58:44 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 585)
+
+
+Started PATCH "/api/v1/authors/3/" for 127.0.0.1 at 2022-12-07 15:58:56 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"author"=>{"name"=>"Jorge 333"}, "id"=>"3"}
+[31mUnpermitted parameters: :author, :id. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000012d76ae98>, params: {"author"=>{"name"=>"Jorge 333"}, "controller"=>"api/v1/authors", "action"=>"update", "id"=>"3"} }[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 637)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/api/v1/authors_controller.rb:19:in `update'
+Started PATCH "/api/v1/authors/3/" for 127.0.0.1 at 2022-12-07 15:59:29 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"author"=>{"name"=>"Jorge 333"}, "id"=>"3"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+[31mUnpermitted parameters: :author, :id. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000010c81ecc0>, params: {"author"=>{"name"=>"Jorge 333"}, "controller"=>"api/v1/authors", "action"=>"update", "id"=>"3"} }[0m
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.8ms | Allocations: 2639)
+
+
+Started PATCH "/api/v1/authors/3/" for 127.0.0.1 at 2022-12-07 15:59:35 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"author"=>{"name"=>"Jorge 333"}, "id"=>"3"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+[31mUnpermitted parameters: :author, :id. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000010c89eec0>, params: {"author"=>{"name"=>"Jorge 333"}, "controller"=>"api/v1/authors", "action"=>"update", "id"=>"3"} }[0m
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 841)
+
+
+Started PATCH "/api/v1/authors/3/" for 127.0.0.1 at 2022-12-07 16:00:02 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"name"=>"Jorge 333", "id"=>"3", "author"=>{"name"=>"Jorge 333"}}
+  [1m[36mAuthor Load (1.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+[31mUnpermitted parameters: :id, :author. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000010902c2b8>, params: {"name"=>"Jorge 333", "controller"=>"api/v1/authors", "action"=>"update", "id"=>"3", "author"=>{"name"=>"Jorge 333"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:20:in `update'
+  [1m[36mAuthor Update (1.7ms)[0m  [1m[33mUPDATE "authors" SET "name" = $1, "updated_at" = $2 WHERE "authors"."id" = $3[0m  [["name", "Jorge 333"], ["updated_at", "2022-12-07 14:00:02.684705"], ["id", 3]]
+  ↳ app/controllers/api/v1/authors_controller.rb:20:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:20:in `update'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 3.6ms | Allocations: 2445)
+
+
+Started PATCH "/api/v1/authors/3/articles" for 127.0.0.1 at 2022-12-07 16:00:47 +0200
+  
+ActionController::RoutingError (No route matches [PATCH] "/api/v1/authors/3/articles"):
+  
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 16:00:54 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles"):
+  
+Started GET "/api/v1/authors/3/articles" for 127.0.0.1 at 2022-12-07 16:00:59 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"name"=>"Jorge 333", "author_id"=>"3", "article"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_author'
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 14ms (Views: 5.1ms | ActiveRecord: 7.4ms | Allocations: 18496)
+
+
+Started POST "/api/v1/authors/3/articles" for 127.0.0.1 at 2022-12-07 16:01:48 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"title 1", "body"=>"body 1", "author_id"=>"3", "article"=>{"title"=>"title 1", "body"=>"body 1"}}
+  [1m[36mAuthor Load (1.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_author'
+[31mUnpermitted parameters: :author_id, :article. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x000000010a140978>, params: {"title"=>"title 1", "body"=>"body 1", "controller"=>"api/v1/articles", "action"=>"create", "author_id"=>"3", "article"=>{"title"=>"title 1", "body"=>"body 1"}} }[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+  [1m[36mArticle Create (6.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "title 1"], ["body", "body 1"], ["created_at", "2022-12-07 14:01:48.355427"], ["updated_at", "2022-12-07 14:01:48.355427"], ["author_id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+Completed 201 Created in 24ms (Views: 0.2ms | ActiveRecord: 9.2ms | Allocations: 4664)
+
+
+Started GET "/api/v1/authors/3/articles" for 127.0.0.1 at 2022-12-07 16:01:54 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"title 1", "body"=>"body 1", "author_id"=>"3", "article"=>{"title"=>"title 1", "body"=>"body 1"}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_author'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 1264)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 360)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 1195)
+
+
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.0ms | Allocations: 15)
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 257)
+
+
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-07 16:05:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[35m (150.5ms)[0m  [1m[35mCREATE DATABASE "HW7_development" ENCODING = 'unicode'[0m
+  [1m[35m (37.4ms)[0m  [1m[35mCREATE DATABASE "HW7_test" ENCODING = 'unicode'[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20221120104441)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221120104441"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAuthors (20221128132607)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "authors" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128132607"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20221128132649)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "status" integer DEFAULT 0, "author_id" bigint NOT NULL, "article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f44b1e3c8a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_3bf61a60d3"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_comments_on_author_id" ON "comments" ("author_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_comments_on_article_id" ON "comments" ("article_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128132649"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddReferenceToArticle (20221128143557)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "articles" ADD "author_id" bigint[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_articles_on_author_id" ON "articles" ("author_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128143557"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-07 14:32:11.730908"], ["updated_at", "2022-12-07 14:32:11.730908"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
