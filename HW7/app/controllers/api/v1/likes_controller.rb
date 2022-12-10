@@ -10,7 +10,7 @@ module Api
       end
 
       def create
-        @like = where_is_like.likes.create(like_params)
+        @like = where_is_like.likes.create(params)
         render json: @like, status: :ok
       end
 
@@ -25,14 +25,15 @@ module Api
       private
 
       def set_comment
-        @comment = Comment.find_by(like_params[:comment_id])
+        @comment = Comment.find(params[:comment_id]) if params[:comment_id].present?
       end
 
       def set_article
-        @article = Article.find_by(like_params[:article_id])
+        @article = Article.find(params[:article_id]) if params[:article_id].present?
       end
 
       def where_is_like
+        debugger
         @article.present? ? @article : @comment
       end
 

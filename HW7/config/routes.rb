@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :authors do
-        resources :articles, :comments
+        resources :articles do
+          resources :likes
+        end
+        resources :comments do
+          resources :likes
+        end
       end
     end
   end

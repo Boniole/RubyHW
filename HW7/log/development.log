@@ -2830,3 +2830,503 @@ Processing by Api::V1::CommentsController#update as */*
 Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 9.3ms | Allocations: 27670)
 
 
+Started GET "/api/v1/authors/1/comments/3" for 127.0.0.1 at 2022-12-10 17:49:42 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"3", "comment"=>{}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+Completed 200 OK in 33ms (Views: 0.3ms | ActiveRecord: 9.3ms | Allocations: 51129)
+
+
+Started GET "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 17:49:47 +0200
+Processing by Api::V1::LikesController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment_id"=>"3", "like"=>{"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}}}
+[31mUnpermitted parameters: :authors, :like. Context: { controller: Api::V1::LikesController, action: index, request: #<ActionDispatch::Request:0x0000000117667b88>, params: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "controller"=>"api/v1/likes", "action"=>"index", "author_id"=>"1", "comment_id"=>"3", "like"=>{"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}}} }[0m
+  [1m[36mArticle Load (4.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:32:in `set_article'
+[31mUnpermitted parameters: :authors, :like. Context: { controller: Api::V1::LikesController, action: index, request: #<ActionDispatch::Request:0x0000000117667b88>, params: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "controller"=>"api/v1/likes", "action"=>"index", "author_id"=>"1", "comment_id"=>"3", "like"=>{"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}}} }[0m
+  [1m[36mComment Load (2.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (3) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 11.6ms | Allocations: 24131)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "comments".* FROM "comments" WHERE (3) LIMIT $1
+                                                   ^
+):
+  
+app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+Started GET "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 17:52:45 +0200
+Processing by Api::V1::LikesController#index as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1", "comment_id"=>"3"}}
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: index, request: #<ActionDispatch::Request:0x000000012078dec8>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"index", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:32:in `set_article'
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: index, request: #<ActionDispatch::Request:0x000000012078dec8>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"index", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (3) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.8ms | Allocations: 1412)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "comments".* FROM "comments" WHERE (3) LIMIT $1
+                                                   ^
+):
+  
+app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 17:52:59 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1", "comment_id"=>"3"}}
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x00000001119bf4a8>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:32:in `set_article'
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x00000001119bf4a8>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (3) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.0ms | Allocations: 1412)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "comments".* FROM "comments" WHERE (3) LIMIT $1
+                                                   ^
+):
+  
+app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 17:53:57 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1", "comment_id"=>"3"}}
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000120c7fc10>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:33:in `set_article'
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (3) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (rdbg)//Users/boniole/Ruby/RubyHW/HW7/app/controllers/api/v1/likes_controller.rb:1:in `set_comment'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ (rdbg)//Users/boniole/Ruby/RubyHW/HW7/app/controllers/api/v1/likes_controller.rb:1:in `set_comment'
+  [1m[36mComment Load (10.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (3) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:29:in `set_comment'
+Completed 500 Internal Server Error in 170653ms (ActiveRecord: 24.4ms | Allocations: 245849)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "comments".* FROM "comments" WHERE (3) LIMIT $1
+                                                   ^
+):
+  
+app/controllers/api/v1/likes_controller.rb:29:in `set_comment'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 17:56:54 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1", "comment_id"=>"3"}}
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000111bd0c10>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+Completed 404 Not Found in 12ms (ActiveRecord: 7.2ms | Allocations: 8811)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/likes_controller.rb:33:in `set_article'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 17:58:03 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1", "comment_id"=>"3"}}
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000112207728>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000112207728>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000112207728>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+Completed 404 Not Found in 330166ms (ActiveRecord: 5.2ms | Allocations: 393656)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/likes_controller.rb:34:in `set_article'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 18:03:45 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1", "comment_id"=>"3"}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x000000010dce94e8>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 10.5ms | Allocations: 40397)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "likes" does not exist
+LINE 9:  WHERE a.attrelid = '"likes"'::regclass
+                            ^
+):
+  
+app/controllers/api/v1/likes_controller.rb:13:in `create'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 18:04:03 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1", "comment_id"=>"3"}}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:29:in `set_comment'
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x000000014b4e2928>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x000000014b4e2928>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x000000014b4e2928>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "comment_id"=>"3"}} }[0m
+Completed 500 Internal Server Error in 134665ms (ActiveRecord: 13.2ms | Allocations: 308301)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "likes" does not exist
+LINE 9:  WHERE a.attrelid = '"likes"'::regclass
+                            ^
+):
+  
+app/controllers/api/v1/likes_controller.rb:14:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE DATABASE "HW7_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "HW7_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "HW7_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "HW7_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTags (20221201000000)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (31.3ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221201000000"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateConnectionArticlesToTags (20221201000001)
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "articles_tags" ("article_id" bigint, "tag_id" bigint)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_articles_tags_on_article_id" ON "articles_tags" ("article_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_articles_tags_on_tag_id" ON "articles_tags" ("tag_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221201000001"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnToArticles (20221201000002)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "articles" ADD "status" integer DEFAULT 0 NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221201000002"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLikes (20221201000003)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "author_id" bigint NOT NULL, "likeable_type" character varying NOT NULL, "likeable_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_1f2302367a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_likes_on_author_id" ON "likes" ("author_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_likes_on_likeable" ON "likes" ("likeable_type", "likeable_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221201000003"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 18:39:44 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1"}}
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:29:in `set_comment'
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000143632650>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1"}} }[0m
+Completed 500 Internal Server Error in 7227ms (ActiveRecord: 13.3ms | Allocations: 255891)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'comment_id' for Like.):
+  
+app/controllers/api/v1/likes_controller.rb:14:in `create'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 18:41:27 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1"}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:29:in `set_comment'
+  [1m[36mLike Load (2.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 3], ["likeable_type", "Comment"]]
+  ↳ app/controllers/api/v1/likes_controller.rb:13:in `create'
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000143731cb8>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1"}} }[0m
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000143731cb8>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1"}} }[0m
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000143731cb8>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1"}} }[0m
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000143731cb8>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1"}} }[0m
+Completed 500 Internal Server Error in 152777ms (ActiveRecord: 2.6ms | Allocations: 212786)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'comment_id' for Like.):
+  
+app/controllers/api/v1/likes_controller.rb:14:in `create'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 18:44:08 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1"}}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:29:in `set_comment'
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000105f2e440>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1"}} }[0m
+Completed 500 Internal Server Error in 27540ms (ActiveRecord: 9.8ms | Allocations: 165566)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'comment_id' for Like.):
+  
+app/controllers/api/v1/likes_controller.rb:14:in `create'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 18:44:53 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1"}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:29:in `set_comment'
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000107025a78>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1"}} }[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ (rdbg)//Users/boniole/Ruby/RubyHW/HW7/app/controllers/api/v1/likes_controller.rb:1:in `create'
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (rdbg)//Users/boniole/Ruby/RubyHW/HW7/app/controllers/api/v1/likes_controller.rb:1:in `create'
+  [1m[36mLike Create (3.2ms)[0m  [1m[32mINSERT INTO "likes" ("author_id", "likeable_type", "likeable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 1], ["likeable_type", "Comment"], ["likeable_id", 3], ["created_at", "2022-12-10 16:46:14.804157"], ["updated_at", "2022-12-10 16:46:14.804157"]]
+  ↳ (rdbg)//Users/boniole/Ruby/RubyHW/HW7/app/controllers/api/v1/likes_controller.rb:1:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (rdbg)//Users/boniole/Ruby/RubyHW/HW7/app/controllers/api/v1/likes_controller.rb:1:in `create'
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000107025a78>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1"}} }[0m
+Completed 500 Internal Server Error in 87448ms (ActiveRecord: 11.5ms | Allocations: 252579)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'comment_id' for Like.):
+  
+app/controllers/api/v1/likes_controller.rb:14:in `create'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 18:46:30 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1"}}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000126f990a8>, params: {"author_id"=>"1", "comment_id"=>"3", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1"}} }[0m
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 10.6ms | Allocations: 8838)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'comment_id' for Like.):
+  
+app/controllers/api/v1/likes_controller.rb:13:in `create'
+Started POST "/api/v1/authors/1/comments/3/likes/1" for 127.0.0.1 at 2022-12-10 18:46:34 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/authors/1/comments/3/likes/1"):
+  
+Started GET "/api/v1/authors/1/comments/3/likes/1" for 127.0.0.1 at 2022-12-10 18:46:39 +0200
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::LikesController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/authors/1/comments/3/likes/2" for 127.0.0.1 at 2022-12-10 18:46:42 +0200
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::LikesController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/authors/1/comments/3/likes/3" for 127.0.0.1 at 2022-12-10 18:46:45 +0200
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::LikesController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 18:46:49 +0200
+Processing by Api::V1::LikesController#index as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "like"=>{"author_id"=>"1"}}
+  [1m[36mComment Load (5.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 3], ["likeable_type", "Comment"]]
+  ↳ app/controllers/api/v1/likes_controller.rb:9:in `index'
+Completed 200 OK in 12ms (Views: 1.2ms | ActiveRecord: 5.3ms | Allocations: 1841)
+
+
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 18:49:22 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "likeable_type"=>"Comment", "like"=>{"author_id"=>"1", "likeable_type"=>"Comment"}}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+[31mUnpermitted parameters: :likeable_type, :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x0000000107145228>, params: {"author_id"=>"1", "comment_id"=>"3", "likeable_type"=>"Comment", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "likeable_type"=>"Comment"}} }[0m
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 8.1ms | Allocations: 8967)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'comment_id' for Like.):
+  
+app/controllers/api/v1/likes_controller.rb:13:in `create'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 18:50:03 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "likeable_type"=>"Comment", "like"=>{"author_id"=>"1", "likeable_type"=>"Comment"}}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+[31mUnpermitted parameter: :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x00000001255df4a0>, params: {"author_id"=>"1", "comment_id"=>"3", "likeable_type"=>"Comment", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "likeable_type"=>"Comment"}} }[0m
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 8.3ms | Allocations: 8999)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'comment_id' for Like.):
+  
+app/controllers/api/v1/likes_controller.rb:13:in `create'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 18:50:52 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "likeable_type"=>"Comment", "like"=>{"author_id"=>"1", "likeable_type"=>"Comment"}}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+  [1m[36mLike Load (7.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 3], ["likeable_type", "Comment"]]
+  ↳ app/controllers/api/v1/likes_controller.rb:36:in `where_is_like'
+  [1m[36mCACHE Like Load (0.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 3], ["likeable_type", "Comment"]]
+  ↳ app/controllers/api/v1/likes_controller.rb:36:in `where_is_like'
+[31mUnpermitted parameters: :likeable_type, :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x000000010581c508>, params: {"author_id"=>"1", "comment_id"=>"3", "likeable_type"=>"Comment", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "likeable_type"=>"Comment"}} }[0m
+[31mUnpermitted parameters: :likeable_type, :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x000000010581c508>, params: {"author_id"=>"1", "comment_id"=>"3", "likeable_type"=>"Comment", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "likeable_type"=>"Comment"}} }[0m
+[31mUnpermitted parameters: :likeable_type, :like. Context: { controller: Api::V1::LikesController, action: create, request: #<ActionDispatch::Request:0x000000010581c508>, params: {"author_id"=>"1", "comment_id"=>"3", "likeable_type"=>"Comment", "controller"=>"api/v1/likes", "action"=>"create", "like"=>{"author_id"=>"1", "likeable_type"=>"Comment"}} }[0m
+Completed 500 Internal Server Error in 349115ms (ActiveRecord: 21.1ms | Allocations: 251923)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'comment_id' for Like.):
+  
+app/controllers/api/v1/likes_controller.rb:13:in `create'
+Started POST "/api/v1/authors/1/comments/3/likes" for 127.0.0.1 at 2022-12-10 18:56:51 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>"1", "comment_id"=>"3", "likeable_type"=>"Comment", "like"=>{"author_id"=>"1", "likeable_type"=>"Comment"}}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:28:in `set_comment'
+Completed 500 Internal Server Error in 4612ms (ActiveRecord: 16.8ms | Allocations: 165777)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/api/v1/likes_controller.rb:13:in `create'
