@@ -10,7 +10,7 @@ module Api
       end
 
       def create
-        @like = where_is_like.likes.create(params)
+        @like = where_is_like.likes.create(like_params)
         render json: @like, status: :ok
       end
 
@@ -33,7 +33,6 @@ module Api
       end
 
       def where_is_like
-        debugger
         @article.present? ? @article : @comment
       end
 
@@ -42,7 +41,7 @@ module Api
       end
 
       def like_params
-        params.permit(:author_id, :article_id, :comment_id)
+        params.permit(:author_id)
       end
     end
   end
