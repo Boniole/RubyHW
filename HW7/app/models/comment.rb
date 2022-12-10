@@ -9,5 +9,5 @@ class Comment < ApplicationRecord
   scope :all_comments, ->(article_id) { where('article_id = ?', article_id) }
   scope :last_ten, ->(article_id) { where('article_id = ?', article_id).order('created_at Desc').limit(10) }
 
-  enum status: [:unpublished, :published]
+  enum status: %i[unpublished published]
 end

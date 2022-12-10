@@ -1,11 +1,12 @@
 class Api::V1::CommentsController < ApplicationController
-  before_action :set_author, only: %i[index create]
-  before_action :set_article, only: %i[create]
+  before_action :set_author, only: %i[create show update destroy]
+  before_action :set_article, only: %i[create update]
   before_action :set_comment, only: %i[show update destroy]
 
   def index
     @comments = @author.comments
-    @comments = @author.comments.where(status: params[:status]) if comment_params[:status].present?
+    # debugger
+    @comments = @author.comments.where(status: params[:status]) if comment_params[:status].blank?
 
     render json: @comments
   end
@@ -15,7 +16,7 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def create
-    comment = @article.comments.create(comment_params)
+    comment = @author.comments.create(comment_params)
     if comment.valid?
       render json: comment
     else
@@ -51,8 +52,8 @@ class Api::V1::CommentsController < ApplicationController
 
   def set_comment
     @comment = @author.comments.find(params[:id])
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, statu:not_found
+  rescue ActiveRecord::RecordNotFound
+    render json: {}, status: :not_found
   end
 
   def set_author

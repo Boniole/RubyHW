@@ -1774,3 +1774,1059 @@ Migrating to AddReferenceToArticle (20221128143557)
   [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(545222862770234460)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/authors/3/articles" for 127.0.0.1 at 2022-12-10 15:59:07 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"title 1", "body"=>"body 1", "author_id"=>"3", "article"=>{"title"=>"title 1", "body"=>"body 1"}}
+  [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:58:in `set_author'
+Completed 404 Not Found in 12ms (ActiveRecord: 10.1ms | Allocations: 4973)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author with 'id'=3):
+  
+app/controllers/api/v1/articles_controller.rb:58:in `set_author'
+Started GET "/api/v1/authors/" for 127.0.0.1 at 2022-12-10 15:59:15 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  Parameters: {"title"=>"title 1", "body"=>"body 1", "author"=>{}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 13628)
+
+
+Started GET "/api/v1/authors/" for 127.0.0.1 at 2022-12-10 16:00:38 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  Parameters: {"title"=>"title 1", "body"=>"body 1", "author"=>{}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.4ms | Allocations: 641)
+
+
+Started POST "/api/v1/authors/" for 127.0.0.1 at 2022-12-10 16:01:03 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Stiv Woznjak", "author"=>{"name"=>"Stiv Woznjak"}}
+[31mUnpermitted parameter: :author. Context: { controller: Api::V1::AuthorsController, action: create, request: #<ActionDispatch::Request:0x000000011d089788>, params: {"name"=>"Stiv Woznjak", "controller"=>"api/v1/authors", "action"=>"create", "author"=>{"name"=>"Stiv Woznjak"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mAuthor Create (3.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Stiv Woznjak"], ["created_at", "2022-12-10 14:01:03.819803"], ["updated_at", "2022-12-10 14:01:03.819803"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 4.4ms | Allocations: 17336)
+
+
+Started GET "/api/v1/authors/" for 127.0.0.1 at 2022-12-10 16:01:09 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  Parameters: {"name"=>"Stiv Woznjak", "author"=>{"name"=>"Stiv Woznjak"}}
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.5ms | Allocations: 766)
+
+
+Started PATCH "/api/v1/authors/1" for 127.0.0.1 at 2022-12-10 16:01:24 +0200
+Processing by Api::V1::AuthorsController#update as */*
+  Parameters: {"name"=>"Stiv Woznjak (new)", "id"=>"1", "author"=>{"name"=>"Stiv Woznjak (new)"}}
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:19:in `update'
+[31mUnpermitted parameters: :id, :author. Context: { controller: Api::V1::AuthorsController, action: update, request: #<ActionDispatch::Request:0x000000011b8b5350>, params: {"name"=>"Stiv Woznjak (new)", "controller"=>"api/v1/authors", "action"=>"update", "id"=>"1", "author"=>{"name"=>"Stiv Woznjak (new)"}} }[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:20:in `update'
+  [1m[36mAuthor Update (2.4ms)[0m  [1m[33mUPDATE "authors" SET "name" = $1, "updated_at" = $2 WHERE "authors"."id" = $3[0m  [["name", "Stiv Woznjak (new)"], ["updated_at", "2022-12-10 14:01:24.421832"], ["id", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:20:in `update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:20:in `update'
+Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 3.8ms | Allocations: 2530)
+
+
+Started DELETE "/api/v1/authors/1" for 127.0.0.1 at 2022-12-10 16:01:29 +0200
+Processing by Api::V1::AuthorsController#destroy as */*
+  Parameters: {"name"=>"Stiv Woznjak (new)", "id"=>"1", "author"=>{"name"=>"Stiv Woznjak (new)"}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:35:in `set_author'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:25:in `destroy'
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:25:in `destroy'
+  [1m[36mArticle Load (2.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:25:in `destroy'
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 9.2ms | Allocations: 14726)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "likes" does not exist
+LINE 9:  WHERE a.attrelid = '"likes"'::regclass
+                            ^
+):
+  
+app/controllers/api/v1/authors_controller.rb:25:in `destroy'
+Started DELETE "/api/v1/authors/1/" for 127.0.0.1 at 2022-12-10 16:02:12 +0200
+Processing by Api::V1::AuthorsController#destroy as */*
+  Parameters: {"name"=>"Stiv Woznjak (new)", "id"=>"1", "author"=>{"name"=>"Stiv Woznjak (new)"}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:35:in `set_author'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:25:in `destroy'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:25:in `destroy'
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:25:in `destroy'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 2.6ms | Allocations: 3083)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "likes" does not exist
+LINE 9:  WHERE a.attrelid = '"likes"'::regclass
+                            ^
+):
+  
+app/controllers/api/v1/authors_controller.rb:25:in `destroy'
+Started GET "/api/v1/authors/1/articles" for 127.0.0.1 at 2022-12-10 16:02:30 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"name"=>"Stiv Woznjak (new)", "author_id"=>"1", "article"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:58:in `set_author'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.7ms | Allocations: 1168)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-10 16:02:37 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles"):
+  
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-10 16:06:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles"):
+  
+Started GET "/api/v1/authors/1/" for 127.0.0.1 at 2022-12-10 16:06:31 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"name"=>"Stiv Woznjak (new)", "id"=>"1", "author"=>{"name"=>"Stiv Woznjak (new)"}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 6.9ms | Allocations: 28495)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-10 16:06:39 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles"):
+  
+Started GET "/api/v1/authors/1/articles" for 127.0.0.1 at 2022-12-10 16:07:02 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"name"=>"Stiv Woznjak (new)", "author_id"=>"1", "article"=>{}}
+  [1m[36mAuthor Load (3.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:58:in `set_author'
+  [1m[36mArticle Load (2.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 12ms (Views: 1.2ms | ActiveRecord: 13.5ms | Allocations: 1290)
+
+
+Started POST "/api/v1/authors/1/articles" for 127.0.0.1 at 2022-12-10 16:07:23 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"body"=>"My body", "title"=>"My title", "author_id"=>"1", "article"=>{"title"=>"My title", "body"=>"My body"}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:58:in `set_author'
+[31mUnpermitted parameters: :author_id, :article. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x00000001068875c8>, params: {"body"=>"My body", "title"=>"My title", "controller"=>"api/v1/articles", "action"=>"create", "author_id"=>"1", "article"=>{"title"=>"My title", "body"=>"My body"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+  [1m[36mArticle Create (2.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My title"], ["body", "My body"], ["created_at", "2022-12-10 14:07:24.023276"], ["updated_at", "2022-12-10 14:07:24.023276"], ["author_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+Completed 201 Created in 28ms (Views: 0.2ms | ActiveRecord: 6.1ms | Allocations: 21272)
+
+
+Started GET "/api/v1/authors/1/articles" for 127.0.0.1 at 2022-12-10 16:07:29 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"body"=>"My body", "title"=>"My title", "author_id"=>"1", "article"=>{"title"=>"My title", "body"=>"My body"}}
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:58:in `set_author'
+  [1m[36mArticle Load (6.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 12ms (Views: 2.5ms | ActiveRecord: 7.4ms | Allocations: 1190)
+
+
+Started GET "/api/v1/authors/1/articles/1" for 127.0.0.1 at 2022-12-10 16:07:34 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"body"=>"My body", "title"=>"My title", "author_id"=>"1", "id"=>"1", "article"=>{"title"=>"My title", "body"=>"My body"}}
+  [1m[36mArticle Load (2.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:49:in `set_article'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 737)
+
+
+Started PATCH "/api/v1/authors/1/articles/1" for 127.0.0.1 at 2022-12-10 16:07:46 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"body"=>"My body (new)", "title"=>"My title (new)", "author_id"=>"1", "id"=>"1", "article"=>{"title"=>"My title (new)", "body"=>"My body (new)"}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:49:in `set_article'
+[31mUnpermitted parameters: :author_id, :id, :article. Context: { controller: Api::V1::ArticlesController, action: update, request: #<ActionDispatch::Request:0x0000000105c14f70>, params: {"body"=>"My body (new)", "title"=>"My title (new)", "controller"=>"api/v1/articles", "action"=>"update", "author_id"=>"1", "id"=>"1", "article"=>{"title"=>"My title (new)", "body"=>"My body (new)"}} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:30:in `update'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:30:in `update'
+  [1m[36mArticle Update (0.4ms)[0m  [1m[33mUPDATE "articles" SET "title" = $1, "body" = $2, "updated_at" = $3 WHERE "articles"."id" = $4[0m  [["title", "My title (new)"], ["body", "My body (new)"], ["updated_at", "2022-12-10 14:07:47.017248"], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:30:in `update'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 3783)
+
+
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:15:14 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 422 Unprocessable Entity in 13ms (Views: 3.1ms | ActiveRecord: 16.8ms | Allocations: 17633)
+
+
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:16:14 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1, "author_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+[31mUnpermitted parameter: :author_id. Context: { controller: Api::V1::CommentsController, action: create, request: #<ActionDispatch::Request:0x000000011b67d5b0>, params: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1, "author_id"=>1}}, "controller"=>"api/v1/comments", "action"=>"create", "author_id"=>"1", "comment"=>{}} }[0m
+[31mUnpermitted parameter: :author_id. Context: { controller: Api::V1::CommentsController, action: create, request: #<ActionDispatch::Request:0x000000011b67d5b0>, params: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1, "author_id"=>1}}, "controller"=>"api/v1/comments", "action"=>"create", "author_id"=>"1", "comment"=>{}} }[0m
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+[31mUnpermitted parameter: :author_id. Context: { controller: Api::V1::CommentsController, action: create, request: #<ActionDispatch::Request:0x000000011b67d5b0>, params: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1, "author_id"=>1}}, "controller"=>"api/v1/comments", "action"=>"create", "author_id"=>"1", "comment"=>{}} }[0m
+Completed 422 Unprocessable Entity in 8ms (Views: 2.1ms | ActiveRecord: 0.6ms | Allocations: 2406)
+
+
+Started GET "/api/v1/authors/1" for 127.0.0.1 at 2022-12-10 16:16:33 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"body"=>"My body", "title"=>"My title", "id"=>"1", "author"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 587)
+
+
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:26:45 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 422 Unprocessable Entity in 45ms (Views: 1.3ms | ActiveRecord: 8.5ms | Allocations: 4988)
+
+
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:26:49 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+Filter chain halted as :set_article rendered or redirected
+Completed 404 Not Found in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 581)
+
+
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:27:24 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 2101)
+
+
+Started GET "/api/v1/authors/1" for 127.0.0.1 at 2022-12-10 16:28:26 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "id"=>"1", "author"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 587)
+
+
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:31:02 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (3.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "status", "author_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "My first comment"], ["status", 0], ["author_id", 1], ["article_id", 1], ["created_at", "2022-12-10 14:31:02.643066"], ["updated_at", "2022-12-10 14:31:02.643066"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 20.8ms | Allocations: 21098)
+
+
+Started PATCH "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:31:24 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment (new)", "status"=>1, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 570)
+
+
+  
+NoMethodError (undefined method `comments' for nil:NilClass):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Started PATCH "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:32:38 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"body"=>"My first comment (new)", "status"=>1, "article_id"=>1, "author_id"=>"1", "id"=>"1", "comment"=>{"body"=>"My first comment (new)", "status"=>1, "article_id"=>1}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 505)
+
+
+  
+NoMethodError (undefined method `comments' for nil:NilClass):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Started PATCH "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:32:54 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment (new)", "status"=>1, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 505)
+
+
+  
+NoMethodError (undefined method `comments' for nil:NilClass):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Started PATCH "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:33:59 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment (new)", "status"=>1, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 2.1ms | Allocations: 571)
+
+
+  
+NoMethodError (undefined method `comments' for nil:NilClass):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Started PATCH "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:35:13 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment (new)", "status"=>1, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 1.6ms | Allocations: 571)
+
+
+  
+NoMethodError (undefined method `all_comments' for nil:NilClass):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Started PATCH "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:38:28 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment (new)", "status"=>1, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 3.3ms | Allocations: 570)
+
+
+  
+NoMethodError (undefined method `comments' for nil:NilClass):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE DATABASE "HW7_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE DATABASE "HW7_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(545222862770234460)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started PATCH "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:41:43 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment (new)", "status"=>1, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["article_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mComment Update (0.2ms)[0m  [1m[33mUPDATE "comments" SET "body" = $1, "status" = $2, "updated_at" = $3 WHERE "comments"."id" = $4[0m  [["body", "My first comment (new)"], ["status", 1], ["updated_at", "2022-12-10 14:41:43.805527"], ["id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 17.9ms | Allocations: 21728)
+
+
+Started DELETE "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:41:55 +0200
+Processing by Api::V1::CommentsController#destroy as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment (new)", "status"=>1, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 515)
+
+
+  
+NoMethodError (undefined method `comments' for nil:NilClass):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Started DELETE "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:42:22 +0200
+Processing by Api::V1::CommentsController#destroy as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment (new)", "status"=>1, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["article_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:35:in `destroy'
+  [1m[36mComment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:35:in `destroy'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:35:in `destroy'
+Completed 204 No Content in 24ms (Views: 0.1ms | ActiveRecord: 17.1ms | Allocations: 19731)
+
+
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:42:29 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.9ms)[0m  [1m[32mINSERT INTO "comments" ("body", "status", "author_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "My first comment"], ["status", 0], ["author_id", 1], ["article_id", 1], ["created_at", "2022-12-10 14:42:29.311081"], ["updated_at", "2022-12-10 14:42:29.311081"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 4563)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:42:39 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."status" IS NULL[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 1.4ms | Allocations: 1328)
+
+
+Started GET "/api/v1/authors/1" for 127.0.0.1 at 2022-12-10 16:42:51 +0200
+Processing by Api::V1::AuthorsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "id"=>"1", "author"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:9:in `show'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 684)
+
+
+Started GET "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:42:57 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 515)
+
+
+  
+NoMethodError (undefined method `comments' for nil:NilClass):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Started GET "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:43:22 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["article_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 9.9ms | Allocations: 18852)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<Api::V1::CommentsController:0x00000000031ab0>):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `rescue in set_comment'
+app/controllers/api/v1/comments_controller.rb:52:in `set_comment'
+Started GET "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:44:03 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["article_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 10.7ms | Allocations: 18683)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<Api::V1::CommentsController:0x00000000037168>):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `rescue in set_comment'
+app/controllers/api/v1/comments_controller.rb:52:in `set_comment'
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:44:11 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.9ms | Allocations: 3125)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<Api::V1::CommentsController:0x00000000037230>):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `rescue in set_comment'
+app/controllers/api/v1/comments_controller.rb:52:in `set_comment'
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:45:01 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 14.2ms | Allocations: 18138)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<Api::V1::CommentsController:0x0000000003c938>):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `rescue in set_comment'
+app/controllers/api/v1/comments_controller.rb:52:in `set_comment'
+Started GET "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:45:18 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.6ms | Allocations: 3780)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<Api::V1::CommentsController:0x0000000003c9b0>):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `rescue in set_comment'
+app/controllers/api/v1/comments_controller.rb:52:in `set_comment'
+Started GET "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:45:54 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["article_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 18.2ms | Allocations: 18735)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<Api::V1::CommentsController:0x00000000041ff0>):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `rescue in set_comment'
+app/controllers/api/v1/comments_controller.rb:52:in `set_comment'
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:46:00 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (4.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."status" IS NULL[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `index'
+Completed 200 OK in 11ms (Views: 1.2ms | ActiveRecord: 4.5ms | Allocations: 1955)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:46:16 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 8.4ms | Allocations: 18040)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<Api::V1::CommentsController:0x00000000047748>):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `rescue in set_comment'
+app/controllers/api/v1/comments_controller.rb:52:in `set_comment'
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:46:51 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 3124)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<Api::V1::CommentsController:0x000000000477c0>):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `rescue in set_comment'
+app/controllers/api/v1/comments_controller.rb:52:in `set_comment'
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:47:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 18.7ms | Allocations: 48202)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<Api::V1::CommentsController:0x0000000000bc48>):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `rescue in set_comment'
+app/controllers/api/v1/comments_controller.rb:52:in `set_comment'
+Started GET "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:47:14 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 13998)
+
+
+Started POST "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:47:24 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/authors/1/comments/1"):
+  
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:47:32 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (1.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "status", "author_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "My first comment"], ["status", 0], ["author_id", 1], ["article_id", 1], ["created_at", "2022-12-10 14:47:32.527259"], ["updated_at", "2022-12-10 14:47:32.527259"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 19362)
+
+
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:47:43 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("body", "status", "author_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "My first comment 4"], ["status", 0], ["author_id", 1], ["article_id", 1], ["created_at", "2022-12-10 14:47:43.594580"], ["updated_at", "2022-12-10 14:47:43.594580"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 2.7ms | Allocations: 4011)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:47:52 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (9.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 10.2ms | Allocations: 3128)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<Api::V1::CommentsController:0x0000000000c148>):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `rescue in set_comment'
+app/controllers/api/v1/comments_controller.rb:52:in `set_comment'
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:49:35 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 13.6ms | Allocations: 18149)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<Api::V1::CommentsController:0x00000000011878>):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `rescue in set_comment'
+app/controllers/api/v1/comments_controller.rb:52:in `set_comment'
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:51:47 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 9.0ms | Allocations: 18074)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<Api::V1::CommentsController:0x00000000016d28>):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `rescue in set_comment'
+app/controllers/api/v1/comments_controller.rb:52:in `set_comment'
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:52:29 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Filter chain halted as :set_comment rendered or redirected
+Completed 404 Not Found in 88ms (Views: 0.1ms | ActiveRecord: 78.4ms | Allocations: 16147)
+
+
+Started GET "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:52:36 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1079)
+
+
+Started GET "/api/v1/authors/1/comments/2" for 127.0.0.1 at 2022-12-10 16:52:39 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"2", "comment"=>{}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (5.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 6.2ms | Allocations: 1044)
+
+
+Started GET "/api/v1/authors/1/comments/3" for 127.0.0.1 at 2022-12-10 16:52:42 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"3", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1045)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:52:48 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (2.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Filter chain halted as :set_comment rendered or redirected
+Completed 404 Not Found in 9ms (Views: 0.1ms | ActiveRecord: 2.4ms | Allocations: 1202)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:53:10 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."status" IS NULL[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `index'
+Completed 200 OK in 21ms (Views: 0.6ms | ActiveRecord: 10.5ms | Allocations: 16887)
+
+
+Started GET "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 16:53:14 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1045)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:54:13 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."status" IS NULL[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `index'
+Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 8.3ms | Allocations: 16796)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:55:58 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:47:in `set_article'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."status" IS NULL[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `index'
+Completed 200 OK in 26ms (Views: 0.6ms | ActiveRecord: 22.8ms | Allocations: 16794)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:56:11 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:47:in `set_article'
+Filter chain halted as :set_comment rendered or redirected
+Completed 404 Not Found in 17ms (Views: 0.1ms | ActiveRecord: 10.1ms | Allocations: 16244)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:57:12 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 4.9ms | Allocations: 5403)
+
+
+  
+NoMethodError (undefined method `comments' for nil:NilClass):
+  
+app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 16:57:36 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 4", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:61:in `set_author'
+Completed 500 Internal Server Error in 227733ms (ActiveRecord: 6.0ms | Allocations: 235856)
+
+
+  
+SystemExit (exit):
+  
+(rdbg)//Users/boniole/Ruby/RubyHW/HW7/app/controllers/api/v1/comments_controller.rb:1:in `exit'
+(rdbg)//Users/boniole/Ruby/RubyHW/HW7/app/controllers/api/v1/comments_controller.rb:1:in `set_comment'
+app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 17:07:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:46:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (1.5ms)[0m  [1m[32mINSERT INTO "comments" ("body", "status", "author_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "My first comment 5"], ["status", 0], ["author_id", 1], ["article_id", 1], ["created_at", "2022-12-10 15:07:06.001002"], ["updated_at", "2022-12-10 15:07:06.001002"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+Completed 200 OK in 84ms (Views: 0.2ms | ActiveRecord: 50.6ms | Allocations: 79365)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 17:07:09 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mComment Load (2.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."status" IS NULL[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `index'
+Completed 200 OK in 16ms (Views: 4.3ms | ActiveRecord: 2.8ms | Allocations: 1433)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 17:07:36 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:59:in `set_author'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `index'
+Completed 200 OK in 13ms (Views: 2.3ms | ActiveRecord: 31.7ms | Allocations: 8101)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 17:08:21 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (1.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."status" IS NULL[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:11:in `index'
+Completed 200 OK in 37722ms (Views: 1.6ms | ActiveRecord: 13.0ms | Allocations: 240737)
+
+
+Started GET "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-10 17:09:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:11:in `index'
+Completed 200 OK in 3755ms (Views: 18.1ms | ActiveRecord: 15.4ms | Allocations: 256046)
+
+
+Started GET "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 17:09:24 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 574)
+
+
+Started GET "/api/v1/authors/1/comments/4" for 127.0.0.1 at 2022-12-10 17:09:38 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"4", "comment"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 537)
+
+
+Started GET "/api/v1/authors/1/comments/5" for 127.0.0.1 at 2022-12-10 17:09:41 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"5", "comment"=>{}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 537)
+
+
+Started GET "/api/v1/authors/1/comments/" for 127.0.0.1 at 2022-12-10 17:10:08 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:11:in `index'
+Started GET "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 17:10:41 +0200
+Completed 200 OK in 33066ms (Views: 4.8ms | ActiveRecord: 13.7ms | Allocations: 168513)
+
+
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 11.5ms | Allocations: 5432)
+
+
+  
+NoMethodError (undefined method `comments' for nil:NilClass):
+  
+app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+Started GET "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 17:10:46 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 947)
+
+
+  
+NoMethodError (undefined method `comments' for nil:NilClass):
+  
+app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+Started GET "/api/v1/authors/1/comments/1" for 127.0.0.1 at 2022-12-10 17:11:56 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mComment Load (2.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+Filter chain halted as :set_comment rendered or redirected
+Completed 404 Not Found in 16ms (Views: 0.1ms | ActiveRecord: 16.7ms | Allocations: 6052)
+
+
+Started GET "/api/v1/authors/1/comments/4" for 127.0.0.1 at 2022-12-10 17:12:01 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"4", "comment"=>{}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 2851)
+
+
+Started GET "/api/v1/authors/1/comments/4" for 127.0.0.1 at 2022-12-10 17:12:29 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"4", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 9.5ms | Allocations: 7656)
+
+
+Started GET "/api/v1/authors/1/comments/4" for 127.0.0.1 at 2022-12-10 17:13:02 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"4", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 23.2ms | Allocations: 7682)
+
+
+Started GET "/api/v1/authors/1/comments/4" for 127.0.0.1 at 2022-12-10 17:13:49 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"4", "comment"=>{}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 13.3ms | Allocations: 7759)
+
+
+Started DELETE "/api/v1/authors/1/comments/4" for 127.0.0.1 at 2022-12-10 17:13:53 +0200
+Processing by Api::V1::CommentsController#destroy as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"4", "comment"=>{}}
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:36:in `destroy'
+  [1m[36mComment Destroy (0.8ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/api/v1/comments_controller.rb:36:in `destroy'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:36:in `destroy'
+Completed 204 No Content in 9ms (Views: 0.1ms | ActiveRecord: 4.3ms | Allocations: 2690)
+
+
+Started GET "/api/v1/authors/1/comments/4" for 127.0.0.1 at 2022-12-10 17:13:58 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"4", "comment"=>{}}
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+Filter chain halted as :set_comment rendered or redirected
+Completed 404 Not Found in 9ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1275)
+
+
+Started PATCH "/api/v1/authors/1/comments/3" for 127.0.0.1 at 2022-12-10 17:14:07 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "id"=>"3", "comment"=>{}}
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:47:in `set_article'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:54:in `set_comment'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:28:in `update'
+  [1m[36mComment Update (0.4ms)[0m  [1m[33mUPDATE "comments" SET "body" = $1, "updated_at" = $2 WHERE "comments"."id" = $3[0m  [["body", "My first comment 5"], ["updated_at", "2022-12-10 15:14:07.302264"], ["id", 3]]
+  ↳ app/controllers/api/v1/comments_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:28:in `update'
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 9.3ms | Allocations: 27670)
+
+

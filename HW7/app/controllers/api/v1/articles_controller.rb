@@ -1,6 +1,6 @@
 class Api::V1::ArticlesController < ApplicationController
   before_action :set_author, only: %i[index create]
-  before_action :set_article, only: %i[ show update destroy ]
+  before_action :set_article, only: %i[show update destroy]
 
   # GET /articles
   def index
