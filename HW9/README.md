@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## How to use
+Type in console:
 
-Things you may want to cover:
+```ruby
+git clone https://github.com/Boniole/RubyHW.git
+```
 
-* Ruby version
+```ruby
+cd RubyHW/HW9
+````
 
-* System dependencies
+```ruby
+gem install bundler
+```
+```ruby
+bundle install
+```
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Explore API use link:
+```ruby
+http://127.0.0.1:3000/api-docs
+```
