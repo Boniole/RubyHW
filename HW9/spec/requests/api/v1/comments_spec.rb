@@ -23,6 +23,16 @@ RSpec.describe 'api/v1/comments', type: :request do
 
     post('create comment') do
       tags 'Comment'
+      consumes 'application/json'
+      parameter name: :comment, in: :body, schema: {
+        type: :object,
+        properties: {
+          body: { type: :string },
+          status: { type: :integer },
+          article_id: { type: :integer }
+        },
+        required: %w[article_id body]
+      }
       response(200, 'successful') do
         let(:author_id) { '123' }
 

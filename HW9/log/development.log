@@ -4396,3 +4396,317 @@ Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-21 22:27:43 +020
 Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-21 22:27:43 +0200
 Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-21 22:27:43 +0200
 Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-21 22:27:44 +0200
+Started GET "/" for 127.0.0.1 at 2022-12-24 07:27:44 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.8ms | Allocations: 631)
+Completed 200 OK in 9ms (Views: 3.7ms | Allocations: 5684)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-24 07:27:44 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2022-12-24 07:27:48 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 356)
+Completed 200 OK in 3ms (Views: 1.2ms | Allocations: 1187)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-24 07:27:48 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-24 07:27:48 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-24 07:27:48 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-24 07:27:48 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-24 07:27:48 +0200
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-12-24 07:27:48 +0200
+Started GET "/api-docs/favicon-16x16.png" for 127.0.0.1 at 2022-12-24 07:27:48 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-24 07:32:26 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-24 07:32:27 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-24 07:32:27 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-24 07:32:27 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-24 07:32:27 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-24 07:32:56 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-24 07:32:56 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-24 07:32:56 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-24 07:32:56 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-24 07:32:56 +0200
+Started GET "/api/v1/authors/1/articles" for 127.0.0.1 at 2022-12-24 07:33:03 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"author_id"=>"1"}
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_author'
+  [1m[36mArticle Load (2.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY title [0m
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (35.97ms)
+Completed 200 OK in 155ms (Views: 44.0ms | ActiveRecord: 60.3ms | Allocations: 81441)
+
+
+Started GET "/api/v1/authors/1/articles/1" for 127.0.0.1 at 2022-12-24 07:33:26 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"author_id"=>"1", "id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+[active_model_serializers]   [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `show'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/comment_serializer.rb:5:in `author'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (2.36ms)
+Completed 200 OK in 11ms (Views: 2.4ms | ActiveRecord: 0.7ms | Allocations: 2906)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-12-24 07:34:50 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/articles"):
+  
+Started POST "/api/v1/authors/3/articles" for 127.0.0.1 at 2022-12-24 07:35:15 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"title 1", "body"=>"body 1", "author_id"=>"3", "article"=>{"title"=>"title 1", "body"=>"body 1"}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_author'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms | Allocations: 533)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author with 'id'=3):
+  
+app/controllers/api/v1/articles_controller.rb:79:in `set_author'
+Started POST "/api/v1/authors/1/articles" for 127.0.0.1 at 2022-12-24 07:35:27 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"title 1", "body"=>"body 1", "author_id"=>"1", "article"=>{"title"=>"title 1", "body"=>"body 1"}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_author'
+[31mUnpermitted parameters: :author_id, :article. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x0000000103cf65a8>, params: {"title"=>"title 1", "body"=>"body 1", "controller"=>"api/v1/articles", "action"=>"create", "author_id"=>"1", "article"=>{"title"=>"title 1", "body"=>"body 1"}} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:31:in `create'
+  [1m[36mArticle Create (6.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id", "status") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "title 1"], ["body", "body 1"], ["created_at", "2022-12-24 05:35:27.541669"], ["updated_at", "2022-12-24 05:35:27.541669"], ["author_id", 1], ["status", 0]]
+  ↳ app/controllers/api/v1/articles_controller.rb:31:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:31:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:32:in `create'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (2.41ms)
+Completed 201 Created in 23ms (Views: 1.9ms | ActiveRecord: 9.8ms | Allocations: 5031)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-24 07:41:27 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-24 07:41:27 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-24 07:41:27 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-24 07:41:27 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-24 07:41:27 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-24 07:41:59 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-24 07:41:59 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-24 07:41:59 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-24 07:41:59 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-24 07:42:00 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-24 07:42:08 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-24 07:42:08 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-24 07:42:08 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-24 07:42:08 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-24 07:42:08 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-24 07:48:56 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-24 07:48:56 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-24 07:48:56 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-24 07:48:56 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-24 07:48:56 +0200
+Started POST "/api/v1/authors/1/articles" for 127.0.0.1 at 2022-12-24 07:49:05 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"string", "body"=>"string", "author_id"=>"1", "article"=>{"title"=>"string", "body"=>"string"}}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_author'
+[31mUnpermitted parameters: :author_id, :article. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x0000000155732778>, params: {"title"=>"string", "body"=>"string", "controller"=>"api/v1/articles", "action"=>"create", "author_id"=>"1", "article"=>{"title"=>"string", "body"=>"string"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:31:in `create'
+  [1m[36mArticle Create (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id", "status") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "string"], ["body", "string"], ["created_at", "2022-12-24 05:49:05.403804"], ["updated_at", "2022-12-24 05:49:05.403804"], ["author_id", 1], ["status", 0]]
+  ↳ app/controllers/api/v1/articles_controller.rb:31:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:31:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:32:in `create'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (6.09ms)
+Completed 201 Created in 31ms (Views: 5.4ms | ActiveRecord: 11.4ms | Allocations: 7109)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-24 07:50:06 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-24 07:50:06 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-24 07:50:06 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-24 07:50:06 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-24 07:50:06 +0200
+Started PATCH "/api/v1/authors/1/articles/1" for 127.0.0.1 at 2022-12-24 07:50:14 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"author_id"=>"1", "id"=>"1"}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+[31mUnpermitted parameters: :author_id, :id. Context: { controller: Api::V1::ArticlesController, action: update, request: #<ActionDispatch::Request:0x0000000154d89f00>, params: {"controller"=>"api/v1/articles", "action"=>"update", "author_id"=>"1", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `update'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `update'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `update'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:41:in `update'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/comment_serializer.rb:5:in `author'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (2.62ms)
+Completed 200 OK in 16ms (Views: 2.7ms | ActiveRecord: 4.2ms | Allocations: 5160)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-24 07:52:47 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-24 07:52:47 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-24 07:52:47 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-24 07:52:47 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-24 07:52:48 +0200
+Started POST "/api/v1/authors/1/articles" for 127.0.0.1 at 2022-12-24 07:52:54 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"string", "body"=>"string", "author_id"=>"1", "article"=>{"title"=>"string", "body"=>"string"}}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_author'
+[31mUnpermitted parameters: :author_id, :article. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x000000014030c410>, params: {"title"=>"string", "body"=>"string", "controller"=>"api/v1/articles", "action"=>"create", "author_id"=>"1", "article"=>{"title"=>"string", "body"=>"string"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:31:in `create'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id", "status") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "string"], ["body", "string"], ["created_at", "2022-12-24 05:52:54.458072"], ["updated_at", "2022-12-24 05:52:54.458072"], ["author_id", 1], ["status", 0]]
+  ↳ app/controllers/api/v1/articles_controller.rb:31:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:31:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:32:in `create'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (5.09ms)
+Completed 201 Created in 16ms (Views: 4.8ms | ActiveRecord: 3.7ms | Allocations: 4161)
+
+
+Started GET "/api/v1/authors/1/articles" for 127.0.0.1 at 2022-12-24 07:54:03 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"author_id"=>"1"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_author'
+  [1m[36mArticle Load (1.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY title [0m
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/article_serializer.rb:5:in `author'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.28ms)
+Completed 200 OK in 15ms (Views: 10.4ms | ActiveRecord: 3.0ms | Allocations: 11202)
+
+
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-24 07:55:41 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"authors"=>{"comments"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}, "author_id"=>"1", "comment"=>{}}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:47:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `create'
+  [1m[36mComment Create (3.7ms)[0m  [1m[32mINSERT INTO "comments" ("body", "status", "author_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "My first comment 5"], ["status", 0], ["author_id", 1], ["article_id", 1], ["created_at", "2022-12-24 05:55:41.829704"], ["updated_at", "2022-12-24 05:55:41.829704"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/comment_serializer.rb:5:in `author'
+[active_model_serializers] Rendered Api::V1::CommentSerializer with ActiveModelSerializers::Adapter::Attributes (0.73ms)
+Completed 200 OK in 12ms (Views: 0.9ms | ActiveRecord: 4.7ms | Allocations: 5360)
+
+
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-24 07:56:22 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"My first comment 5", "status"=>0, "article_id"=>1, "author_id"=>"1", "comment"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+[31mUnpermitted parameters: :author_id, :comment. Context: { controller: Api::V1::CommentsController, action: create, request: #<ActionDispatch::Request:0x0000000103cc5e58>, params: {"body"=>"My first comment 5", "status"=>0, "article_id"=>1, "controller"=>"api/v1/comments", "action"=>"create", "author_id"=>"1", "comment"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}} }[0m
+[31mUnpermitted parameters: :author_id, :comment. Context: { controller: Api::V1::CommentsController, action: create, request: #<ActionDispatch::Request:0x0000000103cc5e58>, params: {"body"=>"My first comment 5", "status"=>0, "article_id"=>1, "controller"=>"api/v1/comments", "action"=>"create", "author_id"=>"1", "comment"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}} }[0m
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:47:in `set_article'
+[31mUnpermitted parameters: :author_id, :comment. Context: { controller: Api::V1::CommentsController, action: create, request: #<ActionDispatch::Request:0x0000000103cc5e58>, params: {"body"=>"My first comment 5", "status"=>0, "article_id"=>1, "controller"=>"api/v1/comments", "action"=>"create", "author_id"=>"1", "comment"=>{"body"=>"My first comment 5", "status"=>0, "article_id"=>1}} }[0m
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `create'
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("body", "status", "author_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "My first comment 5"], ["status", 0], ["author_id", 1], ["article_id", 1], ["created_at", "2022-12-24 05:56:22.363828"], ["updated_at", "2022-12-24 05:56:22.363828"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/comment_serializer.rb:5:in `author'
+[active_model_serializers] Rendered Api::V1::CommentSerializer with ActiveModelSerializers::Adapter::Attributes (0.86ms)
+Completed 200 OK in 34ms (Views: 2.0ms | ActiveRecord: 23.3ms | Allocations: 23715)
+
+
+Started POST "/api/v1/authors/1/comments" for 127.0.0.1 at 2022-12-24 07:56:55 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"My first comment 5", "article_id"=>1, "author_id"=>"1", "comment"=>{"body"=>"My first comment 5", "article_id"=>1}}
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_author'
+[31mUnpermitted parameters: :author_id, :comment. Context: { controller: Api::V1::CommentsController, action: create, request: #<ActionDispatch::Request:0x0000000154d5ab60>, params: {"body"=>"My first comment 5", "article_id"=>1, "controller"=>"api/v1/comments", "action"=>"create", "author_id"=>"1", "comment"=>{"body"=>"My first comment 5", "article_id"=>1}} }[0m
+[31mUnpermitted parameters: :author_id, :comment. Context: { controller: Api::V1::CommentsController, action: create, request: #<ActionDispatch::Request:0x0000000154d5ab60>, params: {"body"=>"My first comment 5", "article_id"=>1, "controller"=>"api/v1/comments", "action"=>"create", "author_id"=>"1", "comment"=>{"body"=>"My first comment 5", "article_id"=>1}} }[0m
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:47:in `set_article'
+[31mUnpermitted parameters: :author_id, :comment. Context: { controller: Api::V1::CommentsController, action: create, request: #<ActionDispatch::Request:0x0000000154d5ab60>, params: {"body"=>"My first comment 5", "article_id"=>1, "controller"=>"api/v1/comments", "action"=>"create", "author_id"=>"1", "comment"=>{"body"=>"My first comment 5", "article_id"=>1}} }[0m
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `create'
+  [1m[36mComment Create (2.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "status", "author_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "My first comment 5"], ["status", 0], ["author_id", 1], ["article_id", 1], ["created_at", "2022-12-24 05:56:55.937498"], ["updated_at", "2022-12-24 05:56:55.937498"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/V1/comment_serializer.rb:5:in `author'
+[active_model_serializers] Rendered Api::V1::CommentSerializer with ActiveModelSerializers::Adapter::Attributes (0.75ms)
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 4.0ms | Allocations: 4867)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-24 08:02:21 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-24 08:02:21 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-24 08:02:21 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-24 08:02:21 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-24 08:02:21 +0200

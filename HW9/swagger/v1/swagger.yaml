@@ -23,9 +23,25 @@ paths:
       summary: create article
       tags:
       - Article
+      parameters: []
       responses:
-        '200':
-          description: successful
+        '201':
+          description: article created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+              required:
+              - title
+              - body
   "/api/v1/authors/{author_id}/articles/{id}":
     parameters:
     - name: author_id
@@ -87,9 +103,25 @@ paths:
       summary: create comment
       tags:
       - Comment
+      parameters: []
       responses:
         '200':
           description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                body:
+                  type: string
+                status:
+                  type: integer
+                article_id:
+                  type: integer
+              required:
+              - article_id
+              - body
   "/api/v1/authors/{author_id}/comments/{id}":
     parameters:
     - name: author_id
@@ -133,7 +165,7 @@ paths:
         '200':
           description: successful
 servers:
-- url: https://{defaultHost}
+- url: http://{defaultHost}
   variables:
     defaultHost:
-      default: www.example.com
+      default: localhost:3000

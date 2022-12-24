@@ -23,16 +23,22 @@ RSpec.describe 'api/v1/articles', type: :request do
 
     post('create article') do
       tags 'Article'
-      response(200, 'successful') do
-        let(:author_id) { '123' }
+      consumes 'application/json'
+      parameter name: :article, in: :body, schema: {
+        type: :object,
+        properties: {
+          title: { type: :string },
+          body: { type: :string }
+        },
+        required: %w[title body]
+      }
+      response '201', 'article created' do
+        let(:article) { { title: 'title', body: 'body' } }
+        run_test!
+      end
 
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
+      response '422', 'invalid request' do
+        let(:article) { { title: 'title', body: 'body' } }
         run_test!
       end
     end
