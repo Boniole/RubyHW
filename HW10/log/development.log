@@ -2291,3 +2291,1414 @@ Processing by ProductsController#index as HTML
 Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 1.2ms | Allocations: 7926)
 
 
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:50:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1918)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2029)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 5492)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+      /* Remove the navbar's default rounded borders and increase the bottom margin */
+      .navbar {
+          margin-bottom: 50px;
+          border-radius: 0;
+      }
+
+      /* Remove the jumbotron's default bottom margin */
+      .jumbotron {
+          margin-bottom: 0;
+      }
+
+      /* Add a gray background color and some padding to the footer */
+      footer {
+          background-color: #f2f2f2;
+          padding: 25px;
+      }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Online Store</h1>
+    <p>Mission, Vission & Values</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <% @categories.each do |category| %>
+          <li class="nav-item">
+          <li><a href=<%= category_path(category) %>><%= {category.title} %>></a></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="col-2 flex-shrink-0 p-3 text-white bg-dark">
+
+  <div class="category">
+    <h2>Categories:</h2>
+  </div>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <% @categories.each do |category| %>
+      <li class="nav-item">
+        <h3><%= link_to "#{category.title}", category_path(category) %></h3>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Image</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Price</th>
+    <th scope="col">Show</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @products.each_with_index do |product, index| %>
+  <tr>
+    <th <%= index +1 %></th>
+    <td><%= product.image %></td>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.price %></td>
+    <td><%= link_to "Show this product", product %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+):
+1:    <!DOCTYPE html>
+2:    <html lang="en">
+3:    <head>
+4:      <title>Bootstrap Example</title>
+5:      <meta charset="utf-8">
+6:      <meta name="viewport" content="width=device-width, initial-scale=1">
+7:      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+8:      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+9:      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+10:      <style>
+11:          /* Remove the navbar's default rounded borders and increase the bottom margin */
+12:          .navbar {
+13:              margin-bottom: 50px;
+14:              border-radius: 0;
+15:          }
+16:    
+17:          /* Remove the jumbotron's default bottom margin */
+18:          .jumbotron {
+19:              margin-bottom: 0;
+20:          }
+21:    
+22:          /* Add a gray background color and some padding to the footer */
+23:          footer {
+24:              background-color: #f2f2f2;
+25:              padding: 25px;
+26:          }
+27:      </style>
+28:    </head>
+29:    <body>
+30:    
+31:    <div class="jumbotron">
+32:      <div class="container text-center">
+33:        <h1>Online Store</h1>
+34:        <p>Mission, Vission & Values</p>
+35:      </div>
+36:    </div>
+37:    
+38:    <nav class="navbar navbar-inverse">
+39:      <div class="container-fluid">
+40:        <div class="navbar-header">
+41:          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+42:            <span class="icon-bar"></span>
+43:            <span class="icon-bar"></span>
+44:            <span class="icon-bar"></span>
+45:          </button>
+46:          <a class="navbar-brand" href="#">Logo</a>
+47:        </div>
+48:        <div class="collapse navbar-collapse" id="myNavbar">
+49:          <ul class="nav navbar-nav">
+50:            <li class="active"><a href="#">Home</a></li>
+51:            <% @categories.each do |category| %>
+52:              <li class="nav-item">
+53:              <li><a href=<%= category_path(category) %>><%= {category.title} %>></a></li>
+54:            <% end %>
+55:          </ul>
+56:          <ul class="nav navbar-nav navbar-right">
+57:            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+58:            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+59:          </ul>
+60:        </div>
+61:      </div>
+62:    </nav>
+63:    
+64:    <div class="col-2 flex-shrink-0 p-3 text-white bg-dark">
+65:    
+66:      <div class="category">
+67:        <h2>Categories:</h2>
+68:      </div>
+69:      <ul class="nav nav-pills flex-column mb-auto">
+70:        <% @categories.each do |category| %>
+71:          <li class="nav-item">
+72:            <h3><%= link_to "#{category.title}", category_path(category) %></h3>
+73:          </li>
+74:        <% end %>
+75:      </ul>
+76:    </div>
+77:    
+78:    <table class="table">
+79:      <thead>
+80:      <tr>
+81:        <th scope="col">#</th>
+82:        <th scope="col">Image</th>
+83:        <th scope="col">Name</th>
+84:        <th scope="col">Description</th>
+85:        <th scope="col">Price</th>
+86:        <th scope="col">Show</th>
+87:      </tr>
+88:      </thead>
+89:      <tbody>
+90:      <% @products.each_with_index do |product, index| %>
+91:      <tr>
+92:        <th <%= index +1 %></th>
+93:        <td><%= product.image %></td>
+94:        <td><%= product.name %></td>
+95:        <td><%= product.description %></td>
+96:        <td><%= product.price %></td>
+97:        <td><%= link_to "Show this product", product %></td>
+98:      </tr>
+99:      <% end %>
+100:      </tbody>
+101:    </table>
+  
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:103: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:103: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:103: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:103: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:103: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:103: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:52:22 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1377)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1467)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2513)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+      /* Remove the navbar's default rounded borders and increase the bottom margin */
+      .navbar {
+          margin-bottom: 50px;
+          border-radius: 0;
+      }
+
+      /* Remove the jumbotron's default bottom margin */
+      .jumbotron {
+          margin-bottom: 0;
+      }
+
+      /* Add a gray background color and some padding to the footer */
+      footer {
+          background-color: #f2f2f2;
+          padding: 25px;
+      }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Online Store</h1>
+    <p>Mission, Vission & Values</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <li class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <% @categories.each do |category| %>
+          <li class="nav-item">
+          <li><a href=<%= category_path(category) %>><%= {category.title} %>></a></li>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Image</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Price</th>
+    <th scope="col">Show</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @products.each_with_index do |product, index| %>
+  <tr>
+    <th <%= index +1 %></th>
+    <td><%= product.image %></td>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.price %></td>
+    <td><%= link_to "Show this product", product %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+):
+1:    <!DOCTYPE html>
+2:    <html lang="en">
+3:    <head>
+4:      <title>Bootstrap Example</title>
+5:      <meta charset="utf-8">
+6:      <meta name="viewport" content="width=device-width, initial-scale=1">
+7:      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+8:      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+9:      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+10:      <style>
+11:          /* Remove the navbar's default rounded borders and increase the bottom margin */
+12:          .navbar {
+13:              margin-bottom: 50px;
+14:              border-radius: 0;
+15:          }
+16:    
+17:          /* Remove the jumbotron's default bottom margin */
+18:          .jumbotron {
+19:              margin-bottom: 0;
+20:          }
+21:    
+22:          /* Add a gray background color and some padding to the footer */
+23:          footer {
+24:              background-color: #f2f2f2;
+25:              padding: 25px;
+26:          }
+27:      </style>
+28:    </head>
+29:    <body>
+30:    
+31:    <div class="jumbotron">
+32:      <div class="container text-center">
+33:        <h1>Online Store</h1>
+34:        <p>Mission, Vission & Values</p>
+35:      </div>
+36:    </div>
+37:    
+38:    <nav class="navbar navbar-inverse">
+39:      <div class="container-fluid">
+40:        <div class="navbar-header">
+41:          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+42:            <span class="icon-bar"></span>
+43:            <span class="icon-bar"></span>
+44:            <span class="icon-bar"></span>
+45:          </button>
+46:          <a class="navbar-brand" href="#">Logo</a>
+47:        </div>
+48:        <div class="collapse navbar-collapse" id="myNavbar">
+49:          <li class="nav navbar-nav">
+50:            <li class="active"><a href="#">Home</a></li>
+51:            <% @categories.each do |category| %>
+52:              <li class="nav-item">
+53:              <li><a href=<%= category_path(category) %>><%= {category.title} %>></a></li>
+54:              </li>
+55:            <% end %>
+56:          </ul>
+57:          <ul class="nav navbar-nav navbar-right">
+58:            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+59:            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+60:          </ul>
+61:        </div>
+62:      </div>
+63:    </nav>
+64:    
+65:    <table class="table">
+66:      <thead>
+67:      <tr>
+68:        <th scope="col">#</th>
+69:        <th scope="col">Image</th>
+70:        <th scope="col">Name</th>
+71:        <th scope="col">Description</th>
+72:        <th scope="col">Price</th>
+73:        <th scope="col">Show</th>
+74:      </tr>
+75:      </thead>
+76:      <tbody>
+77:      <% @products.each_with_index do |product, index| %>
+78:      <tr>
+79:        <th <%= index +1 %></th>
+80:        <td><%= product.image %></td>
+81:        <td><%= product.name %></td>
+82:        <td><%= product.description %></td>
+83:        <td><%= product.price %></td>
+84:        <td><%= link_to "Show this product", product %></td>
+85:      </tr>
+86:      <% end %>
+87:      </tbody>
+88:    </table>
+  
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:55: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:90: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:55: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:90: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:55: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:90: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:55: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:90: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:55: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:90: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:55: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:90: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:52:31 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/index.html.erb:51
+  [1m[36mProduct Load (3.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:77:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 78.1ms | Allocations: 12301)
+  Rendered layout layouts/application.html.erb (Duration: 142.3ms | Allocations: 75813)
+Completed 200 OK in 144ms (Views: 78.9ms | ActiveRecord: 64.5ms | Allocations: 76916)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:54:38 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1378)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1468)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 2543)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+      /* Remove the navbar's default rounded borders and increase the bottom margin */
+      .navbar {
+          margin-bottom: 50px;
+          border-radius: 0;
+      }
+
+      /* Remove the jumbotron's default bottom margin */
+      .jumbotron {
+          margin-bottom: 0;
+      }
+
+      /* Add a gray background color and some padding to the footer */
+      footer {
+          background-color: #f2f2f2;
+          padding: 25px;
+      }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Online Store</h1>
+    <p>Mission, Vission & Values</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+        <% @categories.each do |category| %>
+          <li><a href="#">Products</a></li>
+          <li><a href=<%= category_path(category) %>><%= {category.title} %>></a></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Image</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Price</th>
+    <th scope="col">Show</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @products.each_with_index do |product, index| %>
+  <tr>
+    <th <%= index +1 %></th>
+    <td><%= product.image %></td>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.price %></td>
+    <td><%= link_to "Show this product", product %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+):
+1:    <!DOCTYPE html>
+2:    <html lang="en">
+3:    <head>
+4:      <title>Bootstrap Example</title>
+5:      <meta charset="utf-8">
+6:      <meta name="viewport" content="width=device-width, initial-scale=1">
+7:      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+8:      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+9:      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+10:      <style>
+11:          /* Remove the navbar's default rounded borders and increase the bottom margin */
+12:          .navbar {
+13:              margin-bottom: 50px;
+14:              border-radius: 0;
+15:          }
+16:    
+17:          /* Remove the jumbotron's default bottom margin */
+18:          .jumbotron {
+19:              margin-bottom: 0;
+20:          }
+21:    
+22:          /* Add a gray background color and some padding to the footer */
+23:          footer {
+24:              background-color: #f2f2f2;
+25:              padding: 25px;
+26:          }
+27:      </style>
+28:    </head>
+29:    <body>
+30:    
+31:    <div class="jumbotron">
+32:      <div class="container text-center">
+33:        <h1>Online Store</h1>
+34:        <p>Mission, Vission & Values</p>
+35:      </div>
+36:    </div>
+37:    
+38:    <nav class="navbar navbar-inverse">
+39:      <div class="container-fluid">
+40:        <div class="navbar-header">
+41:          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+42:            <span class="icon-bar"></span>
+43:            <span class="icon-bar"></span>
+44:            <span class="icon-bar"></span>
+45:          </button>
+46:          <a class="navbar-brand" href="#">Logo</a>
+47:        </div>
+48:        <div class="collapse navbar-collapse" id="myNavbar">
+49:          <ul class="nav navbar-nav">
+50:          <li class="active"><a href="#">Home</a></li>
+51:            <% @categories.each do |category| %>
+52:              <li><a href="#">Products</a></li>
+53:              <li><a href=<%= category_path(category) %>><%= {category.title} %>></a></li>
+54:            <% end %>
+55:          </ul>
+56:          <ul class="nav navbar-nav navbar-right">
+57:            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+58:            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+59:          </ul>
+60:        </div>
+61:      </div>
+62:    </nav>
+63:    
+64:    <table class="table">
+65:      <thead>
+66:      <tr>
+67:        <th scope="col">#</th>
+68:        <th scope="col">Image</th>
+69:        <th scope="col">Name</th>
+70:        <th scope="col">Description</th>
+71:        <th scope="col">Price</th>
+72:        <th scope="col">Show</th>
+73:      </tr>
+74:      </thead>
+75:      <tbody>
+76:      <% @products.each_with_index do |product, index| %>
+77:      <tr>
+78:        <th <%= index +1 %></th>
+79:        <td><%= product.image %></td>
+80:        <td><%= product.name %></td>
+81:        <td><%= product.description %></td>
+82:        <td><%= product.price %></td>
+83:        <td><%= link_to "Show this product", product %></td>
+84:      </tr>
+85:      <% end %>
+86:      </tbody>
+87:    </table>
+  
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:54:59 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/index.html.erb:51
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:76:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1750)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 6863)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 1.1ms | Allocations: 7915)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:55:47 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1373)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1463)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 2512)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+      /* Remove the navbar's default rounded borders and increase the bottom margin */
+      .navbar {
+          margin-bottom: 50px;
+          border-radius: 0;
+      }
+
+      /* Remove the jumbotron's default bottom margin */
+      .jumbotron {
+          margin-bottom: 0;
+      }
+
+      /* Add a gray background color and some padding to the footer */
+      footer {
+          background-color: #f2f2f2;
+          padding: 25px;
+      }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Online Store</h1>
+    <p>Mission, Vission & Values</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+        <% @categories.each do |category| %>
+          <li><a href=<%= category_path(category) %> <%= {category.title} %>></a></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Image</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Price</th>
+    <th scope="col">Show</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @products.each_with_index do |product, index| %>
+  <tr>
+    <th <%= index +1 %></th>
+    <td><%= product.image %></td>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.price %></td>
+    <td><%= link_to "Show this product", product %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+):
+1:    <!DOCTYPE html>
+2:    <html lang="en">
+3:    <head>
+4:      <title>Bootstrap Example</title>
+5:      <meta charset="utf-8">
+6:      <meta name="viewport" content="width=device-width, initial-scale=1">
+7:      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+8:      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+9:      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+10:      <style>
+11:          /* Remove the navbar's default rounded borders and increase the bottom margin */
+12:          .navbar {
+13:              margin-bottom: 50px;
+14:              border-radius: 0;
+15:          }
+16:    
+17:          /* Remove the jumbotron's default bottom margin */
+18:          .jumbotron {
+19:              margin-bottom: 0;
+20:          }
+21:    
+22:          /* Add a gray background color and some padding to the footer */
+23:          footer {
+24:              background-color: #f2f2f2;
+25:              padding: 25px;
+26:          }
+27:      </style>
+28:    </head>
+29:    <body>
+30:    
+31:    <div class="jumbotron">
+32:      <div class="container text-center">
+33:        <h1>Online Store</h1>
+34:        <p>Mission, Vission & Values</p>
+35:      </div>
+36:    </div>
+37:    
+38:    <nav class="navbar navbar-inverse">
+39:      <div class="container-fluid">
+40:        <div class="navbar-header">
+41:          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+42:            <span class="icon-bar"></span>
+43:            <span class="icon-bar"></span>
+44:            <span class="icon-bar"></span>
+45:          </button>
+46:          <a class="navbar-brand" href="#">Logo</a>
+47:        </div>
+48:        <div class="collapse navbar-collapse" id="myNavbar">
+49:          <ul class="nav navbar-nav">
+50:          <li class="active"><a href="#">Home</a></li>
+51:            <% @categories.each do |category| %>
+52:              <li><a href=<%= category_path(category) %> <%= {category.title} %>></a></li>
+53:            <% end %>
+54:          </ul>
+55:          <ul class="nav navbar-nav navbar-right">
+56:            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+57:            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+58:          </ul>
+59:        </div>
+60:      </div>
+61:    </nav>
+62:    
+63:    <table class="table">
+64:      <thead>
+65:      <tr>
+66:        <th scope="col">#</th>
+67:        <th scope="col">Image</th>
+68:        <th scope="col">Name</th>
+69:        <th scope="col">Description</th>
+70:        <th scope="col">Price</th>
+71:        <th scope="col">Show</th>
+72:      </tr>
+73:      </thead>
+74:      <tbody>
+75:      <% @products.each_with_index do |product, index| %>
+76:      <tr>
+77:        <th <%= index +1 %></th>
+78:        <td><%= product.image %></td>
+79:        <td><%= product.name %></td>
+80:        <td><%= product.description %></td>
+81:        <td><%= product.price %></td>
+82:        <td><%= link_to "Show this product", product %></td>
+83:      </tr>
+84:      <% end %>
+85:      </tbody>
+86:    </table>
+  
+app/views/products/index.html.erb:52: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:53: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:88: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:52: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:53: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:88: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:52: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:53: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:88: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:52: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:53: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:88: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:52: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:53: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:88: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:52: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:53: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:88: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:56:14 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 1374)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 1463)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 2495)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+      /* Remove the navbar's default rounded borders and increase the bottom margin */
+      .navbar {
+          margin-bottom: 50px;
+          border-radius: 0;
+      }
+
+      /* Remove the jumbotron's default bottom margin */
+      .jumbotron {
+          margin-bottom: 0;
+      }
+
+      /* Add a gray background color and some padding to the footer */
+      footer {
+          background-color: #f2f2f2;
+          padding: 25px;
+      }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Online Store</h1>
+    <p>Mission, Vission & Values</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+        <% @categories.each do |category| %>
+          <li><a href="#">Products</a></li>
+          <li><a href=<%= category_path(category) %> <%= {category.title} %></a></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Image</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Price</th>
+    <th scope="col">Show</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @products.each_with_index do |product, index| %>
+  <tr>
+    <th <%= index +1 %></th>
+    <td><%= product.image %></td>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.price %></td>
+    <td><%= link_to "Show this product", product %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+):
+1:    <!DOCTYPE html>
+2:    <html lang="en">
+3:    <head>
+4:      <title>Bootstrap Example</title>
+5:      <meta charset="utf-8">
+6:      <meta name="viewport" content="width=device-width, initial-scale=1">
+7:      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+8:      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+9:      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+10:      <style>
+11:          /* Remove the navbar's default rounded borders and increase the bottom margin */
+12:          .navbar {
+13:              margin-bottom: 50px;
+14:              border-radius: 0;
+15:          }
+16:    
+17:          /* Remove the jumbotron's default bottom margin */
+18:          .jumbotron {
+19:              margin-bottom: 0;
+20:          }
+21:    
+22:          /* Add a gray background color and some padding to the footer */
+23:          footer {
+24:              background-color: #f2f2f2;
+25:              padding: 25px;
+26:          }
+27:      </style>
+28:    </head>
+29:    <body>
+30:    
+31:    <div class="jumbotron">
+32:      <div class="container text-center">
+33:        <h1>Online Store</h1>
+34:        <p>Mission, Vission & Values</p>
+35:      </div>
+36:    </div>
+37:    
+38:    <nav class="navbar navbar-inverse">
+39:      <div class="container-fluid">
+40:        <div class="navbar-header">
+41:          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+42:            <span class="icon-bar"></span>
+43:            <span class="icon-bar"></span>
+44:            <span class="icon-bar"></span>
+45:          </button>
+46:          <a class="navbar-brand" href="#">Logo</a>
+47:        </div>
+48:        <div class="collapse navbar-collapse" id="myNavbar">
+49:          <ul class="nav navbar-nav">
+50:          <li class="active"><a href="#">Home</a></li>
+51:            <% @categories.each do |category| %>
+52:              <li><a href="#">Products</a></li>
+53:              <li><a href=<%= category_path(category) %> <%= {category.title} %></a></li>
+54:            <% end %>
+55:          </ul>
+56:          <ul class="nav navbar-nav navbar-right">
+57:            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+58:            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+59:          </ul>
+60:        </div>
+61:      </div>
+62:    </nav>
+63:    
+64:    <table class="table">
+65:      <thead>
+66:      <tr>
+67:        <th scope="col">#</th>
+68:        <th scope="col">Image</th>
+69:        <th scope="col">Name</th>
+70:        <th scope="col">Description</th>
+71:        <th scope="col">Price</th>
+72:        <th scope="col">Show</th>
+73:      </tr>
+74:      </thead>
+75:      <tbody>
+76:      <% @products.each_with_index do |product, index| %>
+77:      <tr>
+78:        <th <%= index +1 %></th>
+79:        <td><%= product.image %></td>
+80:        <td><%= product.name %></td>
+81:        <td><%= product.description %></td>
+82:        <td><%= product.price %></td>
+83:        <td><%= link_to "Show this product", product %></td>
+84:      </tr>
+85:      <% end %>
+86:      </tbody>
+87:    </table>
+  
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:53: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:56:27 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1391)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1480)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2512)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+      /* Remove the navbar's default rounded borders and increase the bottom margin */
+      .navbar {
+          margin-bottom: 50px;
+          border-radius: 0;
+      }
+
+      /* Remove the jumbotron's default bottom margin */
+      .jumbotron {
+          margin-bottom: 0;
+      }
+
+      /* Add a gray background color and some padding to the footer */
+      footer {
+          background-color: #f2f2f2;
+          padding: 25px;
+      }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Online Store</h1>
+    <p>Mission, Vission & Values</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+        <% @categories.each do |category| %>
+          <li><a href="#"><%= {category.title} %></a></li>
+<!--          <li><a href=<%#= category_path(category) %> <%#= {category.title} %></a></li>-->
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Image</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Price</th>
+    <th scope="col">Show</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @products.each_with_index do |product, index| %>
+  <tr>
+    <th <%= index +1 %></th>
+    <td><%= product.image %></td>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.price %></td>
+    <td><%= link_to "Show this product", product %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+):
+1:    <!DOCTYPE html>
+2:    <html lang="en">
+3:    <head>
+4:      <title>Bootstrap Example</title>
+5:      <meta charset="utf-8">
+6:      <meta name="viewport" content="width=device-width, initial-scale=1">
+7:      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+8:      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+9:      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+10:      <style>
+11:          /* Remove the navbar's default rounded borders and increase the bottom margin */
+12:          .navbar {
+13:              margin-bottom: 50px;
+14:              border-radius: 0;
+15:          }
+16:    
+17:          /* Remove the jumbotron's default bottom margin */
+18:          .jumbotron {
+19:              margin-bottom: 0;
+20:          }
+21:    
+22:          /* Add a gray background color and some padding to the footer */
+23:          footer {
+24:              background-color: #f2f2f2;
+25:              padding: 25px;
+26:          }
+27:      </style>
+28:    </head>
+29:    <body>
+30:    
+31:    <div class="jumbotron">
+32:      <div class="container text-center">
+33:        <h1>Online Store</h1>
+34:        <p>Mission, Vission & Values</p>
+35:      </div>
+36:    </div>
+37:    
+38:    <nav class="navbar navbar-inverse">
+39:      <div class="container-fluid">
+40:        <div class="navbar-header">
+41:          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+42:            <span class="icon-bar"></span>
+43:            <span class="icon-bar"></span>
+44:            <span class="icon-bar"></span>
+45:          </button>
+46:          <a class="navbar-brand" href="#">Logo</a>
+47:        </div>
+48:        <div class="collapse navbar-collapse" id="myNavbar">
+49:          <ul class="nav navbar-nav">
+50:          <li class="active"><a href="#">Home</a></li>
+51:            <% @categories.each do |category| %>
+52:              <li><a href="#"><%= {category.title} %></a></li>
+53:    <!--          <li><a href=<%#= category_path(category) %> <%#= {category.title} %></a></li>-->
+54:            <% end %>
+55:          </ul>
+56:          <ul class="nav navbar-nav navbar-right">
+57:            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+58:            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+59:          </ul>
+60:        </div>
+61:      </div>
+62:    </nav>
+63:    
+64:    <table class="table">
+65:      <thead>
+66:      <tr>
+67:        <th scope="col">#</th>
+68:        <th scope="col">Image</th>
+69:        <th scope="col">Name</th>
+70:        <th scope="col">Description</th>
+71:        <th scope="col">Price</th>
+72:        <th scope="col">Show</th>
+73:      </tr>
+74:      </thead>
+75:      <tbody>
+76:      <% @products.each_with_index do |product, index| %>
+77:      <tr>
+78:        <th <%= index +1 %></th>
+79:        <td><%= product.image %></td>
+80:        <td><%= product.name %></td>
+81:        <td><%= product.description %></td>
+82:        <td><%= product.price %></td>
+83:        <td><%= link_to "Show this product", product %></td>
+84:      </tr>
+85:      <% end %>
+86:      </tbody>
+87:    </table>
+  
+app/views/products/index.html.erb:52: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:52: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:52: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:52: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:52: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:52: syntax error, unexpected '}', expecting =>
+app/views/products/index.html.erb:54: syntax error, unexpected `end', expecting ')'
+app/views/products/index.html.erb:89: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:56:43 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/index.html.erb:51
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:76:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 13.7ms | Allocations: 1777)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 6883)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.6ms | Allocations: 7935)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:57:00 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/index.html.erb:51
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:75:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1747)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 6807)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.5ms | Allocations: 7865)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:57:02 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/index.html.erb:51
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:75:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1215)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 5849)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.5ms | Allocations: 6200)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:57:11 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/index.html.erb:51
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:75:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1762)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 6840)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.4ms | Allocations: 7874)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2022-12-28 23:57:13 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:4:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/_category.html.erb (Duration: 0.6ms | Allocations: 181)
+  Rendered categories/show.html.erb within layouts/application (Duration: 24.6ms | Allocations: 6088)
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 6173)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.9ms | Allocations: 9357)
+
+
+  
+ActionView::Template::Error (undefined method `edit_category_path' for #<ActionView::Base:0x000000000147d0>
+
+  '.freeze;@output_buffer.append=( link_to "Edit this category", edit_category_path(@category) );@output_buffer.safe_append=' |
+                                                                 ^^^^^^^^^^^^^^^^^^
+Did you mean?  edit_password_path):
+    3: <%= render @category %>
+    4: 
+    5: <div>
+    6:   <%= link_to "Edit this category", edit_category_path(@category) %> |
+    7:   <%= link_to "Back to categories", categories_path %>
+    8: 
+    9:   <%= button_to "Destroy this category", @category, method: :delete %>
+  
+app/views/categories/show.html.erb:6
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:57:17 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/index.html.erb:51
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:75:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1319)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 6180)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.3ms | Allocations: 6541)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:58:04 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/index.html.erb:51
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:75:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1759)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 6852)
+Completed 200 OK in 18ms (Views: 14.9ms | ActiveRecord: 1.1ms | Allocations: 7880)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:58:06 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/index.html.erb:51
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:75:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1228)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 5889)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.6ms | Allocations: 6237)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 23:58:12 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/index.html.erb:51
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:75:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1759)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 6822)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.6ms | Allocations: 7856)
+
+
