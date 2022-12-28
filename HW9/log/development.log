@@ -4710,3 +4710,122 @@ Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-24 08:02:21 +020
 Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-24 08:02:21 +0200
 Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-24 08:02:21 +0200
 Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-24 08:02:21 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-26 06:06:32 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-26 06:06:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-26 06:06:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-12-26 06:06:32 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-26 06:06:32 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-26 06:06:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-26 06:06:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-12-26 06:06:32 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-26 10:01:09 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-26 10:01:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-26 10:01:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-12-26 10:01:09 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-26 10:01:09 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-26 10:01:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-26 10:01:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-12-26 10:01:09 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-26 10:18:34 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-26 10:18:34 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-26 10:18:34 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-12-26 10:18:34 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-26 10:18:34 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-26 10:18:34 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-26 10:18:34 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-12-26 10:18:34 +0200
+Started GET "/" for 127.0.0.1 at 2022-12-26 16:04:27 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 16)
+Completed 200 OK in 4ms (Views: 2.1ms | Allocations: 258)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-26 16:04:27 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-26 16:04:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-26 16:04:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-27 09:20:28 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-27 09:20:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-27 09:20:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-12-27 09:20:28 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-27 09:20:28 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-27 09:20:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-27 09:20:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-12-27 09:20:29 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-27 09:22:08 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-27 09:22:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-27 09:22:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-12-27 09:22:08 +0200
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-27 09:22:08 +0200
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2022-12-27 09:22:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2022-12-27 09:22:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-12-27 09:22:08 +0200

@@ -4291,3 +4291,36 @@ Processing by Api::V1::ArticlesController#index as */*
 Completed 200 OK in 15ms (Views: 9.3ms | ActiveRecord: 4.0ms | Allocations: 6599)
 
 
+Started GET "/" for 127.0.0.1 at 2022-12-14 19:25:07 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.3ms | Allocations: 633)
+Completed 200 OK in 10ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 5696)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-14 19:25:07 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2022-12-14 19:25:10 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.6ms | Allocations: 356)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 1192)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-14 19:25:12 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/boniole/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 16)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 261)
+
+
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2022-12-14 19:25:12 +0200
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2022-12-14 19:25:12 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2022-12-14 19:25:12 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2022-12-14 19:25:12 +0200
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2022-12-14 19:25:13 +0200
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2022-12-14 19:25:13 +0200
+Started GET "/api-docs/favicon-16x16.png" for 127.0.0.1 at 2022-12-14 19:25:13 +0200
