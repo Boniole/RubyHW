@@ -2,6 +2,8 @@ class CategoriesController < InheritedResources::Base
 
   def show
     @category = Category.find(params[:id])
+    @products = @category.products
+    @categories = Category.all
   end
 
   def index

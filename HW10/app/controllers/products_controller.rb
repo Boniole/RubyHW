@@ -6,6 +6,7 @@ class ProductsController < InheritedResources::Base
 
   def show
     @product = Product.find(params[:id])
+    @categories = Category.all
   end
 
   private

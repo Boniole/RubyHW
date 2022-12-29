@@ -30,8 +30,7 @@
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>Online Store</h1>
-    <p>Mission, Vission & Values</p>
+    <h1>Cat's online Store</h1>
   </div>
 </div>
 
@@ -47,13 +46,17 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="/">Home</a></li>
         <% @categories.each do |category| %>
           <li><a href="<%= category_path(category) %>"><%= category.title %></a></li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <% if current_user %>
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= current_user.email %></a></li>
+        <% else %>>
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Log in </a></li>
+        <% end %>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
