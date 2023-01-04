@@ -1,4 +1,9 @@
-class ProductsController < InheritedResources::Base
+class ProductsController < ApplicationController
+  def initialize
+    super
+    @categories = Category.all
+  end
+
   def index
     @products = Product.all
     @categories = Category.all

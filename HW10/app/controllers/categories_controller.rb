@@ -1,4 +1,8 @@
-class CategoriesController < InheritedResources::Base
+class CategoriesController < ApplicationController
+  def initialize
+    super
+    @categories = Category.all
+  end
 
   def show
     @category = Category.find(params[:id])
