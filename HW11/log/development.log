@@ -20901,3 +20901,785 @@ Processing by OrdersController#index as HTML
 Completed 200 OK in 24ms (Views: 16.2ms | ActiveRecord: 2.9ms | Allocations: 10299)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdminUser Delete All (0.9ms)[0m  [1m[31mDELETE FROM "admin_users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = $1 LIMIT $2[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[36mAdminUser Create (0.8ms)[0m  [1m[32mINSERT INTO "admin_users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "admin@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-01-04 21:59:39.713463"], ["updated_at", "2023-01-04 21:59:39.713463"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Delete All (0.6ms)[0m  [1m[31mDELETE FROM "categories"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Food"], ["created_at", "2023-01-04 21:59:39.720620"], ["updated_at", "2023-01-04 21:59:39.720620"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Toys"], ["created_at", "2023-01-04 21:59:39.723061"], ["updated_at", "2023-01-04 21:59:39.723061"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.1ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Сlothes"], ["created_at", "2023-01-04 21:59:39.724843"], ["updated_at", "2023-01-04 21:59:39.724843"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.1ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Shoes"], ["created_at", "2023-01-04 21:59:39.726262"], ["updated_at", "2023-01-04 21:59:39.726262"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Cat Pole Feather Dancer"], ["description", "This cat dangler with natural feathers promises your cat hours of amusement.\nOn the end of the pole there is an apprx. 20 cm long extension with feathers. The feathers make a rustling sound with every movement - no cat will be able to resist. The feathers must be explored!\n\nThe feathers are dyed with non-toxic food colouring.\n\nCat Pole Feather Dancer at a glance:\n\nnatural feathers\ndyed with non-toxic food colouring\nbendy end\nvery robust\nhigh quality production\nMade in the USA\nSize:\nTotal length: apprx. 80 cm\npole: L 46 cm\nbendy pole extension: L 18 cm\nColours may vary illustration in photo upon delivery.\nCaution: As with any other product, please supervise your pet with this toy. Check the product regularly for damage, and replace the toy if it is damaged or missing any pieces to avoid potential injury to your pet."], ["price", "7.99"], ["image", "https://shop-cdn-m.mediazs.com/bilder/cat/pole/feather/dancer/1/400/18062_PLA_Schulze_Katzenangel_Federtaenzer_1.jpg"], ["created_at", "2023-01-04 21:59:39.739758"], ["updated_at", "2023-01-04 21:59:39.739758"], ["category_id", 6]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "KONG Connects Window Teaser"], ["description", "The KONG Connects Window Teaser is a challenging and entertaining way to catch your cat’s attention and keep it occupied for a few hours, encouraging play and activity. The KONG Connects Window Teaser is similar to a dangler toy, with a suction cup on the end so that it can be easily fastened onto windows, patio doors and other smooth surfaces. This ensures that your cat can play with the dangler even when you are busy. On the end of the pole, a flower and colourful bird with feathers dance and dangler, teasing your cat and enticing it to stretch, jump and prod at the toy with its paws, causing it to whirl and spin even more wildly!\nInside the bird on the end of the KONG Connects Window Teaser, your cat will detect the irresistible scent of KONG North American premium catnip, which appeals to cats and encourages animated play. This colourful toy ensures long-lasting enjoyment and helps to satisfy your cat’s natural hunting, moving and biting instincts.\n\nKONG Connects Window Teaser at a glance:\n\nInteractive cat toy\nBased on cat dangler toys: a flower and colourful bird dance and dangle on a string at the end of a pole\nWith suction cup: for fastening the toy to windows, patio doors and smooth walls so that you do not always have to hold the toy for your cat to play\nEncourages movement: animates your cat to stretch, jump and prod\nWith catnip: contains premium KONG North American catnip that gives off an enticing scent and promotes play\nCrackling filling: for long-lasting entertainment\nColourful feathers: soft chicken feathers to animate your cat\nLong-lasting fun: thanks to unpredictable movements and appealing filling\nIndividual play: allows your cat to entertain itself\nSatisfies natural instincts: for moving, hunting and biting\nHigh quality: from premium manufacturer KONG, renowned for creating clever toy ideas that pets love\nColour: blue, purple, pink (cannot be selected)\nMaterial: PP (polypropylene), polyester, catnip, chicken feathers"], ["price", "4.99"], ["image", "https://shop-cdn-m.mediazs.com/bilder/kong/connects/window/teaser/0/400/74332_kong_connectswindowteaser_hs_02_0.jpg"], ["created_at", "2023-01-04 21:59:39.742114"], ["updated_at", "2023-01-04 21:59:39.742114"], ["category_id", 6]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin/login" for 127.0.0.1 at 2023-01-04 23:59:47 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE AdminUser Load (0.0ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/layouts/active_admin_logged_out.html.erb
+  Rendering /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/devise/shared/_links.erb (Duration: 1.5ms | Allocations: 985)
+  Rendered /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (Duration: 10.1ms | Allocations: 11197)
+  Rendered layout /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/layouts/active_admin_logged_out.html.erb (Duration: 64.7ms | Allocations: 65073)
+Completed 200 OK in 85ms (Views: 68.1ms | ActiveRecord: 6.1ms | Allocations: 78331)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-01-04 23:59:53 +0200
+Processing by OrdersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:14:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/orders/index.html.erb:1:in `each_with_index'
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:16
+  [1m[36mLineitem Load (0.5ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 8]]
+  ↳ app/views/orders/index.html.erb:16:in `each_with_index'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:19
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:16
+  [1m[36mLineitem Load (0.2ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 9]]
+  ↳ app/views/orders/index.html.erb:16:in `each_with_index'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:19
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:16
+  [1m[36mLineitem Load (0.1ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 10]]
+  ↳ app/views/orders/index.html.erb:16:in `each_with_index'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:19
+  Rendered orders/index.html.erb within layouts/application (Duration: 49.5ms | Allocations: 27363)
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 59.2ms | Allocations: 30701)
+Completed 200 OK in 88ms (Views: 38.0ms | ActiveRecord: 39.3ms | Allocations: 37680)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-04 23:59:55 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:15:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1366)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:56
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3346)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 1.0ms | Allocations: 4198)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (33.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "HW11_development_2"[0m
+  [1m[35m (18.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "HW11_test_2"[0m
+  [1m[35m (83.6ms)[0m  [1m[35mCREATE DATABASE "HW11_development_2" ENCODING = 'unicode'[0m
+  [1m[35m (31.4ms)[0m  [1m[35mCREATE DATABASE "HW11_test_2" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_admin_comments" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" bigserial primary key, "namespace" character varying, "body" text, "resource_type" character varying, "resource_id" bigint, "author_type" character varying, "author_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_author" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_resource" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "admin_users" CASCADE[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "carts" CASCADE[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "carts" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "title" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "lineitems" CASCADE[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "lineitems" ("id" bigserial primary key, "product_id" bigint NOT NULL, "cart_id" bigint NOT NULL, "quantity" integer, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_lineitems_on_cart_id" ON "lineitems" ("cart_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_lineitems_on_product_id" ON "lineitems" ("product_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "cart_id" bigint NOT NULL, "user_id" bigint NOT NULL, "status" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_orders_on_cart_id" ON "orders" ("cart_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_orders_on_user_id" ON "orders" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "products" CASCADE[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "description" character varying, "price" decimal, "image" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "category_id" bigint)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_products_on_category_id" ON "products" ("category_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "lineitems" ADD CONSTRAINT "fk_rails_733d199599"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "lineitems" ADD CONSTRAINT "fk_rails_774d1bb2b6"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "orders" ADD CONSTRAINT "fk_rails_5cdf0e0ad4"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "orders" ADD CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230104211633)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221228193308),
+(20221228193333),
+(20221228194409),
+(20221228200010),
+(20221228200138),
+(20221228200139),
+(20230104185133),
+(20230104191152);
+
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-04 22:00:58.749126"], ["updated_at", "2023-01-04 22:00:58.749126"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "0c418230dafb6c617e219543513533470cf86b3c"], ["created_at", "2023-01-04 22:00:58.752441"], ["updated_at", "2023-01-04 22:00:58.752441"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_admin_comments" CASCADE[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" bigserial primary key, "namespace" character varying, "body" text, "resource_type" character varying, "resource_id" bigint, "author_type" character varying, "author_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_author" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_resource" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "admin_users" CASCADE[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "carts" CASCADE[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "carts" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "title" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "lineitems" CASCADE[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "lineitems" ("id" bigserial primary key, "product_id" bigint NOT NULL, "cart_id" bigint NOT NULL, "quantity" integer, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_lineitems_on_cart_id" ON "lineitems" ("cart_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_lineitems_on_product_id" ON "lineitems" ("product_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "cart_id" bigint NOT NULL, "user_id" bigint NOT NULL, "status" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_orders_on_cart_id" ON "orders" ("cart_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_orders_on_user_id" ON "orders" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "products" CASCADE[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "description" character varying, "price" decimal, "image" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "category_id" bigint)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_products_on_category_id" ON "products" ("category_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "lineitems" ADD CONSTRAINT "fk_rails_733d199599"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "lineitems" ADD CONSTRAINT "fk_rails_774d1bb2b6"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "orders" ADD CONSTRAINT "fk_rails_5cdf0e0ad4"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "orders" ADD CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230104211633)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221228193308),
+(20221228193333),
+(20221228194409),
+(20221228200010),
+(20221228200138),
+(20221228200139),
+(20230104185133),
+(20230104191152);
+
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-04 22:00:58.790719"], ["updated_at", "2023-01-04 22:00:58.790719"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2023-01-04 22:00:58.792556"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "0c418230dafb6c617e219543513533470cf86b3c"], ["created_at", "2023-01-04 22:00:58.794309"], ["updated_at", "2023-01-04 22:00:58.794309"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdminUser Delete All (0.2ms)[0m  [1m[31mDELETE FROM "admin_users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = $1 LIMIT $2[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[36mAdminUser Create (4.3ms)[0m  [1m[32mINSERT INTO "admin_users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "admin@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-01-04 22:00:59.072347"], ["updated_at", "2023-01-04 22:00:59.072347"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Delete All (0.6ms)[0m  [1m[31mDELETE FROM "categories"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Food"], ["created_at", "2023-01-04 22:00:59.085402"], ["updated_at", "2023-01-04 22:00:59.085402"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Toys"], ["created_at", "2023-01-04 22:00:59.087200"], ["updated_at", "2023-01-04 22:00:59.087200"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.1ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Сlothes"], ["created_at", "2023-01-04 22:00:59.088506"], ["updated_at", "2023-01-04 22:00:59.088506"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.1ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Shoes"], ["created_at", "2023-01-04 22:00:59.089798"], ["updated_at", "2023-01-04 22:00:59.089798"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Cat Pole Feather Dancer"], ["description", "This cat dangler with natural feathers promises your cat hours of amusement.\nOn the end of the pole there is an apprx. 20 cm long extension with feathers. The feathers make a rustling sound with every movement - no cat will be able to resist. The feathers must be explored!\n\nThe feathers are dyed with non-toxic food colouring.\n\nCat Pole Feather Dancer at a glance:\n\nnatural feathers\ndyed with non-toxic food colouring\nbendy end\nvery robust\nhigh quality production\nMade in the USA\nSize:\nTotal length: apprx. 80 cm\npole: L 46 cm\nbendy pole extension: L 18 cm\nColours may vary illustration in photo upon delivery.\nCaution: As with any other product, please supervise your pet with this toy. Check the product regularly for damage, and replace the toy if it is damaged or missing any pieces to avoid potential injury to your pet."], ["price", "7.99"], ["image", "https://shop-cdn-m.mediazs.com/bilder/cat/pole/feather/dancer/1/400/18062_PLA_Schulze_Katzenangel_Federtaenzer_1.jpg"], ["created_at", "2023-01-04 22:00:59.097277"], ["updated_at", "2023-01-04 22:00:59.097277"], ["category_id", 2]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "KONG Connects Window Teaser"], ["description", "The KONG Connects Window Teaser is a challenging and entertaining way to catch your cat’s attention and keep it occupied for a few hours, encouraging play and activity. The KONG Connects Window Teaser is similar to a dangler toy, with a suction cup on the end so that it can be easily fastened onto windows, patio doors and other smooth surfaces. This ensures that your cat can play with the dangler even when you are busy. On the end of the pole, a flower and colourful bird with feathers dance and dangler, teasing your cat and enticing it to stretch, jump and prod at the toy with its paws, causing it to whirl and spin even more wildly!\nInside the bird on the end of the KONG Connects Window Teaser, your cat will detect the irresistible scent of KONG North American premium catnip, which appeals to cats and encourages animated play. This colourful toy ensures long-lasting enjoyment and helps to satisfy your cat’s natural hunting, moving and biting instincts.\n\nKONG Connects Window Teaser at a glance:\n\nInteractive cat toy\nBased on cat dangler toys: a flower and colourful bird dance and dangle on a string at the end of a pole\nWith suction cup: for fastening the toy to windows, patio doors and smooth walls so that you do not always have to hold the toy for your cat to play\nEncourages movement: animates your cat to stretch, jump and prod\nWith catnip: contains premium KONG North American catnip that gives off an enticing scent and promotes play\nCrackling filling: for long-lasting entertainment\nColourful feathers: soft chicken feathers to animate your cat\nLong-lasting fun: thanks to unpredictable movements and appealing filling\nIndividual play: allows your cat to entertain itself\nSatisfies natural instincts: for moving, hunting and biting\nHigh quality: from premium manufacturer KONG, renowned for creating clever toy ideas that pets love\nColour: blue, purple, pink (cannot be selected)\nMaterial: PP (polypropylene), polyester, catnip, chicken feathers"], ["price", "4.99"], ["image", "https://shop-cdn-m.mediazs.com/bilder/kong/connects/window/teaser/0/400/74332_kong_connectswindowteaser_hs_02_0.jpg"], ["created_at", "2023-01-04 22:00:59.100642"], ["updated_at", "2023-01-04 22:00:59.100642"], ["category_id", 2]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdminUser Delete All (1.1ms)[0m  [1m[31mDELETE FROM "admin_users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = $1 LIMIT $2[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[36mAdminUser Create (0.4ms)[0m  [1m[32mINSERT INTO "admin_users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "admin@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-01-04 22:01:05.417042"], ["updated_at", "2023-01-04 22:01:05.417042"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Delete All (0.6ms)[0m  [1m[31mDELETE FROM "categories"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Food"], ["created_at", "2023-01-04 22:01:05.424303"], ["updated_at", "2023-01-04 22:01:05.424303"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.1ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Toys"], ["created_at", "2023-01-04 22:01:05.425932"], ["updated_at", "2023-01-04 22:01:05.425932"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.1ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Сlothes"], ["created_at", "2023-01-04 22:01:05.427156"], ["updated_at", "2023-01-04 22:01:05.427156"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.1ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Shoes"], ["created_at", "2023-01-04 22:01:05.428582"], ["updated_at", "2023-01-04 22:01:05.428582"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Cat Pole Feather Dancer"], ["description", "This cat dangler with natural feathers promises your cat hours of amusement.\nOn the end of the pole there is an apprx. 20 cm long extension with feathers. The feathers make a rustling sound with every movement - no cat will be able to resist. The feathers must be explored!\n\nThe feathers are dyed with non-toxic food colouring.\n\nCat Pole Feather Dancer at a glance:\n\nnatural feathers\ndyed with non-toxic food colouring\nbendy end\nvery robust\nhigh quality production\nMade in the USA\nSize:\nTotal length: apprx. 80 cm\npole: L 46 cm\nbendy pole extension: L 18 cm\nColours may vary illustration in photo upon delivery.\nCaution: As with any other product, please supervise your pet with this toy. Check the product regularly for damage, and replace the toy if it is damaged or missing any pieces to avoid potential injury to your pet."], ["price", "7.99"], ["image", "https://shop-cdn-m.mediazs.com/bilder/cat/pole/feather/dancer/1/400/18062_PLA_Schulze_Katzenangel_Federtaenzer_1.jpg"], ["created_at", "2023-01-04 22:01:05.439447"], ["updated_at", "2023-01-04 22:01:05.439447"], ["category_id", 6]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "KONG Connects Window Teaser"], ["description", "The KONG Connects Window Teaser is a challenging and entertaining way to catch your cat’s attention and keep it occupied for a few hours, encouraging play and activity. The KONG Connects Window Teaser is similar to a dangler toy, with a suction cup on the end so that it can be easily fastened onto windows, patio doors and other smooth surfaces. This ensures that your cat can play with the dangler even when you are busy. On the end of the pole, a flower and colourful bird with feathers dance and dangler, teasing your cat and enticing it to stretch, jump and prod at the toy with its paws, causing it to whirl and spin even more wildly!\nInside the bird on the end of the KONG Connects Window Teaser, your cat will detect the irresistible scent of KONG North American premium catnip, which appeals to cats and encourages animated play. This colourful toy ensures long-lasting enjoyment and helps to satisfy your cat’s natural hunting, moving and biting instincts.\n\nKONG Connects Window Teaser at a glance:\n\nInteractive cat toy\nBased on cat dangler toys: a flower and colourful bird dance and dangle on a string at the end of a pole\nWith suction cup: for fastening the toy to windows, patio doors and smooth walls so that you do not always have to hold the toy for your cat to play\nEncourages movement: animates your cat to stretch, jump and prod\nWith catnip: contains premium KONG North American catnip that gives off an enticing scent and promotes play\nCrackling filling: for long-lasting entertainment\nColourful feathers: soft chicken feathers to animate your cat\nLong-lasting fun: thanks to unpredictable movements and appealing filling\nIndividual play: allows your cat to entertain itself\nSatisfies natural instincts: for moving, hunting and biting\nHigh quality: from premium manufacturer KONG, renowned for creating clever toy ideas that pets love\nColour: blue, purple, pink (cannot be selected)\nMaterial: PP (polypropylene), polyester, catnip, chicken feathers"], ["price", "4.99"], ["image", "https://shop-cdn-m.mediazs.com/bilder/kong/connects/window/teaser/0/400/74332_kong_connectswindowteaser_hs_02_0.jpg"], ["created_at", "2023-01-04 22:01:05.442282"], ["updated_at", "2023-01-04 22:01:05.442282"], ["category_id", 6]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2023-01-05 00:01:26 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:15:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 6797)
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:56
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 13930)
+Completed 200 OK in 31ms (Views: 13.0ms | ActiveRecord: 13.9ms | Allocations: 17256)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-05 00:01:27 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:15:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 971)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2088)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.5ms | Allocations: 2445)
+
+
+Started GET "/categories/7" for 127.0.0.1 at 2023-01-05 00:01:36 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCategory Load (2.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 7]]
+  ↳ app/views/categories/show.html.erb:13:in `each_with_index'
+  Rendered categories/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2285)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3494)
+Completed 200 OK in 16ms (Views: 7.5ms | ActiveRecord: 3.0ms | Allocations: 6766)
+
+
+Started GET "/categories/6" for 127.0.0.1 at 2023-01-05 00:01:37 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 6]]
+  ↳ app/views/categories/show.html.erb:13:in `each_with_index'
+  Rendered categories/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1852)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3068)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 1.0ms | Allocations: 3957)
+
+
+Started GET "/categories/5" for 127.0.0.1 at 2023-01-05 00:01:38 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 5]]
+  ↳ app/views/categories/show.html.erb:13:in `each_with_index'
+  Rendered categories/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 689)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1769)
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 1.1ms | Allocations: 2658)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-05 00:01:38 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:15:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 850)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1897)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 2189)
+
+
+Started GET "/categories/5" for 127.0.0.1 at 2023-01-05 00:01:39 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 5]]
+  ↳ app/views/categories/show.html.erb:13:in `each_with_index'
+  Rendered categories/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 653)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1713)
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.7ms | Allocations: 2514)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-05 00:01:40 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:15:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 850)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 1882)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.7ms | Allocations: 2171)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-05 00:01:41 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:15:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 850)
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 1903)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 2.0ms | Allocations: 2192)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-05 00:01:46 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:15:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 850)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1885)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.5ms | Allocations: 2174)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2023-01-05 00:01:46 +0200
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering layout /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/layouts/active_admin_logged_out.html.erb
+  Rendering /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/devise/shared/_links.erb (Duration: 1.1ms | Allocations: 977)
+  Rendered /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (Duration: 9.6ms | Allocations: 11038)
+  Rendered layout /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/layouts/active_admin_logged_out.html.erb (Duration: 87.9ms | Allocations: 65280)
+Completed 200 OK in 98ms (Views: 89.6ms | ActiveRecord: 4.9ms | Allocations: 70606)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2023-01-05 00:01:46 +0200
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering layout /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/layouts/active_admin_logged_out.html.erb
+  Rendering /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/devise/shared/_links.erb (Duration: 0.1ms | Allocations: 92)
+  Rendered /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (Duration: 1.8ms | Allocations: 6097)
+  Rendered layout /Users/boniole/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/layouts/active_admin_logged_out.html.erb (Duration: 10.3ms | Allocations: 16604)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 17139)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdminUser Delete All (1.1ms)[0m  [1m[31mDELETE FROM "admin_users"[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = $1 LIMIT $2[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[36mAdminUser Create (0.3ms)[0m  [1m[32mINSERT INTO "admin_users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "admin@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-01-04 22:02:00.292839"], ["updated_at", "2023-01-04 22:02:00.292839"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Delete All (0.6ms)[0m  [1m[31mDELETE FROM "categories"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Food"], ["created_at", "2023-01-04 22:02:00.300264"], ["updated_at", "2023-01-04 22:02:00.300264"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Toys"], ["created_at", "2023-01-04 22:02:00.301894"], ["updated_at", "2023-01-04 22:02:00.301894"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Сlothes"], ["created_at", "2023-01-04 22:02:00.303447"], ["updated_at", "2023-01-04 22:02:00.303447"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.6ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Shoes"], ["created_at", "2023-01-04 22:02:00.304850"], ["updated_at", "2023-01-04 22:02:00.304850"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Delete All (1.4ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Cat Pole Feather Dancer"], ["description", "This cat dangler with natural feathers promises your cat hours of amusement.\nOn the end of the pole there is an apprx. 20 cm long extension with feathers. The feathers make a rustling sound with every movement - no cat will be able to resist. The feathers must be explored!\n\nThe feathers are dyed with non-toxic food colouring.\n\nCat Pole Feather Dancer at a glance:\n\nnatural feathers\ndyed with non-toxic food colouring\nbendy end\nvery robust\nhigh quality production\nMade in the USA\nSize:\nTotal length: apprx. 80 cm\npole: L 46 cm\nbendy pole extension: L 18 cm\nColours may vary illustration in photo upon delivery.\nCaution: As with any other product, please supervise your pet with this toy. Check the product regularly for damage, and replace the toy if it is damaged or missing any pieces to avoid potential injury to your pet."], ["price", "7.99"], ["image", "https://shop-cdn-m.mediazs.com/bilder/cat/pole/feather/dancer/1/400/18062_PLA_Schulze_Katzenangel_Federtaenzer_1.jpg"], ["created_at", "2023-01-04 22:02:00.318099"], ["updated_at", "2023-01-04 22:02:00.318099"], ["category_id", 10]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (2.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "KONG Connects Window Teaser"], ["description", "The KONG Connects Window Teaser is a challenging and entertaining way to catch your cat’s attention and keep it occupied for a few hours, encouraging play and activity. The KONG Connects Window Teaser is similar to a dangler toy, with a suction cup on the end so that it can be easily fastened onto windows, patio doors and other smooth surfaces. This ensures that your cat can play with the dangler even when you are busy. On the end of the pole, a flower and colourful bird with feathers dance and dangler, teasing your cat and enticing it to stretch, jump and prod at the toy with its paws, causing it to whirl and spin even more wildly!\nInside the bird on the end of the KONG Connects Window Teaser, your cat will detect the irresistible scent of KONG North American premium catnip, which appeals to cats and encourages animated play. This colourful toy ensures long-lasting enjoyment and helps to satisfy your cat’s natural hunting, moving and biting instincts.\n\nKONG Connects Window Teaser at a glance:\n\nInteractive cat toy\nBased on cat dangler toys: a flower and colourful bird dance and dangle on a string at the end of a pole\nWith suction cup: for fastening the toy to windows, patio doors and smooth walls so that you do not always have to hold the toy for your cat to play\nEncourages movement: animates your cat to stretch, jump and prod\nWith catnip: contains premium KONG North American catnip that gives off an enticing scent and promotes play\nCrackling filling: for long-lasting entertainment\nColourful feathers: soft chicken feathers to animate your cat\nLong-lasting fun: thanks to unpredictable movements and appealing filling\nIndividual play: allows your cat to entertain itself\nSatisfies natural instincts: for moving, hunting and biting\nHigh quality: from premium manufacturer KONG, renowned for creating clever toy ideas that pets love\nColour: blue, purple, pink (cannot be selected)\nMaterial: PP (polypropylene), polyester, catnip, chicken feathers"], ["price", "4.99"], ["image", "https://shop-cdn-m.mediazs.com/bilder/kong/connects/window/teaser/0/400/74332_kong_connectswindowteaser_hs_02_0.jpg"], ["created_at", "2023-01-04 22:02:00.320333"], ["updated_at", "2023-01-04 22:02:00.320333"], ["category_id", 10]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2023-01-05 00:02:04 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (3.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:15:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 6655)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 10522)
+Completed 200 OK in 24ms (Views: 9.8ms | ActiveRecord: 10.2ms | Allocations: 13837)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-05 00:02:05 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:15:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 835)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1940)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.7ms | Allocations: 2297)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdminUser Delete All (1.1ms)[0m  [1m[31mDELETE FROM "admin_users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = $1 LIMIT $2[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[36mAdminUser Create (0.4ms)[0m  [1m[32mINSERT INTO "admin_users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "admin@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-01-04 22:04:16.559074"], ["updated_at", "2023-01-04 22:04:16.559074"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Delete All (0.5ms)[0m  [1m[31mDELETE FROM "categories"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Food"], ["created_at", "2023-01-04 22:04:16.565149"], ["updated_at", "2023-01-04 22:04:16.565149"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Toys"], ["created_at", "2023-01-04 22:04:16.566924"], ["updated_at", "2023-01-04 22:04:16.566924"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.1ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Сlothes"], ["created_at", "2023-01-04 22:04:16.568277"], ["updated_at", "2023-01-04 22:04:16.568277"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Shoes"], ["created_at", "2023-01-04 22:04:16.569499"], ["updated_at", "2023-01-04 22:04:16.569499"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Delete All (1.9ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Cat Pole Feather Dancer"], ["description", "This cat dangler with natural feathers promises your cat hours of amusement.\nOn the end of the pole there is an apprx. 20 cm long extension with feathers. The feathers make a rustling sound with every movement - no cat will be able to resist. The feathers must be explored!\n\nThe feathers are dyed with non-toxic food colouring.\n\nCat Pole Feather Dancer at a glance:\n\nnatural feathers\ndyed with non-toxic food colouring\nbendy end\nvery robust\nhigh quality production\nMade in the USA\nSize:\nTotal length: apprx. 80 cm\npole: L 46 cm\nbendy pole extension: L 18 cm\nColours may vary illustration in photo upon delivery.\nCaution: As with any other product, please supervise your pet with this toy. Check the product regularly for damage, and replace the toy if it is damaged or missing any pieces to avoid potential injury to your pet."], ["price", "7.99"], ["image", "https://shop-cdn-m.mediazs.com/bilder/cat/pole/feather/dancer/1/400/18062_PLA_Schulze_Katzenangel_Federtaenzer_1.jpg"], ["created_at", "2023-01-04 22:04:16.579545"], ["updated_at", "2023-01-04 22:04:16.579545"], ["category_id", 14]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "KONG Connects Window Teaser"], ["description", "The KONG Connects Window Teaser is a challenging and entertaining way to catch your cat’s attention and keep it occupied for a few hours, encouraging play and activity. The KONG Connects Window Teaser is similar to a dangler toy, with a suction cup on the end so that it can be easily fastened onto windows, patio doors and other smooth surfaces. This ensures that your cat can play with the dangler even when you are busy. On the end of the pole, a flower and colourful bird with feathers dance and dangler, teasing your cat and enticing it to stretch, jump and prod at the toy with its paws, causing it to whirl and spin even more wildly!\nInside the bird on the end of the KONG Connects Window Teaser, your cat will detect the irresistible scent of KONG North American premium catnip, which appeals to cats and encourages animated play. This colourful toy ensures long-lasting enjoyment and helps to satisfy your cat’s natural hunting, moving and biting instincts.\n\nKONG Connects Window Teaser at a glance:\n\nInteractive cat toy\nBased on cat dangler toys: a flower and colourful bird dance and dangle on a string at the end of a pole\nWith suction cup: for fastening the toy to windows, patio doors and smooth walls so that you do not always have to hold the toy for your cat to play\nEncourages movement: animates your cat to stretch, jump and prod\nWith catnip: contains premium KONG North American catnip that gives off an enticing scent and promotes play\nCrackling filling: for long-lasting entertainment\nColourful feathers: soft chicken feathers to animate your cat\nLong-lasting fun: thanks to unpredictable movements and appealing filling\nIndividual play: allows your cat to entertain itself\nSatisfies natural instincts: for moving, hunting and biting\nHigh quality: from premium manufacturer KONG, renowned for creating clever toy ideas that pets love\nColour: blue, purple, pink (cannot be selected)\nMaterial: PP (polypropylene), polyester, catnip, chicken feathers"], ["price", "4.99"], ["image", "https://shop-cdn-m.mediazs.com/bilder/kong/connects/window/teaser/0/400/74332_kong_connectswindowteaser_hs_02_0.jpg"], ["created_at", "2023-01-04 22:04:16.581291"], ["updated_at", "2023-01-04 22:04:16.581291"], ["category_id", 14]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Aumüller Cat Toy Mouse Valeri"], ["description", "The Cat Toy Mouse Valeri from Aumüller is a cute cat toy filled with approx. 5 g of valerian, suitable for all cats!\nValerian is the ideal alternative to catnip. The Mouse Valeri sends out a strong valerian scent which is simply irresistible for your cat. She'll just keep playing, playing, playing, you'll see...\n\nThe toy mouse is filled with organic spelt grown in Germany and premium valerian of pharmacy quality, also grown in Germany.\nThe natural, roughly cut valerian root inside the cushion will be rubbed during play by the coarse spelt. As your cat shakes and moved the toy, the spelt works like a grater and just keeps that scent coming. For extra-long animating smell!\n\nSize:\nLength: 13 / 26 cm (without / with tail); width approx. 6 cm; height approx. 6 cm\nApprox. 5 g / toy"], ["price", "2.79"], ["image", "https://shop-cdn-m.mediazs.com/bilder/aumller/cat/toy/mouse/valeri/7/400/33695_pla_aumueller_baldi_maus_hs_baldimaus_grau17_02_7.jpg"], ["created_at", "2023-01-04 22:04:16.583092"], ["updated_at", "2023-01-04 22:04:16.583092"], ["category_id", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "IAMS for Vitality Kitten Fresh Chicken Dry Cat Food"], ["description", "This premium quality IAMS for Vitality Kitten Fresh Chicken Dry Cat Food offers your cat the best possible start in life. As well as a high content of valuable animal protein from chicken and turkey (43%), it also contains special ingredients chosen for their ability to support healthy development. The balanced recipe uses selected ingredients and prebiotics for best digestibility, as well as for a great flavour. Even the fussiest pets will love this IAMS for Vitality Kitten Fresh Chicken Dry Cat Food and will receive all of the vital nutrients needed for overall wellbeing.\nIAMS for Vitality Kitten Fresh Chicken Dry Cat Food contains DHA to support the development of healthy brain and eyesight. The tailored formula can have positive effects on cognitive ability, whilst antioxidants encourage a strong immune system. Unsaturated omega fatty acids keep skin healthy and coat glossy. The high nutrient content of this IAMS for Vitality Kitten Fresh Chicken Dry Cat Food with plenty of protein makes it the ideal food for the key initial growth phases, helping build muscle mass and strong bones in young cats between the ages of 1-12 months. This special nutrition can also be beneficial for pregnant or nursing mother cats, providing sufficient energy and strength for them and their offspring.\n\nIAMS for Vitality Kitten Fresh Chicken Dry Cat Food at a glance:\n\nBalanced food especially for young kittens and junior cats aged 1-12 months, or for pregnant or lactating mother cats\nNutrient dense food: with essential animal protein, vitamins and minerals, designed to be beneficial during the growth phase\n43% chicken & turkey: with quality animal proteins for a great flavour and aroma and to help build strong muscles\nEasy to digest: healthy ingredients and prebiotics make this food very healthy and help to support a balanced gut flora\nCognitive function: the omega-3 fatty acid DHA helps with brain development and good eyesight\nStrong bones: recipe designed to promote healthy bone development\nStrong immune system: rich in antioxidants and vitamins to boost the body’s defences\nHealthy skin & glossy coat: with unsaturated omega-3 & omega-6 fatty acids\nWith taurine: naturally found in chicken and can help to strengthen eyes and heart\nWell accepted: tasty kibble with an improved recipe including lots of chicken and selected ingredients for a great taste\nBalanced and complete: all-round nutrition with vitamins, minerals and trace elements, specially adapted to meet the needs in the growth phase\nNo added flavourings, colourings or preservatives\nShaped pellets: flavourful kibble, designed with your pet’s mouth shape in mind, making them easy to bite and chew\n"], ["price", "31.0"], ["image", "https://shop-cdn-m.mediazs.com/bilder/iams/for/vitality/kitten/fresh/chicken/dry/cat/food/2/400/8710255127736_3kg_2.jpg"], ["created_at", "2023-01-04 22:04:16.584504"], ["updated_at", "2023-01-04 22:04:16.584504"], ["category_id", 13]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2023-01-05 00:04:20 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:15:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 6792)
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 10644)
+Completed 200 OK in 25ms (Views: 11.8ms | ActiveRecord: 9.4ms | Allocations: 13959)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-05 00:04:23 +0200
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:15:in `each_with_index'
+  Rendered products/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 972)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2083)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 2440)
+
+
+Started GET "/categories/13" for 127.0.0.1 at 2023-01-05 00:04:24 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 13]]
+  ↳ app/views/categories/show.html.erb:13:in `each_with_index'
+  Rendered categories/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 3286)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4536)
+Completed 200 OK in 14ms (Views: 7.0ms | ActiveRecord: 0.9ms | Allocations: 8937)
+
+
+Started GET "/categories/14" for 127.0.0.1 at 2023-01-05 00:04:25 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 14]]
+  ↳ app/views/categories/show.html.erb:13:in `each_with_index'
+  Rendered categories/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 919)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 1971)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.8ms | Allocations: 2860)
+
+
+Started GET "/products/8" for 127.0.0.1 at 2023-01-05 00:04:28 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:6
+  Rendered products/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2270)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3148)
+Completed 200 OK in 10ms (Views: 5.6ms | ActiveRecord: 0.8ms | Allocations: 4637)
+
+
+Started POST "/lineitems?product_id=8" for 127.0.0.1 at 2023-01-05 00:04:29 +0200
+Processing by LineitemsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product_id"=>"8"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lineitems_controller.rb:3:in `create'
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mCart Create (2.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2023-01-04 22:04:29.976778"], ["updated_at", "2023-01-04 22:04:29.976778"]]
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mLineitem Load (0.7ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1 AND "lineitems"."product_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["product_id", 8], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:6:in `add_product'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mLineitem Create (2.6ms)[0m  [1m[32mINSERT INTO "lineitems" ("product_id", "cart_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 8], ["cart_id", 1], ["quantity", 1], ["price", "4.99"], ["created_at", "2023-01-04 22:04:29.996972"], ["updated_at", "2023-01-04 22:04:29.996972"]]
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+Redirected to http://127.0.0.1:3000/cart
+Completed 302 Found in 47ms (ActiveRecord: 20.0ms | Allocations: 16701)
+
+
+Started GET "/cart" for 127.0.0.1 at 2023-01-05 00:04:30 +0200
+Processing by CartsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:1
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Load (0.1ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 1]]
+  ↳ app/views/carts/show.html.erb:15:in `each_with_index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:18
+  Rendered carts/show.html.erb within layouts/application (Duration: 9.2ms | Allocations: 6985)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 8021)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.9ms | Allocations: 8819)
+
+
+Started POST "/orders" for 127.0.0.1 at 2023-01-05 00:04:34 +0200
+Processing by OrdersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1650)
+
+
+  
+NoMethodError (undefined method `orders' for nil:NilClass
+
+    order = current_user.orders.create(cart: current_cart, status: "Not Paid")
+                        ^^^^^^^):
+  
+app/controllers/orders_controller.rb:3:in `create'
+Started GET "/cart" for 127.0.0.1 at 2023-01-05 00:06:57 +0200
+Processing by CartsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCart Load (11.8ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Exists? (7.9ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:1
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Load (2.6ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 1]]
+  ↳ app/views/carts/show.html.erb:15:in `each_with_index'
+  [1m[36mProduct Load (15.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:18
+  Rendered carts/show.html.erb within layouts/application (Duration: 43.6ms | Allocations: 4423)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 55.0ms | Allocations: 5733)
+Completed 200 OK in 57ms (Views: 17.7ms | ActiveRecord: 38.4ms | Allocations: 6604)
+
+
+Started GET "/categories/15" for 127.0.0.1 at 2023-01-05 00:07:01 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 15]]
+  ↳ app/views/categories/show.html.erb:13:in `each_with_index'
+  Rendered categories/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1035)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2262)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 0.9ms | Allocations: 3472)
+
+
+Started GET "/categories/14" for 127.0.0.1 at 2023-01-05 00:07:02 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 14]]
+  ↳ app/views/categories/show.html.erb:13:in `each_with_index'
+  Rendered categories/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 898)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1973)
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.8ms | Allocations: 2810)
+
+
+Started GET "/products/9" for 127.0.0.1 at 2023-01-05 00:07:04 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:6
+  Rendered products/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1574)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2516)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.7ms | Allocations: 3728)
+
+
+Started POST "/lineitems?product_id=9" for 127.0.0.1 at 2023-01-05 00:07:05 +0200
+Processing by LineitemsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product_id"=>"9"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/lineitems_controller.rb:3:in `create'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Load (0.2ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1 AND "lineitems"."product_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["product_id", 9], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:6:in `add_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mLineitem Create (0.7ms)[0m  [1m[32mINSERT INTO "lineitems" ("product_id", "cart_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 9], ["cart_id", 1], ["quantity", 1], ["price", "2.79"], ["created_at", "2023-01-04 22:07:05.592091"], ["updated_at", "2023-01-04 22:07:05.592091"]]
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+Redirected to http://127.0.0.1:3000/cart
+Completed 302 Found in 9ms (ActiveRecord: 1.9ms | Allocations: 4403)
+
+
+Started GET "/cart" for 127.0.0.1 at 2023-01-05 00:07:05 +0200
+Processing by CartsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:1
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Load (0.1ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 1]]
+  ↳ app/views/carts/show.html.erb:15:in `each_with_index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:18
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:18
+  Rendered carts/show.html.erb within layouts/application (Duration: 7.0ms | Allocations: 4770)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:47
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 5603)
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 1.3ms | Allocations: 5886)
+
+

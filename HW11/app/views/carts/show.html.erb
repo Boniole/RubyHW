@@ -25,7 +25,9 @@
     <% end %>
     </tbody>
 </table>
-  <%= button_to 'Checkout', orders_path, class: 'btn btn-primary' %>
+  <% if user_signed_in? %>
+    <%= button_to 'Checkout', orders_path, class: 'btn btn-primary' %>
+  <% end %>
 <% else %>
   <p>Current Cart is empty</p>
 <% end %>
