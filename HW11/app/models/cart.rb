@@ -5,7 +5,7 @@ class Cart < ApplicationRecord
   def add_product(product)
     line_item = lineitems.find_by(product: product)
     if line_item and product.price == line_item.price
-      line_item.quantity = line_item.quantity + 1
+      line_item.quantity += 1
       line_item.save
     else
       lineitems.create(product: product, quantity: 1, price: product.price)
@@ -20,6 +20,10 @@ class Cart < ApplicationRecord
   end
 
   def total_price
-    lineitems.map(&:product).sum(&:price)
+    sum = 0
+    self.lineitems.each do |item|
+      sum+= item.price * item.quantity
+    end
+    return sum
   end
 end

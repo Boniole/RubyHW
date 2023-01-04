@@ -13,4 +13,12 @@ class OrdersController < ApplicationController
   def index
     @orders = current_user.orders.all
   end
+
+  def pay
+    order = current_user.orders.find(params[:id])
+    order.status = 'Paid'
+    order.save
+
+    redirect_to order_path(order), notice: "Order was paid"
+  end
 end

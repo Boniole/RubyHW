@@ -20,9 +20,20 @@
         <td><%= line_item.product.description %></td>
         <td><%= line_item.quantity %> </td>
         <td><%= number_to_currency(line_item.price) %></td>
-        <td><%= button_to 'Delete from card',  lineitem_path(id: line_item.id), :method => :delete , class: 'btn btn-primary' %><td>
+        <td><%= button_to "+1", lineitem_add_path(:id => line_item.id), method: :post, class: 'btn btn-primary' %>
+        <%= button_to "-1", lineitem_reduce_path(:id => line_item.id), method: :post, class: 'btn btn-primary' %>
+        <%= button_to 'Delete from card',  lineitem_path(id: line_item.id), :method => :delete , class: 'btn btn-primary' %><td>
       </tr>
     <% end %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><b>Total <%= number_to_currency(current_cart.total_price) %></b><td>
+    </tr>
     </tbody>
 </table>
   <% if user_signed_in? %>

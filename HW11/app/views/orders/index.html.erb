@@ -24,6 +24,14 @@
           <td><%= number_to_currency(line_item.price) %></td>
         </tr>
       <% end %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><b>Total <%= number_to_currency(order.cart.total_price) %></b><td>
+      </tr>
       </tbody>
     </table>
   <% end %>
