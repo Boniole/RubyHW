@@ -1,4 +1,4 @@
-# HW11 ONLINE SHOP
+# HW11 ONLINESHOP
 
 Setup project:
 
