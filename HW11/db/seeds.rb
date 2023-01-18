@@ -81,7 +81,19 @@ Balanced and complete: all-round nutrition with vitamins, minerals and trace ele
 No added flavourings, colourings or preservatives
 Shaped pellets: flavourful kibble, designed with your pet’s mouth shape in mind, making them easy to bite and chew
 ")
-# Product.create(name: "", category: toys, price: , image: "", description: "")
+Product.create(name: "Applaws Cat Food 70g - Tuna / Fish", category: food, price: 14.69, image: "https://shop-cdn-m.mediazs.com/bilder/applaws/cat/food/g/tuna/fish/2/400/22657_PLA_Applaws_Katzenfutter_Thunfischfilet_70g_156g_2.jpg", description: "Applaws uses only the highest quality, human-grade ingredients, giving your cat a true taste experience. The gluten-free recipes are rich in the amino acids, taurine and arginine, which are essential for your cat's health and are found mainly in the best pieces of meat. Only 100% natural ingredients of the highest quality, including 75% meat or fish, are used for Applaws wet cat food.
+The chicken is from human-grade sources, providing your cat with valuable protein. The fish is sustainably sourced and provides lots of omega-3 and omega-6 fatty acids. Nothing else is added, meaning there are no hidden colourings, flavourings or additives. You'll see the difference the minute you open the can: the natural consistency will convince you, and your cats will love it! It also has a high moisture content, helping to ensure your cat takes on sufficient fluids.
+
+Applaws Cat Food 70g at a glance:
+Complementary food for adult cats
+Suitable for cats with sensitive digestion or allergies
+High meat or fish content: 75% to ensure species-appropriate nutrition
+Rich in natural amino acids: with essential taurine and arginine
+Unadulterated and 100% natural: uses only natural, raw ingredients of the highest quality, completely free of additives
+Gluten free: suitable for cats with intolerances or allergies
+High moisture content: ideal for boosting fluid intake
+Fish is sustainably sourced and from species-appropriate fishing
+Human-grade chicken from high-quality sources")
 # Product.create(name: "", category: toys, price: , image: "", description: "")
 # Product.create(name: "", category: toys, price: , image: "", description: "")
 # Product.create(name: "", category: toys, price: , image: "", description: "")
