@@ -1,4 +1,4 @@
-# HW12 ONLINESHOP
+# HW12 ONLINE SHOP
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
