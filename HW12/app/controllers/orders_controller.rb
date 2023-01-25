@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def create
-    order = current_user.orders.create(cart: current_cart, status: "Not Paid")
+    order = current_user.orders.create(cart: current_cart, status: 0)
     cookies.delete(:cart_id)
 
     redirect_to order_path(order), notice: "Order was created"
@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
 
   def pay
     order = current_user.orders.find(params[:id])
-    order.status = 'Paid'
+    order.status = 1
     order.save
 
     redirect_to order_path(order), notice: "Order was paid"
