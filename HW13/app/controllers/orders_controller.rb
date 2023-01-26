@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
     order = current_user.orders.find(params[:id])
     order.status = 1
     order.save
-
+    UserMailer.send_order(current_user, order).deliver_now
     redirect_to order_path(order), notice: "Order was paid"
   end
 end

@@ -30975,3 +30975,1415 @@ Processing by Admin::CategoriesController#index as HTML
 Completed 200 OK in 123ms (Views: 61.0ms | ActiveRecord: 52.2ms | Allocations: 106271)
 
 
+Started GET "/" for ::1 at 2023-01-26 15:43:20 +0200
+  
+ActiveRecord::NoDatabaseError (We could not find your database: HW13_development_2. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.5) lib/rack/method_override.rb:24:in `call'
+rack (2.2.5) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.5) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (131.0ms)[0m  [1m[35mCREATE DATABASE "HW13_development_2" ENCODING = 'unicode'[0m
+  [1m[35m (39.9ms)[0m  [1m[35mCREATE DATABASE "HW13_test_2" ENCODING = 'unicode'[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6999642586336986180)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20221228193308)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "description" character varying, "price" decimal, "image" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221228193308"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCategories (20221228193333)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "title" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221228193333"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddReferenceToProducts (20221228194409)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "products" ADD "category_id" bigint[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_products_on_category_id" ON "products" ("category_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221228194409"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DeviseCreateUsers (20221228200010)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221228200010"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DeviseCreateAdminUsers (20221228200138)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221228200138"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveAdminComments (20221228200139)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" bigserial primary key, "namespace" character varying, "body" text, "resource_type" character varying, "resource_id" bigint, "author_type" character varying, "author_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_resource" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_author" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221228200139"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCarts (20230104185133)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "carts" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230104185133"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLineitems (20230104191152)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "lineitems" ("id" bigserial primary key, "product_id" bigint NOT NULL, "cart_id" bigint NOT NULL, "quantity" integer, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_774d1bb2b6"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+, CONSTRAINT "fk_rails_733d199599"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_lineitems_on_product_id" ON "lineitems" ("product_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_lineitems_on_cart_id" ON "lineitems" ("cart_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230104191152"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20230104211633)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "cart_id" bigint NOT NULL, "user_id" bigint NOT NULL, "status" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_5cdf0e0ad4"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+, CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_orders_on_cart_id" ON "orders" ("cart_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_orders_on_user_id" ON "orders" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230104211633"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-26 13:43:41.295093"], ["updated_at", "2023-01-26 13:43:41.295093"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6999642586336986180)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdminUser Delete All (1.2ms)[0m  [1m[31mDELETE FROM "admin_users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = $1 LIMIT $2[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[36mAdminUser Create (1.0ms)[0m  [1m[32mINSERT INTO "admin_users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "admin@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-01-26 13:43:47.323275"], ["updated_at", "2023-01-26 13:43:47.323275"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Delete All (0.8ms)[0m  [1m[31mDELETE FROM "categories"[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.7ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Food"], ["created_at", "2023-01-26 13:43:47.334741"], ["updated_at", "2023-01-26 13:43:47.334741"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Toys"], ["created_at", "2023-01-26 13:43:47.338379"], ["updated_at", "2023-01-26 13:43:47.338379"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.7ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Сlothes"], ["created_at", "2023-01-26 13:43:47.339752"], ["updated_at", "2023-01-26 13:43:47.339752"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Shoes"], ["created_at", "2023-01-26 13:43:47.341896"], ["updated_at", "2023-01-26 13:43:47.341896"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Delete All (1.3ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (3.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Cat Pole Feather Dancer"], ["description", "This cat dangler with natural feathers promises your cat hours of amusement.\nOn the end of the pole there is an apprx. 20 cm long extension with feathers. The feathers make a rustling sound with every movement - no cat will be able to resist. The feathers must be explored!\n\nThe feathers are dyed with non-toxic food colouring.\n\nCat Pole Feather Dancer at a glance:\n\nnatural feathers\ndyed with non-toxic food colouring\nbendy end\nvery robust\nhigh quality production\nMade in the USA\nSize:\nTotal length: apprx. 80 cm\npole: L 46 cm\nbendy pole extension: L 18 cm\nColours may vary illustration in photo upon delivery.\nCaution: As with any other product, please supervise your pet with this toy. Check the product regularly for damage, and replace the toy if it is damaged or missing any pieces to avoid potential injury to your pet."], ["price", "7.99"], ["image", "https://shop-cdn-m.mediazs.com/bilder/cat/pole/feather/dancer/1/400/18062_PLA_Schulze_Katzenangel_Federtaenzer_1.jpg"], ["created_at", "2023-01-26 13:43:47.352321"], ["updated_at", "2023-01-26 13:43:47.352321"], ["category_id", 2]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "KONG Connects Window Teaser"], ["description", "The KONG Connects Window Teaser is a challenging and entertaining way to catch your cat’s attention and keep it occupied for a few hours, encouraging play and activity. The KONG Connects Window Teaser is similar to a dangler toy, with a suction cup on the end so that it can be easily fastened onto windows, patio doors and other smooth surfaces. This ensures that your cat can play with the dangler even when you are busy. On the end of the pole, a flower and colourful bird with feathers dance and dangler, teasing your cat and enticing it to stretch, jump and prod at the toy with its paws, causing it to whirl and spin even more wildly!\nInside the bird on the end of the KONG Connects Window Teaser, your cat will detect the irresistible scent of KONG North American premium catnip, which appeals to cats and encourages animated play. This colourful toy ensures long-lasting enjoyment and helps to satisfy your cat’s natural hunting, moving and biting instincts.\n\nKONG Connects Window Teaser at a glance:\n\nInteractive cat toy\nBased on cat dangler toys: a flower and colourful bird dance and dangle on a string at the end of a pole\nWith suction cup: for fastening the toy to windows, patio doors and smooth walls so that you do not always have to hold the toy for your cat to play\nEncourages movement: animates your cat to stretch, jump and prod\nWith catnip: contains premium KONG North American catnip that gives off an enticing scent and promotes play\nCrackling filling: for long-lasting entertainment\nColourful feathers: soft chicken feathers to animate your cat\nLong-lasting fun: thanks to unpredictable movements and appealing filling\nIndividual play: allows your cat to entertain itself\nSatisfies natural instincts: for moving, hunting and biting\nHigh quality: from premium manufacturer KONG, renowned for creating clever toy ideas that pets love\nColour: blue, purple, pink (cannot be selected)\nMaterial: PP (polypropylene), polyester, catnip, chicken feathers"], ["price", "4.99"], ["image", "https://shop-cdn-m.mediazs.com/bilder/kong/connects/window/teaser/0/400/74332_kong_connectswindowteaser_hs_02_0.jpg"], ["created_at", "2023-01-26 13:43:47.357557"], ["updated_at", "2023-01-26 13:43:47.357557"], ["category_id", 2]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Aumüller Cat Toy Mouse Valeri"], ["description", "The Cat Toy Mouse Valeri from Aumüller is a cute cat toy filled with approx. 5 g of valerian, suitable for all cats!\nValerian is the ideal alternative to catnip. The Mouse Valeri sends out a strong valerian scent which is simply irresistible for your cat. She'll just keep playing, playing, playing, you'll see...\n\nThe toy mouse is filled with organic spelt grown in Germany and premium valerian of pharmacy quality, also grown in Germany.\nThe natural, roughly cut valerian root inside the cushion will be rubbed during play by the coarse spelt. As your cat shakes and moved the toy, the spelt works like a grater and just keeps that scent coming. For extra-long animating smell!\n\nSize:\nLength: 13 / 26 cm (without / with tail); width approx. 6 cm; height approx. 6 cm\nApprox. 5 g / toy"], ["price", "2.79"], ["image", "https://shop-cdn-m.mediazs.com/bilder/aumller/cat/toy/mouse/valeri/7/400/33695_pla_aumueller_baldi_maus_hs_baldimaus_grau17_02_7.jpg"], ["created_at", "2023-01-26 13:43:47.362814"], ["updated_at", "2023-01-26 13:43:47.362814"], ["category_id", 2]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "IAMS for Vitality Kitten Fresh Chicken Dry Cat Food"], ["description", "This premium quality IAMS for Vitality Kitten Fresh Chicken Dry Cat Food offers your cat the best possible start in life. As well as a high content of valuable animal protein from chicken and turkey (43%), it also contains special ingredients chosen for their ability to support healthy development. The balanced recipe uses selected ingredients and prebiotics for best digestibility, as well as for a great flavour. Even the fussiest pets will love this IAMS for Vitality Kitten Fresh Chicken Dry Cat Food and will receive all of the vital nutrients needed for overall wellbeing.\nIAMS for Vitality Kitten Fresh Chicken Dry Cat Food contains DHA to support the development of healthy brain and eyesight. The tailored formula can have positive effects on cognitive ability, whilst antioxidants encourage a strong immune system. Unsaturated omega fatty acids keep skin healthy and coat glossy. The high nutrient content of this IAMS for Vitality Kitten Fresh Chicken Dry Cat Food with plenty of protein makes it the ideal food for the key initial growth phases, helping build muscle mass and strong bones in young cats between the ages of 1-12 months. This special nutrition can also be beneficial for pregnant or nursing mother cats, providing sufficient energy and strength for them and their offspring.\n\nIAMS for Vitality Kitten Fresh Chicken Dry Cat Food at a glance:\n\nBalanced food especially for young kittens and junior cats aged 1-12 months, or for pregnant or lactating mother cats\nNutrient dense food: with essential animal protein, vitamins and minerals, designed to be beneficial during the growth phase\n43% chicken & turkey: with quality animal proteins for a great flavour and aroma and to help build strong muscles\nEasy to digest: healthy ingredients and prebiotics make this food very healthy and help to support a balanced gut flora\nCognitive function: the omega-3 fatty acid DHA helps with brain development and good eyesight\nStrong bones: recipe designed to promote healthy bone development\nStrong immune system: rich in antioxidants and vitamins to boost the body’s defences\nHealthy skin & glossy coat: with unsaturated omega-3 & omega-6 fatty acids\nWith taurine: naturally found in chicken and can help to strengthen eyes and heart\nWell accepted: tasty kibble with an improved recipe including lots of chicken and selected ingredients for a great taste\nBalanced and complete: all-round nutrition with vitamins, minerals and trace elements, specially adapted to meet the needs in the growth phase\nNo added flavourings, colourings or preservatives\nShaped pellets: flavourful kibble, designed with your pet’s mouth shape in mind, making them easy to bite and chew\n"], ["price", "31.0"], ["image", "https://shop-cdn-m.mediazs.com/bilder/iams/for/vitality/kitten/fresh/chicken/dry/cat/food/2/400/8710255127736_3kg_2.jpg"], ["created_at", "2023-01-26 13:43:47.364436"], ["updated_at", "2023-01-26 13:43:47.364436"], ["category_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (2.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "image", "created_at", "updated_at", "category_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Applaws Cat Food 70g - Tuna / Fish"], ["description", "Applaws uses only the highest quality, human-grade ingredients, giving your cat a true taste experience. The gluten-free recipes are rich in the amino acids, taurine and arginine, which are essential for your cat's health and are found mainly in the best pieces of meat. Only 100% natural ingredients of the highest quality, including 75% meat or fish, are used for Applaws wet cat food.\nThe chicken is from human-grade sources, providing your cat with valuable protein. The fish is sustainably sourced and provides lots of omega-3 and omega-6 fatty acids. Nothing else is added, meaning there are no hidden colourings, flavourings or additives. You'll see the difference the minute you open the can: the natural consistency will convince you, and your cats will love it! It also has a high moisture content, helping to ensure your cat takes on sufficient fluids.\n\nApplaws Cat Food 70g at a glance:\nComplementary food for adult cats\nSuitable for cats with sensitive digestion or allergies\nHigh meat or fish content: 75% to ensure species-appropriate nutrition\nRich in natural amino acids: with essential taurine and arginine\nUnadulterated and 100% natural: uses only natural, raw ingredients of the highest quality, completely free of additives\nGluten free: suitable for cats with intolerances or allergies\nHigh moisture content: ideal for boosting fluid intake\nFish is sustainably sourced and from species-appropriate fishing\nHuman-grade chicken from high-quality sources"], ["price", "14.69"], ["image", "https://shop-cdn-m.mediazs.com/bilder/applaws/cat/food/g/tuna/fish/2/400/22657_PLA_Applaws_Katzenfutter_Thunfischfilet_70g_156g_2.jpg"], ["created_at", "2023-01-26 13:43:47.366130"], ["updated_at", "2023-01-26 13:43:47.366130"], ["category_id", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2023-01-26 15:43:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 11.4ms | Allocations: 8189)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 86.7ms | Allocations: 79586)
+Completed 200 OK in 93ms (Views: 81.0ms | ActiveRecord: 7.8ms | Allocations: 82840)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-01-26 15:43:56 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 240)
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 580)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 3942)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 9619)
+Completed 200 OK in 32ms (Views: 18.6ms | ActiveRecord: 5.5ms | Allocations: 14773)
+
+
+Started POST "/users" for ::1 at 2023-01-26 15:44:03 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"campus_impious.0v@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "campus_impious.0v@icloud.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "campus_impious.0v@icloud.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-01-26 13:44:04.092699"], ["updated_at", "2023-01-26 13:44:04.092699"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 273ms (ActiveRecord: 3.8ms | Allocations: 10754)
+
+
+Started GET "/" for ::1 at 2023-01-26 15:44:04 +0200
+Processing by ProductsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1502)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 8292)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.9ms | Allocations: 8686)
+
+
+Started GET "/products/2" for ::1 at 2023-01-26 15:44:05 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 757)
+  [1m[36mCategory Load (5.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 6892)
+Completed 200 OK in 24ms (Views: 14.7ms | ActiveRecord: 6.9ms | Allocations: 8443)
+
+
+Started POST "/lineitems?product_id=2" for ::1 at 2023-01-26 15:44:08 +0200
+Processing by LineitemsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product_id"=>"2"}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/lineitems_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mCart Create (2.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2023-01-26 13:44:08.104004"], ["updated_at", "2023-01-26 13:44:08.104004"]]
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mLineitem Load (2.2ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1 AND "lineitems"."product_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:6:in `add_product'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mLineitem Create (2.3ms)[0m  [1m[32mINSERT INTO "lineitems" ("product_id", "cart_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 2], ["cart_id", 1], ["quantity", 1], ["price", "4.99"], ["created_at", "2023-01-26 13:44:08.138376"], ["updated_at", "2023-01-26 13:44:08.138376"]]
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 56ms (ActiveRecord: 22.0ms | Allocations: 16234)
+
+
+Started GET "/cart" for ::1 at 2023-01-26 15:44:08 +0200
+Processing by CartsController#show as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:4
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Load (0.1ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 1]]
+  ↳ app/views/carts/show.html.erb:18:in `each_with_index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:21
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mCACHE Lineitem Load (0.0ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 1]]
+  ↳ app/models/cart.rb:24:in `total_price'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:42
+  Rendered carts/show.html.erb within layouts/application (Duration: 10.9ms | Allocations: 9394)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 14984)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 1.4ms | Allocations: 15779)
+
+
+Started POST "/orders" for ::1 at 2023-01-26 15:44:11 +0200
+Processing by OrdersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mOrder Create (2.1ms)[0m  [1m[32mINSERT INTO "orders" ("cart_id", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cart_id", 1], ["user_id", 1], ["status", 0], ["created_at", "2023-01-26 13:44:11.442682"], ["updated_at", "2023-01-26 13:44:11.442682"]]
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+Redirected to http://localhost:3000/orders/1
+Completed 302 Found in 26ms (ActiveRecord: 11.7ms | Allocations: 9198)
+
+
+Started GET "/orders/1" for ::1 at 2023-01-26 15:44:11 +0200
+Processing by OrdersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:16
+  [1m[36mLineitem Load (0.2ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 1]]
+  ↳ app/views/orders/show.html.erb:16:in `each_with_index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:19
+  Rendered orders/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 4018)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 9594)
+Completed 200 OK in 15ms (Views: 10.1ms | ActiveRecord: 1.5ms | Allocations: 12246)
+
+
+Started POST "/orders/1/pay" for ::1 at 2023-01-26 15:44:20 +0200
+Processing by OrdersController#pay as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `pay'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `pay'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", 1], ["updated_at", "2023-01-26 13:44:20.587345"], ["id", 1]]
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 5.9ms | Allocations: 22179)
+
+
+  
+NoMethodError (undefined method `mail' for UserMailer:Class):
+  
+app/mailers/user_mailer.rb:5:in `send_order'
+app/controllers/orders_controller.rb:21:in `pay'
+Started GET "/cart" for ::1 at 2023-01-26 15:45:30 +0200
+Processing by CartsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2023-01-26 13:45:30.357180"], ["updated_at", "2023-01-26 13:45:30.357180"]]
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mLineitem Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 2], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:4
+  Rendered carts/show.html.erb within layouts/application (Duration: 25.0ms | Allocations: 7835)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 66.4ms | Allocations: 34268)
+Completed 200 OK in 68ms (Views: 44.1ms | ActiveRecord: 23.2ms | Allocations: 34896)
+
+
+Started GET "/cart" for ::1 at 2023-01-26 15:45:30 +0200
+Processing by CartsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 2], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:4
+  Rendered carts/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2135)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 8401)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 1.2ms | Allocations: 8706)
+
+
+Started GET "/products?category_id=1" for ::1 at 2023-01-26 15:45:33 +0200
+Processing by ProductsController#index as HTML
+  Parameters: {"category_id"=>"1"}
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:8:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 13.3ms | Allocations: 4830)
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 11450)
+Completed 200 OK in 34ms (Views: 19.9ms | ActiveRecord: 10.3ms | Allocations: 13793)
+
+
+Started GET "/products/4" for ::1 at 2023-01-26 15:45:34 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 586)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 6720)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 1.1ms | Allocations: 8108)
+
+
+Started POST "/lineitems?product_id=4" for ::1 at 2023-01-26 15:45:37 +0200
+Processing by LineitemsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product_id"=>"4"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lineitems_controller.rb:3:in `create'
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Load (0.7ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1 AND "lineitems"."product_id" = $2 LIMIT $3[0m  [["cart_id", 2], ["product_id", 4], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:6:in `add_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mLineitem Create (0.7ms)[0m  [1m[32mINSERT INTO "lineitems" ("product_id", "cart_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 4], ["cart_id", 2], ["quantity", 1], ["price", "31.0"], ["created_at", "2023-01-26 13:45:37.250575"], ["updated_at", "2023-01-26 13:45:37.250575"]]
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 11ms (ActiveRecord: 4.2ms | Allocations: 7327)
+
+
+Started GET "/cart" for ::1 at 2023-01-26 15:45:37 +0200
+Processing by CartsController#show as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 2], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:4
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Load (0.2ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 2]]
+  ↳ app/views/carts/show.html.erb:18:in `each_with_index'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:21
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mCACHE Lineitem Load (0.0ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 2]]
+  ↳ app/models/cart.rb:24:in `total_price'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:42
+  Rendered carts/show.html.erb within layouts/application (Duration: 8.8ms | Allocations: 7812)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 13296)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 1.5ms | Allocations: 13610)
+
+
+Started POST "/orders" for ::1 at 2023-01-26 15:45:39 +0200
+Processing by OrdersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mCart Load (1.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mOrder Create (1.4ms)[0m  [1m[32mINSERT INTO "orders" ("cart_id", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cart_id", 2], ["user_id", 1], ["status", 0], ["created_at", "2023-01-26 13:45:39.620683"], ["updated_at", "2023-01-26 13:45:39.620683"]]
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+Redirected to http://localhost:3000/orders/2
+Completed 302 Found in 19ms (ActiveRecord: 11.0ms | Allocations: 8017)
+
+
+Started GET "/orders/2" for ::1 at 2023-01-26 15:45:39 +0200
+Processing by OrdersController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (1.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:16
+  [1m[36mLineitem Load (0.5ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 2]]
+  ↳ app/views/orders/show.html.erb:16:in `each_with_index'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:19
+  Rendered orders/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 3683)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 9259)
+Completed 200 OK in 14ms (Views: 8.4ms | ActiveRecord: 2.9ms | Allocations: 11612)
+
+
+Started POST "/orders/2/pay" for ::1 at 2023-01-26 15:45:41 +0200
+Processing by OrdersController#pay as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `pay'
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `pay'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", 1], ["updated_at", "2023-01-26 13:45:41.253370"], ["id", 2]]
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+UserMailer#send_order: processed outbound mail in 8.5ms
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 7.8ms | Allocations: 10154)
+
+
+  
+ActionView::MissingTemplate (Missing template user_mailer/send_order with "mailer".
+
+Searched in:
+  * "user_mailer"
+):
+  
+app/mailers/user_mailer.rb:6:in `send_order'
+app/controllers/orders_controller.rb:21:in `pay'
+Started GET "/cart" for ::1 at 2023-01-26 15:46:18 +0200
+Processing by CartsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2023-01-26 13:46:18.413596"], ["updated_at", "2023-01-26 13:46:18.413596"]]
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mLineitem Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 3], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:4
+  Rendered carts/show.html.erb within layouts/application (Duration: 9.0ms | Allocations: 3942)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 11006)
+Completed 200 OK in 20ms (Views: 15.7ms | ActiveRecord: 3.3ms | Allocations: 11871)
+
+
+Started GET "/cart" for ::1 at 2023-01-26 15:46:18 +0200
+Processing by CartsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 3], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:4
+  Rendered carts/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1320)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 7581)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 1.2ms | Allocations: 7866)
+
+
+Started GET "/products?category_id=1" for ::1 at 2023-01-26 15:46:20 +0200
+Processing by ProductsController#index as HTML
+  Parameters: {"category_id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:8:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1498)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 8147)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 1.2ms | Allocations: 9353)
+
+
+Started GET "/products/5" for ::1 at 2023-01-26 15:46:22 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 743)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 6877)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.6ms | Allocations: 7774)
+
+
+Started POST "/lineitems?product_id=5" for ::1 at 2023-01-26 15:46:23 +0200
+Processing by LineitemsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product_id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lineitems_controller.rb:3:in `create'
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Load (0.5ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1 AND "lineitems"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 5], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:6:in `add_product'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mLineitem Create (0.6ms)[0m  [1m[32mINSERT INTO "lineitems" ("product_id", "cart_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 5], ["cart_id", 3], ["quantity", 1], ["price", "14.69"], ["created_at", "2023-01-26 13:46:23.741203"], ["updated_at", "2023-01-26 13:46:23.741203"]]
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 10ms (ActiveRecord: 2.6ms | Allocations: 4356)
+
+
+Started GET "/cart" for ::1 at 2023-01-26 15:46:23 +0200
+Processing by CartsController#show as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Exists? (5.5ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 3], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:4
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Load (0.2ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 3]]
+  ↳ app/views/carts/show.html.erb:18:in `each_with_index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:21
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mCACHE Lineitem Load (0.0ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 3]]
+  ↳ app/models/cart.rb:24:in `total_price'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:42
+  Rendered carts/show.html.erb within layouts/application (Duration: 12.4ms | Allocations: 6186)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 11558)
+Completed 200 OK in 19ms (Views: 12.0ms | ActiveRecord: 6.4ms | Allocations: 11876)
+
+
+Started POST "/orders" for ::1 at 2023-01-26 15:46:24 +0200
+Processing by OrdersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mTRANSACTION (10.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mOrder Create (5.5ms)[0m  [1m[32mINSERT INTO "orders" ("cart_id", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cart_id", 3], ["user_id", 1], ["status", 0], ["created_at", "2023-01-26 13:46:24.912157"], ["updated_at", "2023-01-26 13:46:24.912157"]]
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+Redirected to http://localhost:3000/orders/3
+Completed 302 Found in 37ms (ActiveRecord: 19.6ms | Allocations: 3788)
+
+
+Started GET "/orders/3" for ::1 at 2023-01-26 15:46:24 +0200
+Processing by OrdersController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:16
+  [1m[36mLineitem Load (0.7ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 3]]
+  ↳ app/views/orders/show.html.erb:16:in `each_with_index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:19
+  Rendered orders/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3086)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 8740)
+Completed 200 OK in 19ms (Views: 12.7ms | ActiveRecord: 2.3ms | Allocations: 11123)
+
+
+Started POST "/orders/3/pay" for ::1 at 2023-01-26 15:46:26 +0200
+Processing by OrdersController#pay as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `pay'
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `pay'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", 1], ["updated_at", "2023-01-26 13:46:26.373059"], ["id", 3]]
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/send_order.html.erb within layouts/mailer
+  Rendered user_mailer/send_order.html.erb within layouts/mailer (Duration: 5.5ms | Allocations: 5254)
+  Rendered layout layouts/mailer.html.erb (Duration: 5.6ms | Allocations: 5342)
+UserMailer#send_order: processed outbound mail in 6.9ms
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.4ms | Allocations: 12244)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `order' for #<ActionView::Base:0x0000000001ebe0>
+
+  <h1>Order #'.freeze;@output_buffer.append=( order.id );@output_buffer.safe_append=' status: '.freeze;@output_buffer.append=(order.status );@output_buffer.safe_append='</h1>
+                                              ^^^^^
+Did you mean?  @order):
+     5: <p>
+     6:   <%= @body %>
+     7: </p>
+     8:   <h1>Order #<%= order.id %> status: <%=order.status %></h1>
+     9:   <table class="table">
+    10:     <thead>
+    11:     <tr>
+  
+app/views/user_mailer/send_order.html.erb:8
+app/mailers/user_mailer.rb:6:in `send_order'
+app/controllers/orders_controller.rb:21:in `pay'
+Started GET "/cart" for ::1 at 2023-01-26 15:47:27 +0200
+Processing by CartsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mCart Create (1.1ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2023-01-26 13:47:27.106300"], ["updated_at", "2023-01-26 13:47:27.106300"]]
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mLineitem Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 4], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:4
+  Rendered carts/show.html.erb within layouts/application (Duration: 10.5ms | Allocations: 3948)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (27.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 51.3ms | Allocations: 11012)
+Completed 200 OK in 55ms (Views: 23.1ms | ActiveRecord: 30.6ms | Allocations: 11876)
+
+
+Started GET "/cart" for ::1 at 2023-01-26 15:47:27 +0200
+Processing by CartsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 4], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:4
+  Rendered carts/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1337)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 7602)
+Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 1.5ms | Allocations: 7887)
+
+
+Started GET "/cart" for ::1 at 2023-01-26 15:47:29 +0200
+Processing by CartsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 4], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:4
+  Rendered carts/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1291)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 7552)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.9ms | Allocations: 7819)
+
+
+Started GET "/products?category_id=1" for ::1 at 2023-01-26 15:47:29 +0200
+Processing by ProductsController#index as HTML
+  Parameters: {"category_id"=>"1"}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:8:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1501)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 8193)
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 1.3ms | Allocations: 9401)
+
+
+Started GET "/products/4" for ::1 at 2023-01-26 15:47:31 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 735)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 6869)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.7ms | Allocations: 7766)
+
+
+Started POST "/lineitems?product_id=4" for ::1 at 2023-01-26 15:47:32 +0200
+Processing by LineitemsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product_id"=>"4"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lineitems_controller.rb:3:in `create'
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Load (0.2ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1 AND "lineitems"."product_id" = $2 LIMIT $3[0m  [["cart_id", 4], ["product_id", 4], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:6:in `add_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mLineitem Create (0.4ms)[0m  [1m[32mINSERT INTO "lineitems" ("product_id", "cart_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 4], ["cart_id", 4], ["quantity", 1], ["price", "31.0"], ["created_at", "2023-01-26 13:47:33.010786"], ["updated_at", "2023-01-26 13:47:33.010786"]]
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 8ms (ActiveRecord: 1.9ms | Allocations: 4380)
+
+
+Started GET "/cart" for ::1 at 2023-01-26 15:47:33 +0200
+Processing by CartsController#show as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 4], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:4
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Load (0.2ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 4]]
+  ↳ app/views/carts/show.html.erb:18:in `each_with_index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:21
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mCACHE Lineitem Load (0.0ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 4]]
+  ↳ app/models/cart.rb:24:in `total_price'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:42
+  Rendered carts/show.html.erb within layouts/application (Duration: 9.6ms | Allocations: 6197)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 11569)
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 2.5ms | Allocations: 11887)
+
+
+Started POST "/orders" for ::1 at 2023-01-26 15:47:34 +0200
+Processing by OrdersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mOrder Create (0.9ms)[0m  [1m[32mINSERT INTO "orders" ("cart_id", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cart_id", 4], ["user_id", 1], ["status", 0], ["created_at", "2023-01-26 13:47:34.519127"], ["updated_at", "2023-01-26 13:47:34.519127"]]
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+Redirected to http://localhost:3000/orders/4
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms | Allocations: 3782)
+
+
+Started GET "/orders/4" for ::1 at 2023-01-26 15:47:34 +0200
+Processing by OrdersController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:16
+  [1m[36mLineitem Load (0.1ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 4]]
+  ↳ app/views/orders/show.html.erb:16:in `each_with_index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:19
+  Rendered orders/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 3084)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 8671)
+Completed 200 OK in 20ms (Views: 11.9ms | ActiveRecord: 1.2ms | Allocations: 11038)
+
+
+Started POST "/orders/4/pay" for ::1 at 2023-01-26 15:47:35 +0200
+Processing by OrdersController#pay as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `pay'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `pay'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mOrder Update (7.5ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", 1], ["updated_at", "2023-01-26 13:47:35.826376"], ["id", 4]]
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/send_order.html.erb within layouts/mailer
+  [1m[36mLineitem Load (0.3ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 4]]
+  ↳ app/views/user_mailer/send_order.html.erb:22:in `each_with_index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/user_mailer/send_order.html.erb:25
+  Rendered user_mailer/send_order.html.erb within layouts/mailer (Duration: 4.5ms | Allocations: 2163)
+  Rendered layout layouts/mailer.html.erb (Duration: 5.2ms | Allocations: 2365)
+UserMailer#send_order: processed outbound mail in 26.8ms
+Delivered mail 63d28477d48f4_88bc51cc-49a@MBP-Sergij.mail (24.7ms)
+Date: Thu, 26 Jan 2023 15:47:35 +0200
+From: catshop@gmail.com
+To: campus_impious.0v@icloud.com
+Message-ID: <63d28477d48f4_88bc51cc-49a@MBP-Sergij.mail>
+Subject: Your order in CatShop
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<body>
+<h1>Hello, #&lt;User:0x00000001109f7db8&gt; </h1>
+<p>
+  =
+
+</p>
+  <h1>Order #4 status: paid</h1>
+  <table class=3D"table">
+    <thead>
+    <tr>
+      <th scope=3D"col">#</th>
+      <th scope=3D"col">Image</th>
+      <th scope=3D"col">Name</th>
+      <th scope=3D"col">Description</th>
+      <th scope=3D"col">Quantity</th>
+      <th scope=3D"col">Price</th>
+      <th scope=3D"col"></th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> 1</td>
+        <td><img src=3Dhttps://shop-cdn-m.mediazs.com/bilder/iams/for/vit=
+ality/kitten/fresh/chicken/dry/cat/food/2/400/8710255127736_3kg_2.jpg cla=
+ss=3D"card-img-top" alt=3D"..." width=3D"100" height=3D"100"></td>
+        <td>IAMS for Vitality Kitten Fresh Chicken Dry Cat Food</td>
+        <td>This premium quality IAMS for Vitality Kitten Fresh Chicken D=
+ry Cat Food offers your cat the best possible start in life. As well as a=
+ high content of valuable animal protein from chicken and turkey (43%), i=
+t also contains special ingredients chosen for their ability to support h=
+ealthy development. The balanced recipe uses selected ingredients and pre=
+biotics for best digestibility, as well as for a great flavour. Even the =
+fussiest pets will love this IAMS for Vitality Kitten Fresh Chicken Dry C=
+at Food and will receive all of the vital nutrients needed for overall we=
+llbeing.
+IAMS for Vitality Kitten Fresh Chicken Dry Cat Food contains DHA to suppo=
+rt the development of healthy brain and eyesight. The tailored formula ca=
+n have positive effects on cognitive ability, whilst antioxidants encoura=
+ge a strong immune system. Unsaturated omega fatty acids keep skin health=
+y and coat glossy. The high nutrient content of this IAMS for Vitality Ki=
+tten Fresh Chicken Dry Cat Food with plenty of protein makes it the ideal=
+ food for the key initial growth phases, helping build muscle mass and st=
+rong bones in young cats between the ages of 1-12 months. This special nu=
+trition can also be beneficial for pregnant or nursing mother cats, provi=
+ding sufficient energy and strength for them and their offspring.
+
+IAMS for Vitality Kitten Fresh Chicken Dry Cat Food at a glance:
+
+Balanced food especially for young kittens and junior cats aged 1-12 mont=
+hs, or for pregnant or lactating mother cats
+Nutrient dense food: with essential animal protein, vitamins and minerals=
+, designed to be beneficial during the growth phase
+43% chicken &amp; turkey: with quality animal proteins for a great flavou=
+r and aroma and to help build strong muscles
+Easy to digest: healthy ingredients and prebiotics make this food very he=
+althy and help to support a balanced gut flora
+Cognitive function: the omega-3 fatty acid DHA helps with brain developme=
+nt and good eyesight
+Strong bones: recipe designed to promote healthy bone development
+Strong immune system: rich in antioxidants and vitamins to boost the body=
+=E2=80=99s defences
+Healthy skin &amp; glossy coat: with unsaturated omega-3 &amp; omega-6 fa=
+tty acids
+With taurine: naturally found in chicken and can help to strengthen eyes =
+and heart
+Well accepted: tasty kibble with an improved recipe including lots of chi=
+cken and selected ingredients for a great taste
+Balanced and complete: all-round nutrition with vitamins, minerals and tr=
+ace elements, specially adapted to meet the needs in the growth phase
+No added flavourings, colourings or preservatives
+Shaped pellets: flavourful kibble, designed with your pet=E2=80=99s mouth=
+ shape in mind, making them easy to bite and chew
+</td>
+        <td>1 </td>
+        <td>$31.00</td>
+      </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><b>Total $31.00</b><td>
+    </tr>
+    </tbody>
+  </table>
+</body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/orders/4
+Completed 302 Found in 73ms (ActiveRecord: 9.9ms | Allocations: 23085)
+
+
+Started GET "/orders/4" for ::1 at 2023-01-26 15:47:35 +0200
+Processing by OrdersController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:16
+  [1m[36mLineitem Load (0.1ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 4]]
+  ↳ app/views/orders/show.html.erb:16:in `each_with_index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:19
+  Rendered orders/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2553)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 8099)
+Completed 200 OK in 9ms (Views: 5.7ms | ActiveRecord: 1.0ms | Allocations: 10355)
+
+
+Started GET "/orders/4" for ::1 at 2023-01-26 15:51:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:16
+  [1m[36mLineitem Load (0.9ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 4]]
+  ↳ app/views/orders/show.html.erb:16:in `each_with_index'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:19
+  Rendered orders/show.html.erb within layouts/application (Duration: 30.1ms | Allocations: 19609)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 104.3ms | Allocations: 86597)
+Completed 200 OK in 138ms (Views: 85.5ms | ActiveRecord: 34.0ms | Allocations: 104038)
+
+
+Started GET "/orders/favicon.ico" for ::1 at 2023-01-26 15:51:10 +0200
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"favicon"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+Completed 404 Not Found in 15ms (ActiveRecord: 4.1ms | Allocations: 2500)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Order with 'id'=favicon [WHERE "orders"."user_id" = $1]):
+  
+app/controllers/orders_controller.rb:10:in `show'
+Started GET "/products?category_id=1" for ::1 at 2023-01-26 15:51:12 +0200
+Processing by ProductsController#index as HTML
+  Parameters: {"category_id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:8:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2888)
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 9580)
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 1.8ms | Allocations: 12028)
+
+
+Started GET "/products/4" for ::1 at 2023-01-26 15:51:13 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 741)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 6876)
+Completed 200 OK in 11ms (Views: 6.3ms | ActiveRecord: 1.2ms | Allocations: 8371)
+
+
+Started POST "/lineitems?product_id=4" for ::1 at 2023-01-26 15:51:15 +0200
+Processing by LineitemsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product_id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lineitems_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2023-01-26 13:51:15.915386"], ["updated_at", "2023-01-26 13:51:15.915386"]]
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:11:in `rescue in current_cart'
+  [1m[36mLineitem Load (0.8ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1 AND "lineitems"."product_id" = $2 LIMIT $3[0m  [["cart_id", 5], ["product_id", 4], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:6:in `add_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mLineitem Create (0.7ms)[0m  [1m[32mINSERT INTO "lineitems" ("product_id", "cart_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 4], ["cart_id", 5], ["quantity", 1], ["price", "31.0"], ["created_at", "2023-01-26 13:51:15.926156"], ["updated_at", "2023-01-26 13:51:15.926156"]]
+  ↳ app/models/cart.rb:11:in `add_product'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/cart.rb:11:in `add_product'
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 17ms (ActiveRecord: 4.4ms | Allocations: 7951)
+
+
+Started GET "/cart" for ::1 at 2023-01-26 15:51:15 +0200
+Processing by CartsController#show as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "lineitems" WHERE "lineitems"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 5], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:4
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mLineitem Load (1.5ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 5]]
+  ↳ app/views/carts/show.html.erb:18:in `each_with_index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:21
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mCACHE Lineitem Load (0.0ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 5]]
+  ↳ app/models/cart.rb:24:in `total_price'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:42
+  Rendered carts/show.html.erb within layouts/application (Duration: 12.1ms | Allocations: 7823)
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 13403)
+Completed 200 OK in 21ms (Views: 16.0ms | ActiveRecord: 3.9ms | Allocations: 14245)
+
+
+Started POST "/orders" for ::1 at 2023-01-26 15:51:19 +0200
+Processing by OrdersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_cart'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("cart_id", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cart_id", 5], ["user_id", 1], ["status", 0], ["created_at", "2023-01-26 13:51:19.302114"], ["updated_at", "2023-01-26 13:51:19.302114"]]
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:3:in `create'
+Redirected to http://localhost:3000/orders/5
+Completed 302 Found in 8ms (ActiveRecord: 2.7ms | Allocations: 4173)
+
+
+Started GET "/orders/5" for ::1 at 2023-01-26 15:51:19 +0200
+Processing by OrdersController#show as TURBO_STREAM
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:16
+  [1m[36mLineitem Load (0.1ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 5]]
+  ↳ app/views/orders/show.html.erb:16:in `each_with_index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:19
+  Rendered orders/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2480)
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 7913)
+Completed 200 OK in 13ms (Views: 7.9ms | ActiveRecord: 1.9ms | Allocations: 9903)
+
+
+Started POST "/orders/5/pay" for ::1 at 2023-01-26 15:51:20 +0200
+Processing by OrdersController#pay as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `pay'
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `pay'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", 1], ["updated_at", "2023-01-26 13:51:20.724189"], ["id", 5]]
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:20:in `pay'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/send_order.html.erb within layouts/mailer
+  [1m[36mLineitem Load (0.6ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 5]]
+  ↳ app/views/user_mailer/send_order.html.erb:22:in `each_with_index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/user_mailer/send_order.html.erb:25
+  Rendered user_mailer/send_order.html.erb within layouts/mailer (Duration: 2.9ms | Allocations: 2172)
+  Rendered layout layouts/mailer.html.erb (Duration: 3.3ms | Allocations: 2374)
+UserMailer#send_order: processed outbound mail in 7.0ms
+Delivered mail 63d28558c195f_907f5230-485@MBP-Sergij.mail (1308.6ms)
+Date: Thu, 26 Jan 2023 15:51:20 +0200
+From: catshop@gmail.com
+To: campus_impious.0v@icloud.com
+Message-ID: <63d28558c195f_907f5230-485@MBP-Sergij.mail>
+Subject: Your order in CatShop
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<body>
+<h1>Hello, #&lt;User:0x0000000111421f50&gt; </h1>
+<p>
+  =
+
+</p>
+  <h1>Order #5 status: paid</h1>
+  <table class=3D"table">
+    <thead>
+    <tr>
+      <th scope=3D"col">#</th>
+      <th scope=3D"col">Image</th>
+      <th scope=3D"col">Name</th>
+      <th scope=3D"col">Description</th>
+      <th scope=3D"col">Quantity</th>
+      <th scope=3D"col">Price</th>
+      <th scope=3D"col"></th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> 1</td>
+        <td><img src=3Dhttps://shop-cdn-m.mediazs.com/bilder/iams/for/vit=
+ality/kitten/fresh/chicken/dry/cat/food/2/400/8710255127736_3kg_2.jpg cla=
+ss=3D"card-img-top" alt=3D"..." width=3D"100" height=3D"100"></td>
+        <td>IAMS for Vitality Kitten Fresh Chicken Dry Cat Food</td>
+        <td>This premium quality IAMS for Vitality Kitten Fresh Chicken D=
+ry Cat Food offers your cat the best possible start in life. As well as a=
+ high content of valuable animal protein from chicken and turkey (43%), i=
+t also contains special ingredients chosen for their ability to support h=
+ealthy development. The balanced recipe uses selected ingredients and pre=
+biotics for best digestibility, as well as for a great flavour. Even the =
+fussiest pets will love this IAMS for Vitality Kitten Fresh Chicken Dry C=
+at Food and will receive all of the vital nutrients needed for overall we=
+llbeing.
+IAMS for Vitality Kitten Fresh Chicken Dry Cat Food contains DHA to suppo=
+rt the development of healthy brain and eyesight. The tailored formula ca=
+n have positive effects on cognitive ability, whilst antioxidants encoura=
+ge a strong immune system. Unsaturated omega fatty acids keep skin health=
+y and coat glossy. The high nutrient content of this IAMS for Vitality Ki=
+tten Fresh Chicken Dry Cat Food with plenty of protein makes it the ideal=
+ food for the key initial growth phases, helping build muscle mass and st=
+rong bones in young cats between the ages of 1-12 months. This special nu=
+trition can also be beneficial for pregnant or nursing mother cats, provi=
+ding sufficient energy and strength for them and their offspring.
+
+IAMS for Vitality Kitten Fresh Chicken Dry Cat Food at a glance:
+
+Balanced food especially for young kittens and junior cats aged 1-12 mont=
+hs, or for pregnant or lactating mother cats
+Nutrient dense food: with essential animal protein, vitamins and minerals=
+, designed to be beneficial during the growth phase
+43% chicken &amp; turkey: with quality animal proteins for a great flavou=
+r and aroma and to help build strong muscles
+Easy to digest: healthy ingredients and prebiotics make this food very he=
+althy and help to support a balanced gut flora
+Cognitive function: the omega-3 fatty acid DHA helps with brain developme=
+nt and good eyesight
+Strong bones: recipe designed to promote healthy bone development
+Strong immune system: rich in antioxidants and vitamins to boost the body=
+=E2=80=99s defences
+Healthy skin &amp; glossy coat: with unsaturated omega-3 &amp; omega-6 fa=
+tty acids
+With taurine: naturally found in chicken and can help to strengthen eyes =
+and heart
+Well accepted: tasty kibble with an improved recipe including lots of chi=
+cken and selected ingredients for a great taste
+Balanced and complete: all-round nutrition with vitamins, minerals and tr=
+ace elements, specially adapted to meet the needs in the growth phase
+No added flavourings, colourings or preservatives
+Shaped pellets: flavourful kibble, designed with your pet=E2=80=99s mouth=
+ shape in mind, making them easy to bite and chew
+</td>
+        <td>1 </td>
+        <td>$31.00</td>
+      </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><b>Total $31.00</b><td>
+    </tr>
+    </tbody>
+  </table>
+</body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/orders/5
+Completed 302 Found in 1389ms (ActiveRecord: 3.5ms | Allocations: 46473)
+
+
+Started GET "/orders/5" for ::1 at 2023-01-26 15:51:22 +0200
+Processing by OrdersController#show as TURBO_STREAM
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:16
+  [1m[36mLineitem Load (0.3ms)[0m  [1m[34mSELECT "lineitems".* FROM "lineitems" WHERE "lineitems"."cart_id" = $1[0m  [["cart_id", 5]]
+  ↳ app/views/orders/show.html.erb:16:in `each_with_index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:19
+  Rendered orders/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2553)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:24
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 8032)
+Completed 200 OK in 14ms (Views: 8.7ms | ActiveRecord: 1.4ms | Allocations: 10272)
+
+
