@@ -14,5 +14,15 @@ ActiveAdmin.register Product do
     permitted << :other if params[:action] == 'create' && current_user.try(:admin?)
     permitted
   end
-  
+
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :description
+      f.input :price
+      f.input :category_id, as: :select, collection: Category.all.map { |c| [c.title, c.id] }
+      f.input :image, as: :file
+    end
+    f.actions
+  end
 end
