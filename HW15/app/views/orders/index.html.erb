@@ -1,0 +1,44 @@
+<section class="py-5 bg-light">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+      <% if user_signed_in? %>
+        <% @orders.each_with_index do |order, index| %>
+          <h1>Order #<%= order.id %> status: <%=order.status %></h1>
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% order.cart.lineitems.each_with_index do |line_item, index| %>
+              <tr>
+                <td> <%= index +1 %></td>
+                <td><%= image_tag(line_item.product.image, :size => "200x200") %> </td>
+                <td><%= line_item.product.name %></td>
+                <td><%= line_item.product.description %></td>
+                <td><%= line_item.quantity %> </td>
+                <td><%= number_to_currency(line_item.price) %></td>
+              </tr>
+            <% end %>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><b>Total <%= number_to_currency(order.cart.total_price) %></b><td>
+            </tr>
+            </tbody>
+          </table>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
